@@ -488,7 +488,7 @@ public class frmBanco extends javax.swing.JFrame {
                 || txtSaldoBanco.getText().equals("")
                 || txtDataBanco.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null, "Algum campo está vazio, preencha antes de registrar");
+            JOptionPane.showMessageDialog(null, "Algum campo está vazio ou não se cadastrou, preencha antes de alterar");
         } else {
 
             AlterarBanco();
