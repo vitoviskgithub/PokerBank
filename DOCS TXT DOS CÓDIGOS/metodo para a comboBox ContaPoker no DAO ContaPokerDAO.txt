@@ -1,0 +1,20 @@
+//toda vez que eu trago uma consulta do banco eu tenho que montar o ResultSet
+//sempre declarando a classe de conexão e o método exemplo : classe ResultSet método : listarContaPOkerCombo
+public ResultSet listarContaPokerCombo(){
+
+conn = new ConexaoDAO().conectaBD();
+String sql = "SELECT * FROM tablecontapoker ORDER BY app_contapoker";
+
+try{
+
+pstm = conn.prepareStatement(sql);
+return pstm.executeQuery();
+
+}catch(SQLException erro){
+
+System.out.println(erro.getMessage());
+JOptionPane.showMessageDialog(null, "ContaPokerDAO : " + erro);
+return null;
+
+}
+}

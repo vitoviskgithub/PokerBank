@@ -1,0 +1,14 @@
+private void CarregarCampos(){
+
+int setar = tabelaUsuario.getSelectedRow();//serve para designar a linha que será setada, através da seleção feita pelo usuário
+
+//pegar um campo de texto e setando = qual o texto? -> pegar do modelo da tabela, pegando o valor
+//o getValue pega qual a linha e qual a coluna
+//pega na tabela e seta no campo
+txtIdTable.setText(tabelaUsuario.getModel().getValueAt(setar, 0).toString());
+txtNomeTable.setText(tabelaUsuario.getModel().getValueAt(setar, 1).toString());
+txtEmailTable.setText(tabelaUsuario.getModel().getValueAt(setar, 2).toString());
+txtTelefoneTable.setText(tabelaUsuario.getModel().getValueAt(setar, 3).toString());
+txtSenhaTable.setText(tabelaUsuario.getModel().getValueAt(setar, 4).toString());
+
+}

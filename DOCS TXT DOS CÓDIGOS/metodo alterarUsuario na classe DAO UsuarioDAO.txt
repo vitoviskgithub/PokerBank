@@ -1,0 +1,29 @@
+public void alterarUsuario(UsuarioDTO objusuariodto){
+
+String sql = "UPDATE tableusuario set nome_usuario = ?, email_usuario = ?, telefone_usuario = ?, senha_usuario = ? where id_usuario = ?";
+
+conn = new ConexaoDAO().conectaBD();
+
+try {
+
+            pstm = conn.prepareStatement(sql);
+
+		//parâmetros são os pontos de interrogação, nesta comando sql existem 5
+		//sempre começa do parâmetro 1
+            pstm.setString(1, objusuariodto.getNome_usuario());
+            pstm.setString(2, objusuariodto.getEmail_usuario());
+            pstm.setString(3, objusuariodto.getTelefone_usuario());
+            pstm.setString(4, objusuariodto.getSenha_usuario());
+	    pstm.setLong(5, objusuariodto.getId_usuario());
+            
+
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "UsuarioDAO AlterarUsuario: " + erro);
+        }
+
+
+}

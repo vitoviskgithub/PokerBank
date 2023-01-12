@@ -1,0 +1,17 @@
+String nome,email,telefone,senha;
+
+nome = txtNome.getText();
+email = txtEmail.getText();
+telefone = txtTelefone.getText();
+senha = txtSenha.getText();
+
+//setando os valores dos campos da VIEW para a DTO
+UsuarioDTO objusuariodto = new UsuarioDTO();
+objusuariodto.setNome_usuario(nome);
+objusuariodto.setEmail_usuario(email);
+objusuariodto.setTelefone_usuario(telefone);
+objusuariodto.setSenha_usuario(senha);
+
+//acessando o método cadastrarUsuario na DAO
+UsuarioDAO objusuariodao = new UsuarioDAO();
+objusuariodao.cadastroUsuario(objusuaridto);//passando as informações da DTO para o método

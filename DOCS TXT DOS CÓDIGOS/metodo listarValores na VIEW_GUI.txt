@@ -1,0 +1,37 @@
+private void listarValoresUsuario(){
+
+try{
+
+UsuarioDAO objusuariodao = new UsuarioDAO();//instanciando a classe
+
+//montar esse modo de tabela no Array tabelaUsuario
+DefaultTableModel model = (DefaultTableModel) tabelaUsuario.getModel();
+model.setNumRows(0);
+
+//pega as informações da DAO e monta o ArrayList lista
+ArrayList<UsuarioDTO> lista = objusuariodao.PesquisarUsuario();
+
+//estrutura de repetição for (inicia, até onde vai, acrescentando)
+
+for(int num = 0; num < lista.size(); num++){
+
+//aqui dentro montar a tabela
+//adicionar na linha quantas colunas
+model.addRow(new Object[]{
+	lista.get(num).getId_usuario(),
+	lista.get(num).getNome_usuario(),
+	lista.get(num).getEmail_usuario(),
+	lista.get(num).getTelefone_usuario(),
+	lista.get(num).getSenha_usuario(),
+	lista.get(num).getAdm_usuario()
+});
+}
+
+
+}catch(SQLException erro){
+
+JOptionPane.showMessageDialog(null, "Listar Valores VIEW: " + erro);
+
+}
+
+}

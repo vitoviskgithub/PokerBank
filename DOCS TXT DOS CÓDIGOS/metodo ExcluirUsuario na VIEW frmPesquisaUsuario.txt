@@ -1,0 +1,12 @@
+private void ExcluirUsuario(){
+int id_usuario;
+
+id_usuario = Integer.parseInt(txtIdTable.getText());
+
+UsuarioDTO objusuariodto = new UsuarioDTO();
+objusuariodto.setId_usuario(id_usuario);
+
+UsuarioDAO objusuariodao = new UsuarioDAO();
+objusuariodao.excluirUsuario(objusuariodto);
+
+}

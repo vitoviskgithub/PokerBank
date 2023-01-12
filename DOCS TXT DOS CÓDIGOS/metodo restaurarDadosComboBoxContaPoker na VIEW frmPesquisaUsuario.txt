@@ -1,0 +1,27 @@
+Vector<Integer> id_contapoker = new Vector<Integer>();
+
+public void restaurarDadosComboBoxContaPoker(){
+
+try{
+
+ContaPokerDAO objcontapoker = new ContaPokerDAO();
+ResultSet rs = objcontapoker.listarContaPokerCombo();
+
+while (rs.next()){
+
+id_contapoker.addElement(rs.getInt(1));//o elemento faz parte do Vector, e também é importante pois será chave estrangeira
+cbxContaPoker.addItem(rs.getString(2));// o Item é o que aparece para usuário visualizar
+
+}
+
+}catch(SQLException erro){
+
+JOptionPane.showMessageDialog(null, "frmPesquisarUsuario: " + erro);
+
+}
+
+
+
+
+
+}

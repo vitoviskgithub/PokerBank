@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{0C4FEF54-783E-4973-B302-754480DC8FE7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>te</RootNamespace>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Console</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="build.xml" />
+    <Content Include="build\classes\images\cadeadojava.png" />
+    <Content Include="build\classes\images\cartas_pokerbank.png" />
+    <Content Include="build\classes\images\neverstoppequena.png" />
+    <Content Include="dist\lib\mysql-connector-java-8.0.19.jar" />
+    <Content Include="dist\PokerBank.jar" />
+    <Content Include="dist\README.TXT" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\acao botao cadastrar frmUsuario.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\acao botao entrar frmlLogin.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\codigo frmPesquisaUsuario package VIEW.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\codigo frmPesquisaUsuario.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\codigo VIEW frmUsuarioVIEW até AlterarInformações.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\ConexaoDAO.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo alterarUsuario na classe DAO UsuarioDAO.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo AlterarUsuario na VIEW frmPesquisaUsuario.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo CarregarCampos na VIEW frmUsuarioVIEW.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo excluirUsuario na DAO UsuarioDAO.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo ExcluirUsuario na VIEW frmPesquisaUsuario.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo listarValores na VIEW_GUI.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo para a comboBox ContaPoker no DAO ContaPokerDAO.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo PesquisarUsuario na DAO.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\metodo restaurarDadosComboBoxContaPoker na VIEW frmPesquisaUsuario.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\UsuarioDAO.txt" />
+    <Content Include="DOCS TXT DOS CÓDIGOS\UsuarioDTO.txt" />
+    <Content Include="nbproject\build-impl.xml" />
+    <Content Include="nbproject\jnlp-impl.xml" />
+    <Content Include="nbproject\private\private.xml" />
+    <Content Include="nbproject\project.xml" />
+    <Content Include="padraopostagens de grade.txt" />
+    <Content Include="preview-application.html" />
+    <Content Include="src\DAO\BancoDAO.java" />
+    <Content Include="src\DAO\ConexaoDAO.java" />
+    <Content Include="src\DAO\ContaPokerDAO.java" />
+    <Content Include="src\DAO\TorneiosDAO.java" />
+    <Content Include="src\DAO\UsuarioDAO.java" />
+    <Content Include="src\DTO\BankUserDTO.java" />
+    <Content Include="src\DTO\ContaPokerDTO.java" />
+    <Content Include="src\DTO\HistCompletDTO.java" />
+    <Content Include="src\DTO\TournamentsDTO.java" />
+    <Content Include="src\DTO\UsuarioDTO.java" />
+    <Content Include="src\images\cadeadojava.png" />
+    <Content Include="src\images\cartas_pokerbank.png" />
+    <Content Include="src\images\neverstoppequena.png" />
+    <Content Include="src\VIEW\frmBanco.java" />
+    <Content Include="src\VIEW\frmContaPokerVIEW.java" />
+    <Content Include="src\VIEW\frmListarGanhos.java" />
+    <Content Include="src\VIEW\frmListarPerdas.java" />
+    <Content Include="src\VIEW\frmListaTourn.java" />
+    <Content Include="src\VIEW\frmLogin.java" />
+    <Content Include="src\VIEW\frmPesquisaUsuario.java" />
+    <Content Include="src\VIEW\frmPrincipalVIEW.java" />
+    <Content Include="src\VIEW\frmTorneios.java" />
+    <Content Include="src\VIEW\frmUsuarioVIEW.java" />
+    <Content Include="src\VIEW\teste.java" />
+    <Content Include="usuarios e seus codigos.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".vs\PokerBankvs\FileContentIndex\554e25dd-ed3e-442b-a652-3873da8d19df.vsidx" />
+    <None Include=".vs\PokerBankvs\FileContentIndex\read.lock" />
+    <None Include=".vs\PokerBankvs\v17\.wsuo" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="build\built-jar.properties" />
+    <None Include="build\classes\.netbeans_automatic_build" />
+    <None Include="build\classes\.netbeans_update_resources" />
+    <None Include="build\classes\DAO\BancoDAO.class" />
+    <None Include="build\classes\DAO\ConexaoDAO.class" />
+    <None Include="build\classes\DAO\ContaPokerDAO.class" />
+    <None Include="build\classes\DAO\TorneiosDAO.class" />
+    <None Include="build\classes\DAO\UsuarioDAO.class" />
+    <None Include="build\classes\DTO\BankUserDTO.class" />
+    <None Include="build\classes\DTO\ContaPokerDTO.class" />
+    <None Include="build\classes\DTO\HistCompletDTO.class" />
+    <None Include="build\classes\DTO\TournamentsDTO.class" />
+    <None Include="build\classes\DTO\UsuarioDTO.class" />
+    <None Include="build\classes\VIEW\frmBanco%241.class" />
+    <None Include="build\classes\VIEW\frmBanco%2410.class" />
+    <None Include="build\classes\VIEW\frmBanco%2411.class" />
+    <None Include="build\classes\VIEW\frmBanco%2412.class" />
+    <None Include="build\classes\VIEW\frmBanco%2413.class" />
+    <None Include="build\classes\VIEW\frmBanco%2414.class" />
+    <None Include="build\classes\VIEW\frmBanco%2415.class" />
+    <None Include="build\classes\VIEW\frmBanco%2416.class" />
+    <None Include="build\classes\VIEW\frmBanco%242.class" />
+    <None Include="build\classes\VIEW\frmBanco%243.class" />
+    <None Include="build\classes\VIEW\frmBanco%244.class" />
+    <None Include="build\classes\VIEW\frmBanco%245.class" />
+    <None Include="build\classes\VIEW\frmBanco%246.class" />
+    <None Include="build\classes\VIEW\frmBanco%247.class" />
+    <None Include="build\classes\VIEW\frmBanco%248.class" />
+    <None Include="build\classes\VIEW\frmBanco%249.class" />
+    <None Include="build\classes\VIEW\frmBanco.class" />
+    <None Include="build\classes\VIEW\frmBanco.form" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%241.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%242.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%243.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%244.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%245.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%246.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%247.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%248.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW%249.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW.class" />
+    <None Include="build\classes\VIEW\frmContaPokerVIEW.form" />
+    <None Include="build\classes\VIEW\frmListarGanhos%241.class" />
+    <None Include="build\classes\VIEW\frmListarGanhos%242.class" />
+    <None Include="build\classes\VIEW\frmListarGanhos%243.class" />
+    <None Include="build\classes\VIEW\frmListarGanhos%244.class" />
+    <None Include="build\classes\VIEW\frmListarGanhos%245.class" />
+    <None Include="build\classes\VIEW\frmListarGanhos.class" />
+    <None Include="build\classes\VIEW\frmListarGanhos.form" />
+    <None Include="build\classes\VIEW\frmListarPerdas%241.class" />
+    <None Include="build\classes\VIEW\frmListarPerdas%242.class" />
+    <None Include="build\classes\VIEW\frmListarPerdas%243.class" />
+    <None Include="build\classes\VIEW\frmListarPerdas%244.class" />
+    <None Include="build\classes\VIEW\frmListarPerdas%245.class" />
+    <None Include="build\classes\VIEW\frmListarPerdas.class" />
+    <None Include="build\classes\VIEW\frmListarPerdas.form" />
+    <None Include="build\classes\VIEW\frmListaTourn%241.class" />
+    <None Include="build\classes\VIEW\frmListaTourn%242.class" />
+    <None Include="build\classes\VIEW\frmListaTourn%243.class" />
+    <None Include="build\classes\VIEW\frmListaTourn%244.class" />
+    <None Include="build\classes\VIEW\frmListaTourn%245.class" />
+    <None Include="build\classes\VIEW\frmListaTourn.class" />
+    <None Include="build\classes\VIEW\frmListaTourn.form" />
+    <None Include="build\classes\VIEW\frmLogin%241.class" />
+    <None Include="build\classes\VIEW\frmLogin%242.class" />
+    <None Include="build\classes\VIEW\frmLogin%243.class" />
+    <None Include="build\classes\VIEW\frmLogin%244.class" />
+    <None Include="build\classes\VIEW\frmLogin.class" />
+    <None Include="build\classes\VIEW\frmLogin.form" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%241.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%2410.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%242.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%243.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%244.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%245.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%246.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%247.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%248.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario%249.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario.class" />
+    <None Include="build\classes\VIEW\frmPesquisaUsuario.form" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%241.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%2410.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%2411.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%2412.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%242.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%243.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%244.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%245.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%246.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%247.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%248.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW%249.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW.class" />
+    <None Include="build\classes\VIEW\frmPrincipalVIEW.form" />
+    <None Include="build\classes\VIEW\frmTorneios%241.class" />
+    <None Include="build\classes\VIEW\frmTorneios%2410.class" />
+    <None Include="build\classes\VIEW\frmTorneios%2411.class" />
+    <None Include="build\classes\VIEW\frmTorneios%2412.class" />
+    <None Include="build\classes\VIEW\frmTorneios%2413.class" />
+    <None Include="build\classes\VIEW\frmTorneios%2414.class" />
+    <None Include="build\classes\VIEW\frmTorneios%242.class" />
+    <None Include="build\classes\VIEW\frmTorneios%243.class" />
+    <None Include="build\classes\VIEW\frmTorneios%244.class" />
+    <None Include="build\classes\VIEW\frmTorneios%245.class" />
+    <None Include="build\classes\VIEW\frmTorneios%246.class" />
+    <None Include="build\classes\VIEW\frmTorneios%247.class" />
+    <None Include="build\classes\VIEW\frmTorneios%248.class" />
+    <None Include="build\classes\VIEW\frmTorneios%249.class" />
+    <None Include="build\classes\VIEW\frmTorneios.class" />
+    <None Include="build\classes\VIEW\frmTorneios.form" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%241.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%242.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%243.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%244.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%245.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%246.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW%247.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW.class" />
+    <None Include="build\classes\VIEW\frmUsuarioVIEW.form" />
+    <None Include="build\classes\VIEW\teste%241.class" />
+    <None Include="build\classes\VIEW\teste.class" />
+    <None Include="build\classes\VIEW\teste.form" />
+    <None Include="build\manifest.mf" />
+    <None Include="manifest.mf" />
+    <None Include="master-application.jnlp" />
+    <None Include="nbproject\configs\JWS_generated.properties" />
+    <None Include="nbproject\genfiles.properties" />
+    <None Include="nbproject\private\config.properties" />
+    <None Include="nbproject\private\private.properties" />
+    <None Include="nbproject\project.properties" />
+    <None Include="src\VIEW\frmBanco.form" />
+    <None Include="src\VIEW\frmContaPokerVIEW.form" />
+    <None Include="src\VIEW\frmListarGanhos.form" />
+    <None Include="src\VIEW\frmListarPerdas.form" />
+    <None Include="src\VIEW\frmListaTourn.form" />
+    <None Include="src\VIEW\frmLogin.form" />
+    <None Include="src\VIEW\frmPesquisaUsuario.form" />
+    <None Include="src\VIEW\frmPrincipalVIEW.form" />
+    <None Include="src\VIEW\frmTorneios.form" />
+    <None Include="src\VIEW\frmUsuarioVIEW.form" />
+    <None Include="src\VIEW\teste.form" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".vs\PokerBankvs\FileContentIndex\merges\" />
+    <Folder Include="build\empty\" />
+    <Folder Include="build\generated-sources\ap-source-output\" />
+    <Folder Include="My Project\" />
+    <Folder Include="test\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+private void AlterarUsuario(){
+int id_usuario;
+String nome_usuario, email_usuario, telefone_usuario, senha_usuario;
+
+id_usuario = Integer.parseInt(txtIdTable.getText());//o método Integer.parseInt() pega o conteúdo texto e converte para inteiro
+nome_usuario = txtNomeTable.getText();
+email_usuario = txtEmailTable.getText();
+telefone_usuario = txtTelefoneTable.getText();
+senha_usuario = txtSenhaTable.getText();
+
+//mesmo que o usuário digite algum valor nos campos TextField, esse valores serão setados na DTO
+UsuarioDTO objusuariodto = new UsuarioDTO();
+objusuariodto.setId_usuario(id_usuario);
+objusuariodto.setNome_usuario(nome_usuario);
+objusuariodto.setEmail_usuario(email_usuario);
+objusuariodto.setTelefone_usuario(telefone_usuario);
+objusuariodto.setSenha_usuario(senha_usuario);
+
+//instanciando a classe DAO
+UsuarioDAO objusuariodao = new UsuarioDAO();
+objusuariodao.alterarUsuario(objusuariodto);
+
+
+}

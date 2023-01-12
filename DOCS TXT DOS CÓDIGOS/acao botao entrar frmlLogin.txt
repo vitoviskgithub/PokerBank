@@ -1,0 +1,33 @@
+ try {
+
+            String nome_usuario, senha_usuario;
+
+            nome_usuario = txtNomeUsuario.getText();
+            senha_usuario = txtSenhaUsuario.getText();
+
+            //instanciando a DTO
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+            objusuariodto.setNome_usuario(nome_usuario);
+            objusuariodto.setSenha_usuario(senha_usuario);
+	
+	UsuarioDAO objusuariodao = new UsuarioDAO();
+	ResultSet rusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
+
+	if(rusuariodao.next()){
+	//chamar tela que quero abrir
+	frmPrincipalVIEW objfrmprincipalview = new frmPrincipalVIEW();
+	objfrmprincipalview.setVisible(true);
+
+	dispose();		
+	
+	}else{
+	//enviar mensagem dizendo incorreto
+
+	JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
+	}
+
+
+        } catch (SQLException erro) {
+
+	JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + erro);		
+        }

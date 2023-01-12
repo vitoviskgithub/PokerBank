@@ -1,0 +1,23 @@
+public void excluirUsuario(UsuarioDTO objusuariodto){
+
+String sql = "DELETE from tableusuario where id_usuario = ?";
+
+conn = new ConexaoDAO().conectaBD();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 5
+            pstm.setInt(1, objusuariodto.getId_usuario());
+     
+
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "UsuarioDAO ExcluirUsuario: " + erro);
+        }
+
+}
