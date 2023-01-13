@@ -433,7 +433,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
         String senha_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-        if (senha_recebe.equals("vidanova2022")) {
+        if (senha_recebe.equals("12345678")) {
 
             frmTorneios objtorneios = new frmTorneios();
             objtorneios.setVisible(rootPaneCheckingEnabled);
