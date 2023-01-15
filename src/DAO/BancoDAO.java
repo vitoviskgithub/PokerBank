@@ -4,6 +4,8 @@ import DTO.BankUserDTO;
 import DTO.TournamentsDTO;
 import java.util.ArrayList;
 
+import java.util.Date;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class BancoDAO {
@@ -46,7 +50,7 @@ public class BancoDAO {
                 objbankuserdto.setGanho_bank(rs.getInt("ganho_bank"));
                 objbankuserdto.setSaldo_bank(rs.getInt("saldo_bank"));
                 objbankuserdto.setSaque_bank(rs.getInt("saque_bank"));
-                objbankuserdto.setData_bank(rs.getString("data_bank"));
+                objbankuserdto.setData_bank(rs.getDate("data_bank"));
 
                 lista.add(objbankuserdto);
 
@@ -79,7 +83,14 @@ public class BancoDAO {
             pstm.setInt(5, objbankuserdto.getGanho_bank());
             pstm.setInt(6, objbankuserdto.getSaldo_bank());
             pstm.setInt(7, objbankuserdto.getSaque_bank());
-            pstm.setString(8, objbankuserdto.getData_bank());
+            
+              //converte a variável data para strig antes de enviar para
+            //o preparedStatement
+            Date data_banco = objbankuserdto.getData_bank();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_banco_formatada = dateFormat.format(data_banco);
+            
+            pstm.setString(8, data_banco_formatada);
             pstm.setInt(9, objbankuserdto.getCodigo_bank());
 
             pstm.execute();
@@ -133,7 +144,14 @@ public class BancoDAO {
             pstm.setInt(5, objbankuserdto.getGanho_bank());
             pstm.setInt(6, objbankuserdto.getSaldo_bank());
             pstm.setInt(7, objbankuserdto.getSaque_bank());
-            pstm.setString(8, objbankuserdto.getData_bank());
+            
+            //converte a variável data para strig antes de enviar para
+            //o preparedStatement
+            Date data_banco = objbankuserdto.getData_bank();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_banco_formatada = dateFormat.format(data_banco);
+
+            pstm.setString(8, data_banco_formatada);
 
             pstm.execute();
             pstm.close();
@@ -164,7 +182,7 @@ public class BancoDAO {
                 BankUserDTO objbankuserdto = new BankUserDTO();
 
                 //acessando a classe através do objeto
-                objbankuserdto.setData_bank(rs.getString("data_bank"));
+                objbankuserdto.setData_bank(rs.getDate("data_bank"));
                 objbankuserdto.setApp_id_bank(rs.getInt("fk_app_id_bank"));
                 objbankuserdto.setGanho_bank(rs.getInt("ganho_bank"));
 
@@ -199,14 +217,13 @@ public class BancoDAO {
                 BankUserDTO objbankuserdto = new BankUserDTO();
 
                 //acessando a classe através do objeto
-                objbankuserdto.setData_bank(rs.getString("data_bank"));
+                objbankuserdto.setData_bank(rs.getDate("data_bank"));
                 objbankuserdto.setApp_id_bank(rs.getInt("fk_app_id_bank"));
                 objbankuserdto.setPerda_bank(rs.getInt("perda_bank"));
 
                 lista.add(objbankuserdto);
-             
+
             }
-         
 
         } catch (SQLException erro) {
 

@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.util.Vector;
 
+import java.text.ParseException;
+
 import java.sql.SQLException;
 
 import DAO.ConexaoDAO;
@@ -22,6 +24,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+
 
 public class frmBanco extends javax.swing.JFrame {
 
@@ -47,7 +51,6 @@ public class frmBanco extends javax.swing.JFrame {
         txtPerdaBanco = new javax.swing.JTextField();
         txtGanhoBanco = new javax.swing.JTextField();
         txtSaldoBanco = new javax.swing.JTextField();
-        txtDataBanco = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -79,6 +82,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtTotalSaldo = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         btnUsuarios = new javax.swing.JButton();
+        jcaDataBanco = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,8 +105,6 @@ public class frmBanco extends javax.swing.JFrame {
                 calcularSaldo(evt);
             }
         });
-
-        txtDataBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Usuário : ");
@@ -262,6 +264,8 @@ public class frmBanco extends javax.swing.JFrame {
             }
         });
 
+        jcaDataBanco.setDateFormatString("dd 'de' MMM 'de' yyyy");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -295,8 +299,8 @@ public class frmBanco extends javax.swing.JFrame {
                                     .addComponent(jLabel9))
                                 .addGap(4, 4, 4)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDataBanco)
-                                    .addComponent(txtEntradaBanco)))
+                                    .addComponent(txtEntradaBanco)
+                                    .addComponent(jcaDataBanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -316,7 +320,7 @@ public class frmBanco extends javax.swing.JFrame {
                                         .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel10)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                                 .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -345,7 +349,7 @@ public class frmBanco extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(btnCarregarBanco))
                                     .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 2, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,12 +373,12 @@ public class frmBanco extends javax.swing.JFrame {
                             .addComponent(btFechar))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(txtDataBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jcaDataBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -455,7 +459,7 @@ public class frmBanco extends javax.swing.JFrame {
 
         if (teste == -1
                 || teste1 == -1
-                || txtDataBanco.getText().equals("")
+                || jcaDataBanco.getDate().equals("")
                 || txtEntradaBanco.getText().equals("")
                 || txtGanhoBanco.getText().equals("")
                 || txtPerdaBanco.getText().equals("")
@@ -486,7 +490,7 @@ public class frmBanco extends javax.swing.JFrame {
                 || txtGanhoBanco.getText().equals("")
                 || txtPerdaBanco.getText().equals("")
                 || txtSaldoBanco.getText().equals("")
-                || txtDataBanco.getText().equals("")) {
+                || jcaDataBanco.getDate().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Algum campo está vazio ou não se cadastrou, preencha antes de alterar");
         } else {
@@ -647,9 +651,9 @@ public class frmBanco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser jcaDataBanco;
     private javax.swing.JTable tableBanco;
     private javax.swing.JTextField txtCodigoBanco;
-    private javax.swing.JTextField txtDataBanco;
     private javax.swing.JTextField txtEntradaBanco;
     private javax.swing.JTextField txtGanhoBanco;
     private javax.swing.JTextField txtPerdaBanco;
@@ -660,7 +664,7 @@ public class frmBanco extends javax.swing.JFrame {
 
     private void CadastrarBanco() {
 
-        String data_banco;
+        Date data_banco = new Date();
         //declarando variável
         int user_banco, app_banco, entrada_banco, perda_banco, ganho_banco, saldo_banco, saque_banco, codigo_banco;
 
@@ -671,7 +675,7 @@ public class frmBanco extends javax.swing.JFrame {
         ganho_banco = Integer.parseInt(txtGanhoBanco.getText());
         saldo_banco = Integer.parseInt(txtSaldoBanco.getText());
         saque_banco = Integer.parseInt(txtSaqueBank.getText());
-        data_banco = txtDataBanco.getText();
+        data_banco = jcaDataBanco.getDate();
 
         //setando os valores dos campos da VIEW para a DTO
         BankUserDTO objbankuserdto = new BankUserDTO();
@@ -705,7 +709,7 @@ public class frmBanco extends javax.swing.JFrame {
     }
 
     private void AlterarBanco() {
-        String data_banco;
+        Date data_banco = new Date();
         //declarando variável
         int user_banco, app_banco, entrada_banco, perda_banco, ganho_banco, saldo_banco, saque_banco, codigo_banco;
 
@@ -725,7 +729,8 @@ public class frmBanco extends javax.swing.JFrame {
         //FIM
         saldo_banco = saldo_atual;
         saque_banco = Integer.parseInt(txtSaqueBank.getText());
-        data_banco = txtDataBanco.getText();
+
+        data_banco = jcaDataBanco.getDate();
 
 //setando os valores dos campos da VIEW para a DTO
         BankUserDTO objbankuserdto = new BankUserDTO();
@@ -760,7 +765,20 @@ public class frmBanco extends javax.swing.JFrame {
         txtGanhoBanco.setText(tableBanco.getModel().getValueAt(setar, 5).toString());
         txtSaldoBanco.setText(tableBanco.getModel().getValueAt(setar, 6).toString());
         txtSaqueBank.setText(tableBanco.getModel().getValueAt(setar, 7).toString());
-        txtDataBanco.setText(tableBanco.getModel().getValueAt(setar, 8).toString());
+
+        //para converter o String para Date, o método PARSE exige tratamento de Exception
+        try {
+
+            String teste;//declaro a string
+            teste = tableBanco.getModel().getValueAt(setar, 8).toString();//pego a string da tabela
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");//declaro o formato da data 
+            Date dataFormatada = formato.parse(teste);//converto a string para data
+            jcaDataBanco.setDate(dataFormatada);//seto a data no campo JCalendar
+
+        } catch (ParseException erro) {
+            erro.printStackTrace();
+        }
 
         CalcularSaldoGeral();
 
@@ -815,7 +833,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtGanhoBanco.setText("");
         txtSaldoBanco.setText("");
         txtSaqueBank.setText("");
-        txtDataBanco.setText("");
+        jcaDataBanco.setDate(null);
 
     }
 

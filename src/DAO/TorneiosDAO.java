@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class TorneiosDAO {
@@ -40,7 +43,7 @@ public class TorneiosDAO {
                 TournamentsDTO objtournamentsdto = new TournamentsDTO();
 
                 //acessando a classe através do objeto
-                objtournamentsdto.setDate_tourn(rs.getString("date_tourn"));
+                objtournamentsdto.setDate_tourn(rs.getDate("date_tourn"));
                 objtournamentsdto.setApp_id_tourn(rs.getInt("fk_app_id_tourn"));
                 objtournamentsdto.setType_tourn(rs.getString("type_tourn"));
                 objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
@@ -74,7 +77,13 @@ public class TorneiosDAO {
             pstm.setInt(3, objtournamentsdto.getId_user_tourn());
             pstm.setInt(4, objtournamentsdto.getValue_tourn());
             pstm.setInt(5, objtournamentsdto.getItm_val_tourn());
-            pstm.setString(6, objtournamentsdto.getDate_tourn());
+
+            //converte a variável data para strig antes de enviar para
+            //o preparedStatement
+            Date data_tourn = objtournamentsdto.getDate_tourn();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_tourn_formatada = dateFormat.format(data_tourn);
+            pstm.setString(6, data_tourn_formatada);
 
             pstm.execute();
             pstm.close();
@@ -109,7 +118,7 @@ public class TorneiosDAO {
 
     }
 
-    public void alterarTorneioDAO(TournamentsDTO objtorunamentsdto) {
+    public void alterarTorneioDAO(TournamentsDTO objtournamentsdto) {
 
         String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ? where id_tourn = ?";
 
@@ -121,13 +130,18 @@ public class TorneiosDAO {
 
             //parâmetros são os pontos de interrogação, nesta comando sql existem 5
             //sempre começa do parâmetro 1
-            pstm.setString(1, objtorunamentsdto.getType_tourn());
-            pstm.setInt(2, objtorunamentsdto.getApp_id_tourn());
-            pstm.setInt(3, objtorunamentsdto.getId_user_tourn());
-            pstm.setInt(4, objtorunamentsdto.getValue_tourn());
-            pstm.setInt(5, objtorunamentsdto.getItm_val_tourn());
-            pstm.setString(6, objtorunamentsdto.getDate_tourn());
-            pstm.setInt(7, objtorunamentsdto.getId_tourn());
+            pstm.setString(1, objtournamentsdto.getType_tourn());
+            pstm.setInt(2, objtournamentsdto.getApp_id_tourn());
+            pstm.setInt(3, objtournamentsdto.getId_user_tourn());
+            pstm.setInt(4, objtournamentsdto.getValue_tourn());
+            pstm.setInt(5, objtournamentsdto.getItm_val_tourn());
+
+            Date data_tourn = objtournamentsdto.getDate_tourn();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_tourn_formatada = dateFormat.format(data_tourn);
+            pstm.setString(6, data_tourn_formatada);
+            
+            pstm.setInt(7, objtournamentsdto.getId_tourn());
 
             pstm.execute();
             pstm.close();
@@ -161,7 +175,7 @@ public class TorneiosDAO {
                 objtournamentsdto.setId_user_tourn(rs.getInt("fk_id_user_tourn"));
                 objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
                 objtournamentsdto.setItm_val_tourn(rs.getInt("itm_val_tourn"));//nome do banco de dados após o getInt
-                objtournamentsdto.setDate_tourn(rs.getString("date_tourn"));
+                objtournamentsdto.setDate_tourn(rs.getDate("date_tourn"));
 
                 lista.add(objtournamentsdto);
 

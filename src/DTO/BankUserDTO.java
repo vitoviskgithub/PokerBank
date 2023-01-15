@@ -1,9 +1,11 @@
 package DTO;
 
+import java.util.Date;
+
 public class BankUserDTO {
 
     private int id_user_bank, app_id_bank, codigo_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank;
-    private String data_bank;
+    private Date data_bank;
 
     public int getCodigo_bank() {
         return codigo_bank;
@@ -45,15 +47,7 @@ public class BankUserDTO {
         this.saldo_bank = saldo_bank;
     }
 
-    public String getData_bank() {
-        return data_bank;
-    }
-
-    public void setData_bank(String data_bank) {
-        this.data_bank = data_bank;
-    }
-
-    public int getSaque_bank() {
+     public int getSaque_bank() {
         return saque_bank;
     }
 
@@ -75,6 +69,14 @@ public class BankUserDTO {
 
     public void setApp_id_bank(int app_id_bank) {
         this.app_id_bank = app_id_bank;
+    }
+
+    public Date getData_bank() {
+        return data_bank;
+    }
+
+    public void setData_bank(Date data_bank) {
+        this.data_bank = data_bank;
     }
 
 }

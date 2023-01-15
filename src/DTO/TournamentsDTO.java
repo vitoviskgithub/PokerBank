@@ -1,9 +1,12 @@
 package DTO;
 
+import java.util.Date;
+
 public class TournamentsDTO {
 
     private int id_tourn, value_tourn, itm_val_tourn, app_id_tourn, id_user_tourn;
-    private String type_tourn, date_tourn;
+    private String type_tourn;
+    private Date date_tourn;
 
     public int getId_tourn() {
         return id_tourn;
@@ -37,14 +40,6 @@ public class TournamentsDTO {
         this.type_tourn = type_tourn;
     }
 
-    public String getDate_tourn() {
-        return date_tourn;
-    }
-
-    public void setDate_tourn(String date_tourn) {
-        this.date_tourn = date_tourn;
-    }
-
     public int getApp_id_tourn() {
         return app_id_tourn;
     }
@@ -59,6 +54,14 @@ public class TournamentsDTO {
 
     public void setId_user_tourn(int id_user_tourn) {
         this.id_user_tourn = id_user_tourn;
+    }
+
+    public Date getDate_tourn() {
+        return date_tourn;
+    }
+
+    public void setDate_tourn(Date date_tourn) {
+        this.date_tourn = date_tourn;
     }
 
 }

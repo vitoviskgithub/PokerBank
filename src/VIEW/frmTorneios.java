@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.util.Vector;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class frmTorneios extends javax.swing.JFrame {
 
@@ -39,7 +41,6 @@ public class frmTorneios extends javax.swing.JFrame {
         txtTypeTourn = new javax.swing.JTextField();
         txtValBuyinTourn = new javax.swing.JTextField();
         txtValTourItm = new javax.swing.JTextField();
-        txtDataTourn = new javax.swing.JTextField();
         txtCodTourn = new javax.swing.JTextField();
         btnRegistrarTourn = new javax.swing.JButton();
         btnAlterarTourn = new javax.swing.JButton();
@@ -58,6 +59,7 @@ public class frmTorneios extends javax.swing.JFrame {
         cbxAppTourn = new javax.swing.JComboBox<>();
         cbxUsuarioTourn = new javax.swing.JComboBox<>();
         btnUsuarios = new javax.swing.JButton();
+        jcaDataTourn = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,8 +89,6 @@ public class frmTorneios extends javax.swing.JFrame {
         txtValBuyinTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         txtValTourItm.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtDataTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         txtCodTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtCodTourn.setEnabled(false);
@@ -214,7 +214,7 @@ public class frmTorneios extends javax.swing.JFrame {
                         .addComponent(btSairTourn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBanco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addComponent(btnUsuarios)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCarregarTourn))
@@ -234,18 +234,23 @@ public class frmTorneios extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxAppTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbxUsuarioTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtDataTourn, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                .addComponent(txtValTourItm)
-                                .addComponent(txtValBuyinTourn))
-                            .addComponent(txtCodTourn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtValTourItm)
+                                    .addComponent(txtValBuyinTourn, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(1, 1, 1)
+                                .addComponent(jcaDataTourn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnExcluirTourn)
@@ -285,11 +290,12 @@ public class frmTorneios extends javax.swing.JFrame {
                     .addComponent(txtValTourItm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxAppTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel9)
-                    .addComponent(txtDataTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel9)
+                        .addComponent(cbxUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcaDataTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarTourn)
@@ -353,7 +359,7 @@ public class frmTorneios extends javax.swing.JFrame {
                 || txtTypeTourn.getText().equals("")
                 || txtValBuyinTourn.getText().equals("")
                 || txtValTourItm.getText().equals("")
-                || txtDataTourn.getText().equals("")) {
+                || jcaDataTourn.getDate().equals("")) {
             JOptionPane.showMessageDialog(null, "Há algum campo vazio, preencha para atlerar as inforamções");
         } else {
 
@@ -493,9 +499,9 @@ public class frmTorneios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser jcaDataTourn;
     private javax.swing.JTable tableTourn;
     private javax.swing.JTextField txtCodTourn;
-    private javax.swing.JTextField txtDataTourn;
     private javax.swing.JTextField txtTypeTourn;
     private javax.swing.JTextField txtValBuyinTourn;
     private javax.swing.JTextField txtValTourItm;
@@ -504,7 +510,8 @@ public class frmTorneios extends javax.swing.JFrame {
     private void CadastrarTorneio() {
 
         int app_tourn, usuario_tourn, val_buyin_tourn, val_itm_tourn, codigo_tourn;
-        String tipo_tourn, data_tourn;
+        String tipo_tourn;
+        Date data_tourn = new Date();
 
         tipo_tourn = txtTypeTourn.getText();
 
@@ -515,7 +522,7 @@ public class frmTorneios extends javax.swing.JFrame {
 
         val_buyin_tourn = Integer.parseInt(txtValBuyinTourn.getText());//corrigir pois é inteiro
         val_itm_tourn = Integer.parseInt(txtValTourItm.getText());
-        data_tourn = txtDataTourn.getText();
+        data_tourn = jcaDataTourn.getDate();
 
         //setando os valores dos campos da VIEW para a DTO
         TournamentsDTO objtorunamentsdto = new TournamentsDTO();
@@ -548,7 +555,8 @@ public class frmTorneios extends javax.swing.JFrame {
 
     private void AlterarTorneio() {
 
-        String tipo_tourn, data_tourn;
+        String tipo_tourn;
+        Date data_tourn = new Date();
         //declarando variável
         int val_buyin_tourn, val_itm_tourn, codigo_tourn, app_tourn, usuario_tourn;
 
@@ -562,7 +570,7 @@ public class frmTorneios extends javax.swing.JFrame {
 
         val_buyin_tourn = Integer.parseInt(txtValBuyinTourn.getText());//corrigir pois é inteiro
         val_itm_tourn = Integer.parseInt(txtValTourItm.getText());
-        data_tourn = txtDataTourn.getText();
+        data_tourn = jcaDataTourn.getDate();
 
 //setando os valores dos campos da VIEW para a DTO
         TournamentsDTO objtorunamentsdto = new TournamentsDTO();
@@ -593,8 +601,22 @@ public class frmTorneios extends javax.swing.JFrame {
         cbxUsuarioTourn.getModel().setSelectedItem(tableTourn.getModel().getValueAt(setar, 3).toString());
         txtValBuyinTourn.setText(tableTourn.getModel().getValueAt(setar, 4).toString());
         txtValTourItm.setText(tableTourn.getModel().getValueAt(setar, 5).toString());//MOSTRANDO O VALOR NA COMBOBOX
-        txtDataTourn.setText(tableTourn.getModel().getValueAt(setar, 6).toString());
+            
+     
+          //para converter o String para Date, o método PARSE exige tratamento de Exception
+        try {
 
+            String teste;//declaro a string
+            teste = tableTourn.getModel().getValueAt(setar, 8).toString();//pego a string da tabela
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");//declaro o formato da data 
+            Date dataFormatada = formato.parse(teste);//converto a string para data
+            jcaDataTourn.setDate(dataFormatada);//seto a data no campo JCalendar
+
+        } catch (ParseException erro) {
+            erro.printStackTrace();
+        }
+        
     }
 
     private void listarValoresTorneio() {
@@ -642,7 +664,7 @@ public class frmTorneios extends javax.swing.JFrame {
         cbxUsuarioTourn.getModel().setSelectedItem("Selecione");
         txtValBuyinTourn.setText("");
         txtValTourItm.setText("");
-        txtDataTourn.setText("");
+        jcaDataTourn.setDate(null);
 
     }
 

@@ -38,7 +38,7 @@ public class PlotarFuncao extends Application {
 			NamedFunction.of("2^n", n -> Math.pow(2, n))
 		);
 
-	LineChart<String, Number> chart;
+	LineChart<String, Number> chart;// chart é gráfico em inglês
 	List<ToggleButton> cbSeries;
 
 	SimpleIntegerProperty si = new SimpleIntegerProperty(10);
@@ -77,7 +77,12 @@ public class PlotarFuncao extends Application {
 			sldCut.setValue(1d);
 			runTests();
 		});
-		TextField txtN = new TextField("10");
+		
+                //A TEXTFIELD ESTÁ AQUI
+                int teste = 100;
+                String teste1 = String.valueOf(teste);
+                //o TEXTFIELD está aqui
+                TextField txtN = new TextField(teste1);
 		txtN.textProperty().addListener((obs, o, n) -> {
 			n = n.trim();
 			if (!n.matches("\\d*"))
