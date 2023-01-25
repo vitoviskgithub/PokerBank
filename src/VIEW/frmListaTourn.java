@@ -39,6 +39,7 @@ public class frmListaTourn extends javax.swing.JFrame {
         txtTotalGanhosTourn = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("USUÁRIO :");
@@ -141,6 +142,7 @@ public class frmListaTourn extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarTournActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTournActionPerformed

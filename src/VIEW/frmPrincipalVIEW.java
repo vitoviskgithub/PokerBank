@@ -29,127 +29,93 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuBar4 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuBar5 = new javax.swing.JMenuBar();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jLabel5 = new javax.swing.JLabel();
-        txtbemvindo = new javax.swing.JLabel();
-        txtNomeRecebe = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        panelMeio = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        panelBaixo = new javax.swing.JPanel();
+        txtNomeRecebe = new javax.swing.JLabel();
+        txtbemvindo = new javax.swing.JLabel();
         txtTotalSaldo = new javax.swing.JTextField();
         btnAtualizarSaldo = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menuTopo = new javax.swing.JMenuBar();
         menuAdm = new javax.swing.JMenu();
         menuAdm1 = new javax.swing.JMenuItem();
         menuAdm2 = new javax.swing.JMenuItem();
         menuAdm3 = new javax.swing.JMenuItem();
+        menuAdm4 = new javax.swing.JMenu();
+        menuAdm4Puser = new javax.swing.JMenuItem();
+        menuAdm4Pdate = new javax.swing.JMenuItem();
         menuUser = new javax.swing.JMenu();
         menuUser1 = new javax.swing.JMenuItem();
+        menuUser2 = new javax.swing.JMenu();
+        menuUserGra1 = new javax.swing.JMenuItem();
+        menuUserGra2 = new javax.swing.JMenuItem();
+        menuUserGra3 = new javax.swing.JMenuItem();
         menuList = new javax.swing.JMenu();
         menuList1 = new javax.swing.JMenuItem();
         menuList2 = new javax.swing.JMenuItem();
         menuList3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuList4 = new javax.swing.JMenuItem();
+        menuList5 = new javax.swing.JMenuItem();
+        menuOutros = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
-
-        jLabel1.setText("jLabel1");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jMenu1.setText("jMenu1");
-
-        jMenuItem3.setText("jMenuItem3");
-
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
-
-        jMenu3.setText("File");
-        jMenuBar2.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
-
-        jMenu5.setText("File");
-        jMenuBar3.add(jMenu5);
-
-        jMenu6.setText("Edit");
-        jMenuBar3.add(jMenu6);
-
-        jMenu7.setText("File");
-        jMenuBar4.add(jMenu7);
-
-        jMenu8.setText("Edit");
-        jMenuBar4.add(jMenu8);
-
-        jMenu9.setText("File");
-        jMenuBar5.add(jMenu9);
-
-        jMenu10.setText("Edit");
-        jMenuBar5.add(jMenu10);
-
-        jLabel5.setText("jLabel5");
+        menuAjuda = new javax.swing.JMenu();
+        menuAjuda1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        txtbemvindo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        txtbemvindo.setText("Bem vindo ");
+        panelMeio.setBackground(new java.awt.Color(63, 149, 255));
 
-        txtNomeRecebe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        txtNomeRecebe.setForeground(new java.awt.Color(255, 0, 0));
-        txtNomeRecebe.setText("name");
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("POKER BANK");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cartas_pokerbank.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel4.setText("POKER BANK");
+        jLabel2.setFont(new java.awt.Font("MV Boli", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("LET'S PLAY");
+
+        javax.swing.GroupLayout panelMeioLayout = new javax.swing.GroupLayout(panelMeio);
+        panelMeio.setLayout(panelMeioLayout);
+        panelMeioLayout.setHorizontalGroup(
+            panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMeioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panelMeioLayout.setVerticalGroup(
+            panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMeioLayout.createSequentialGroup()
+                .addGroup(panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelMeioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelBaixo.setBackground(new java.awt.Color(51, 51, 51));
+
+        txtNomeRecebe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtNomeRecebe.setForeground(new java.awt.Color(255, 255, 255));
+
+        txtbemvindo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtbemvindo.setForeground(new java.awt.Color(204, 204, 204));
+        txtbemvindo.setText("Bem vindo ");
 
         txtTotalSaldo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTotalSaldo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(63, 149, 255)));
         txtTotalSaldo.setEnabled(false);
 
         btnAtualizarSaldo.setText("SALDO TOTAL (ID)");
@@ -158,6 +124,37 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 btnAtualizarSaldoActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout panelBaixoLayout = new javax.swing.GroupLayout(panelBaixo);
+        panelBaixo.setLayout(panelBaixoLayout);
+        panelBaixoLayout.setHorizontalGroup(
+            panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBaixoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addGap(87, 87, 87))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAtualizarSaldo)
+                .addContainerGap())
+        );
+        panelBaixoLayout.setVerticalGroup(
+            panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBaixoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtbemvindo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNomeRecebe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizarSaldo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         menuAdm.setText("ADMINISTRADOR");
         menuAdm.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -189,7 +186,17 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         });
         menuAdm.add(menuAdm3);
 
-        jMenuBar1.add(menuAdm);
+        menuAdm4.setText("GRÁFICOS");
+
+        menuAdm4Puser.setText("POR USUÁRIO");
+        menuAdm4.add(menuAdm4Puser);
+
+        menuAdm4Pdate.setText("POR DATA");
+        menuAdm4.add(menuAdm4Pdate);
+
+        menuAdm.add(menuAdm4);
+
+        menuTopo.add(menuAdm);
 
         menuUser.setText("USUÁRIO");
         menuUser.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -203,7 +210,20 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         });
         menuUser.add(menuUser1);
 
-        jMenuBar1.add(menuUser);
+        menuUser2.setText("GRÁFICOS");
+
+        menuUserGra1.setText("GANHOS E PERDAS");
+        menuUser2.add(menuUserGra1);
+
+        menuUserGra2.setText("TORNEIOS (QTD.)");
+        menuUser2.add(menuUserGra2);
+
+        menuUserGra3.setText("POR DATA");
+        menuUser2.add(menuUserGra3);
+
+        menuUser.add(menuUser2);
+
+        menuTopo.add(menuUser);
 
         menuList.setText("LISTAR");
         menuList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -235,10 +255,23 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         });
         menuList.add(menuList3);
 
-        jMenuBar1.add(menuList);
+        menuList4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuList4.setText("SAQUES");
+        menuList4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuList4ActionPerformed(evt);
+            }
+        });
+        menuList.add(menuList4);
 
-        jMenu2.setText("OUTROS");
-        jMenu2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        menuList5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuList5.setText("POR DATA");
+        menuList.add(menuList5);
+
+        menuTopo.add(menuList);
+
+        menuOutros.setText("OUTROS");
+        menuOutros.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jMenuItem1.setText("TELA DE LOGIN");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +279,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        menuOutros.add(jMenuItem1);
 
         jMenuItem2.setText("CADASTRO USUÁRIO");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -254,59 +287,43 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        menuOutros.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        menuTopo.add(menuOutros);
 
-        jMenu11.setText("AJUDA");
-        jMenu11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jMenuBar1.add(jMenu11);
+        menuAjuda.setText("AJUDA");
+        menuAjuda.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        setJMenuBar(jMenuBar1);
+        menuAjuda1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuAjuda1.setText("SAIR");
+        menuAjuda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAjuda1ActionPerformed(evt);
+            }
+        });
+        menuAjuda.add(menuAjuda1);
+
+        menuTopo.add(menuAjuda);
+
+        setJMenuBar(menuTopo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAtualizarSaldo))
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(panelMeio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBaixo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtbemvindo)
-                            .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addGap(7, 7, 7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtualizarSaldo))
-                .addGap(26, 26, 26))
+                .addComponent(panelMeio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualizarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarSaldoActionPerformed
@@ -569,6 +586,14 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void menuList4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuList4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuList4ActionPerformed
+
+    private void menuAjuda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAjuda1ActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_menuAjuda1ActionPerformed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -604,45 +629,36 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizarSaldo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuBar jMenuBar5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JMenu menuAdm;
     private javax.swing.JMenuItem menuAdm1;
     private javax.swing.JMenuItem menuAdm2;
     private javax.swing.JMenuItem menuAdm3;
+    private javax.swing.JMenu menuAdm4;
+    private javax.swing.JMenuItem menuAdm4Pdate;
+    private javax.swing.JMenuItem menuAdm4Puser;
+    private javax.swing.JMenu menuAjuda;
+    private javax.swing.JMenuItem menuAjuda1;
     private javax.swing.JMenu menuList;
     private javax.swing.JMenuItem menuList1;
     private javax.swing.JMenuItem menuList2;
     private javax.swing.JMenuItem menuList3;
+    private javax.swing.JMenuItem menuList4;
+    private javax.swing.JMenuItem menuList5;
+    private javax.swing.JMenu menuOutros;
+    private javax.swing.JMenuBar menuTopo;
     private javax.swing.JMenu menuUser;
     private javax.swing.JMenuItem menuUser1;
+    private javax.swing.JMenu menuUser2;
+    private javax.swing.JMenuItem menuUserGra1;
+    private javax.swing.JMenuItem menuUserGra2;
+    private javax.swing.JMenuItem menuUserGra3;
+    private javax.swing.JPanel panelBaixo;
+    private javax.swing.JPanel panelMeio;
     public javax.swing.JLabel txtNomeRecebe;
     private javax.swing.JTextField txtTotalSaldo;
     public javax.swing.JLabel txtbemvindo;
