@@ -68,6 +68,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         setUndecorated(true);
 
         panelMeio.setBackground(new java.awt.Color(63, 149, 255));
+        panelMeio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(63, 149, 255), 3));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
