@@ -84,7 +84,7 @@
                               <Component id="txtCodigoBanco" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
@@ -96,16 +96,16 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnSairBanco" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnAlterarBanco" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnLimparBanco" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnExcluirBanco" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnLimparBanco" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="btnRegistrarBanco" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnAlterarBanco" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -200,10 +200,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCarregarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRegistrarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAlterarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSairBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnExcluirBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnLimparBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlterarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="295" max="-2" attributes="0"/>

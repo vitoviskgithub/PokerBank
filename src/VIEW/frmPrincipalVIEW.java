@@ -314,6 +314,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         String login_recebe_id_string = JOptionPane.showInputDialog("Insira novamente seu ID de usuário, por seguranaça");
         String senha2_recebe = JOptionPane.showInputDialog("Insira sua senha novamente");
         //inicialmente não usaremos a senha
+        
+          if (login_recebe_id_string.isEmpty() && senha2_recebe.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Preencha seu id e senha de usuário");
+                }else if (login_recebe_id_string.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Preencha seu id de usuário");
+                }
 
         int id_login_recebe = Integer.parseInt(login_recebe_id_string);//converte o string recebido para inteiro
 
@@ -346,8 +352,16 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             if (rusuariodao.next()) {
                 somarValoresSaldo(objbankdto);
             } else {
+
+              if(senha2_recebe.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Preencha sua senha de usuário");
+
+                }else{
+
                 JOptionPane.showMessageDialog(null, "Erro em algum dado para a verificação de usuário");
-            }
+            
+                }
+                }
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BTN SALDO TOTAL :" + erro);
@@ -446,7 +460,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         }
 
-     
+
     }//GEN-LAST:event_menuAdm3ActionPerformed
 
     private void menuUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUser1ActionPerformed
