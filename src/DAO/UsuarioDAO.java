@@ -79,6 +79,56 @@ public class UsuarioDAO {
 
     }
 
+    //AUTENTICA com o ID e não o nome do usuário, mais a senha
+    
+    public ResultSet autenticacaoUsuario2(UsuarioDTO objusuariodto) {
+        conn = new ConexaoDAO().conectaBD();
+
+        try {
+
+            String sql = "SELECT * FROM tableusuario where id_usuario = ? and senha_usuario = ?";
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, objusuariodto.getId_usuario());
+            pstm.setString(2, objusuariodto.getSenha_usuario());
+
+            rs = pstm.executeQuery();
+            return rs;
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
+            return null;
+        }
+
+    }    
+    
+    //AUTENTICA com o campo ADM(0 não e 1 para simn) e não o nome do usuário, mais a senha
+    
+    public ResultSet autenticacaoUsuario3(UsuarioDTO objusuariodto) {
+        conn = new ConexaoDAO().conectaBD();
+
+        try {
+
+            String sql = "SELECT * FROM tableusuario where adm_usuario = 1 and senha_usuario = ?";
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setString(1, objusuariodto.getSenha_usuario());
+
+            rs = pstm.executeQuery();
+            return rs;
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
+            return null;
+        }
+
+    }    
+    
+    
 //toda vez que usar o ResultSet é que pega a tabela do banco de dados e consegue percorrer através do sql
 //o ResultSet é usado para trablhar o sql que vêm para o java
 //o método precisar ter o tipo do retorno, nesse caso ArrayList

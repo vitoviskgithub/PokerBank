@@ -9,20 +9,22 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import java.sql.SQLException;
 
-public class frmUsuarioVIEW extends javax.swing.JFrame {
 
-    //quando a classe inicializa
+public class frmUsuarioVIEW extends javax.swing.JFrame {
+  
+          //quando a classe inicializa
     public frmUsuarioVIEW() {
         initComponents();
-
+        
         if (txtIdUser.getText().equals("")) {
 
         } else {
-            avisoID.setVisible(false);
+            avisoID.setVisible(true);
         }
 
-        btnAlterarUserView.setVisible(false);
-        btnTelaPrincipal.setVisible(false);
+        btnAlterarUserView.setEnabled(false);
+        /** botão para tela principal, deixava ele invisível, ele não existe mais
+         btnTelaPrincipal.setVisible(false);*/
 
         restaurarDadosComboBoxContaPoker();//método para comboBox
 
@@ -49,8 +51,6 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtIdUser = new javax.swing.JTextField();
         btnAlterarUserView = new javax.swing.JButton();
-        avisoConta = new javax.swing.JLabel();
-        btnTelaPrincipal = new javax.swing.JButton();
         avisoID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,7 +100,7 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
         });
 
         btnSair.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnSair.setText("SAIR");
+        btnSair.setText("FECHAR");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -125,19 +125,8 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
             }
         });
 
-        avisoConta.setForeground(new java.awt.Color(255, 0, 0));
-        avisoConta.setText("Não esqueça de selecionar sua CONTA POKER antes de cadastrar");
-
-        btnTelaPrincipal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnTelaPrincipal.setText("TELA PRINCIPAL");
-        btnTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaPrincipalActionPerformed(evt);
-            }
-        });
-
         avisoID.setForeground(new java.awt.Color(255, 0, 0));
-        avisoID.setText("Se ainda não se cadastrou, volte a TELA PRINCIPAL para se cadastrar");
+        avisoID.setText("Não esqueça de selecionar sua CONTA POKER antes de CADASTRAR ou ALTERAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,32 +145,28 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
                                 .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLogin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSair))
-                            .addComponent(btnTelaPrincipal))
+                        .addComponent(btnSair)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(limparDadosCampos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCadastrar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addComponent(btnAlterarUserView))))
+                        .addComponent(btnAlterarUserView)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(limparDadosCampos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadastrar))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxContaPoker, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(avisoID, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(avisoConta, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(avisoID))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(txtNome))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,9 +180,7 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(avisoID, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,17 +205,14 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(cbxContaPoker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(avisoConta)
+                .addComponent(avisoID)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
                     .addComponent(btnSair)
                     .addComponent(btnCadastrar)
-                    .addComponent(limparDadosCampos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limparDadosCampos)
                     .addComponent(btnAlterarUserView)
-                    .addComponent(btnTelaPrincipal))
+                    .addComponent(btnLogin))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -300,20 +280,10 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
         } else {
             AlterarUsuarioVIEW();//altera
             LimparCamposVIEW();
-        }
+            dispose();
+            }
 
     }//GEN-LAST:event_btnAlterarUserViewActionPerformed
-
-    private void btnTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaPrincipalActionPerformed
-
-        frmPrincipalVIEW objprincipal = new frmPrincipalVIEW();
-        objprincipal.setVisible(true);
-
-        objprincipal.txtbemvindo.setVisible(false);
-
-        dispose();
-
-    }//GEN-LAST:event_btnTelaPrincipalActionPerformed
 
     public static void main(String args[]) {
 
@@ -349,13 +319,11 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel avisoConta;
     public javax.swing.JLabel avisoID;
     public javax.swing.JButton btnAlterarUserView;
     public javax.swing.JButton btnCadastrar;
     public javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSair;
-    public javax.swing.JButton btnTelaPrincipal;
     public javax.swing.JComboBox<String> cbxContaPoker;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -467,4 +435,5 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
 
     }
 
+             
 }

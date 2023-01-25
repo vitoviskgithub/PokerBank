@@ -50,7 +50,6 @@ public class frmTorneios extends javax.swing.JFrame {
         tableTourn = new javax.swing.JTable();
         btnCarregarTourn = new javax.swing.JButton();
         btSairTourn = new javax.swing.JButton();
-        btnTelaPrincipalTourn = new javax.swing.JButton();
         btnBanco = new javax.swing.JButton();
         btFechar = new javax.swing.JButton();
         btnListarPerdas = new javax.swing.JButton();
@@ -148,13 +147,6 @@ public class frmTorneios extends javax.swing.JFrame {
             }
         });
 
-        btnTelaPrincipalTourn.setText("TELA PRINCIPAL");
-        btnTelaPrincipalTourn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaPrincipalTournActionPerformed(evt);
-            }
-        });
-
         btnBanco.setText("BANCO");
         btnBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,20 +200,12 @@ public class frmTorneios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnTelaPrincipalTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btSairTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBanco)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(btnUsuarios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCarregarTourn))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(10, 10, 10))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(7, 7, 7)
@@ -244,39 +228,47 @@ public class frmTorneios extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtValTourItm)
                                     .addComponent(txtValBuyinTourn, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(1, 1, 1)
-                                .addComponent(jcaDataTourn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jcaDataTourn, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnUsuarios)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btFechar))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAlterarTourn)
+                        .addGap(3, 3, 3)
                         .addComponent(btnExcluirTourn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimparTourn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAlterarTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegistrarTourn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btFechar)
+                        .addComponent(btnRegistrarTourn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCarregarTourn))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btSairTourn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBanco)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnListarTroneios)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnListarGanhos)
+                        .addComponent(btnListarPerdas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnListarPerdas)))
+                        .addComponent(btnListarGanhos)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btFechar)
+                    .addComponent(btnUsuarios))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -298,25 +290,21 @@ public class frmTorneios extends javax.swing.JFrame {
                     .addComponent(jcaDataTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarTourn)
-                    .addComponent(btnAlterarTourn)
+                    .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimparTourn)
+                    .addComponent(btnRegistrarTourn)
+                    .addComponent(btnCarregarTourn)
+                    .addComponent(btnAlterarTourn)
                     .addComponent(btnExcluirTourn))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCarregarTourn)
-                    .addComponent(btSairTourn)
-                    .addComponent(btnTelaPrincipalTourn)
-                    .addComponent(btnBanco)
-                    .addComponent(btnUsuarios))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListarPerdas)
                     .addComponent(btnListarGanhos)
                     .addComponent(btnListarTroneios)
-                    .addComponent(btFechar))
+                    .addComponent(btnBanco)
+                    .addComponent(btSairTourn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -395,14 +383,6 @@ public class frmTorneios extends javax.swing.JFrame {
         System.exit(0);
 
     }//GEN-LAST:event_btSairTournActionPerformed
-
-    private void btnTelaPrincipalTournActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaPrincipalTournActionPerformed
-
-        frmPrincipalVIEW objprincipal = new frmPrincipalVIEW();
-        objprincipal.setVisible(true);
-        dispose();
-
-    }//GEN-LAST:event_btnTelaPrincipalTournActionPerformed
 
     private void btnBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBancoActionPerformed
 
@@ -487,7 +467,6 @@ public class frmTorneios extends javax.swing.JFrame {
     private javax.swing.JButton btnListarPerdas;
     private javax.swing.JButton btnListarTroneios;
     private javax.swing.JButton btnRegistrarTourn;
-    private javax.swing.JButton btnTelaPrincipalTourn;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JComboBox<String> cbxAppTourn;
     private javax.swing.JComboBox<String> cbxUsuarioTourn;
@@ -607,7 +586,7 @@ public class frmTorneios extends javax.swing.JFrame {
         try {
 
             String teste;//declaro a string
-            teste = tableTourn.getModel().getValueAt(setar, 8).toString();//pego a string da tabela
+            teste = tableTourn.getModel().getValueAt(setar, 6).toString();//pego a string da tabela
 
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");//declaro o formato da data 
             Date dataFormatada = formato.parse(teste);//converto a string para data

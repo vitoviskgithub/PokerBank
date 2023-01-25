@@ -32,7 +32,6 @@ public class frmListarPerdas extends javax.swing.JFrame {
         txtUsuarioListarPerdas = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListarPerdas = new javax.swing.JTable();
-        btnPrincipal = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         btnListarPerdas = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -59,13 +58,6 @@ public class frmListarPerdas extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tableListarPerdas);
-
-        btnPrincipal.setText("TELA PRINCIPAL");
-        btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrincipalActionPerformed(evt);
-            }
-        });
 
         btnSair.setText("SAIR");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -113,8 +105,6 @@ public class frmListarPerdas extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPrincipal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSair)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFechar)
@@ -137,7 +127,6 @@ public class frmListarPerdas extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSair)
                     .addComponent(btnListarPerdas)
                     .addComponent(btnFechar))
@@ -152,11 +141,6 @@ public class frmListarPerdas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
-        frmPrincipalVIEW objprincipal = new frmPrincipalVIEW();
-        objprincipal.setVisible(true);
-        dispose();    }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         System.exit(0);
@@ -216,7 +200,6 @@ public class frmListarPerdas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnListarPerdas;
-    private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

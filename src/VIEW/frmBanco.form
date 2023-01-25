@@ -28,16 +28,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnTelaPrincipalBanco" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="btnTorneios" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnLstTourn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnLstGanhos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnLstPerdas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnLstGanhos" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -100,13 +98,13 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="btnSairBanco" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnLimparBanco" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnExcluirBanco" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnAlterarBanco" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnExcluirBanco" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnLimparBanco" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="btnRegistrarBanco" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -141,7 +139,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -200,18 +198,17 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnExcluirBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCarregarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRegistrarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAlterarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnLimparBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSairBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExcluirBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLimparBanco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="295" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnTelaPrincipalBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnTorneios" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnLstTourn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnLstGanhos" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -374,14 +371,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparBancoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnTelaPrincipalBanco">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="TELA PRINCIPAL"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTelaPrincipalBancoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCarregarBanco">

@@ -26,7 +26,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
-
 public class frmBanco extends javax.swing.JFrame {
 
     Connection conn;
@@ -63,7 +62,6 @@ public class frmBanco extends javax.swing.JFrame {
         btnRegistrarBanco = new javax.swing.JButton();
         btnAlterarBanco = new javax.swing.JButton();
         btnLimparBanco = new javax.swing.JButton();
-        btnTelaPrincipalBanco = new javax.swing.JButton();
         btnCarregarBanco = new javax.swing.JButton();
         btnExcluirBanco = new javax.swing.JButton();
         btnSairBanco = new javax.swing.JButton();
@@ -161,13 +159,6 @@ public class frmBanco extends javax.swing.JFrame {
         btnLimparBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparBancoActionPerformed(evt);
-            }
-        });
-
-        btnTelaPrincipalBanco.setText("TELA PRINCIPAL");
-        btnTelaPrincipalBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaPrincipalBancoActionPerformed(evt);
             }
         });
 
@@ -275,16 +266,14 @@ public class frmBanco extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnTelaPrincipalBanco)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnTorneios)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLstTourn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLstGanhos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnLstPerdas))
+                                .addComponent(btnLstPerdas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLstGanhos))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -335,13 +324,13 @@ public class frmBanco extends javax.swing.JFrame {
                                         .addComponent(jLabel12))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(btnSairBanco)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnLimparBanco)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnExcluirBanco)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnAlterarBanco)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnExcluirBanco)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnLimparBanco)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnRegistrarBanco)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,7 +354,7 @@ public class frmBanco extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel1)
-                        .addGap(8, 8, 8))
+                        .addGap(13, 13, 13))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -411,17 +400,16 @@ public class frmBanco extends javax.swing.JFrame {
                         .addComponent(btnAtualizarSaldo)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluirBanco)
                     .addComponent(btnCarregarBanco)
                     .addComponent(btnRegistrarBanco)
                     .addComponent(btnAlterarBanco)
-                    .addComponent(btnLimparBanco)
-                    .addComponent(btnSairBanco))
+                    .addComponent(btnSairBanco)
+                    .addComponent(btnExcluirBanco)
+                    .addComponent(btnLimparBanco))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTelaPrincipalBanco)
                     .addComponent(btnTorneios)
                     .addComponent(btnLstTourn)
                     .addComponent(btnLstGanhos)
@@ -431,12 +419,6 @@ public class frmBanco extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnTelaPrincipalBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaPrincipalBancoActionPerformed
-        frmPrincipalVIEW objprincipal = new frmPrincipalVIEW();
-        objprincipal.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnTelaPrincipalBancoActionPerformed
 
     private void btnSairBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairBancoActionPerformed
         System.exit(0);
@@ -633,7 +615,6 @@ public class frmBanco extends javax.swing.JFrame {
     private javax.swing.JButton btnLstTourn;
     private javax.swing.JButton btnRegistrarBanco;
     private javax.swing.JButton btnSairBanco;
-    private javax.swing.JButton btnTelaPrincipalBanco;
     private javax.swing.JButton btnTorneios;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JComboBox<String> cbxAppBank;

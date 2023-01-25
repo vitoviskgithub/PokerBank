@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
+import javax.swing.JFrame;
 
 public class frmPrincipalVIEW extends javax.swing.JFrame {
 
@@ -33,27 +34,44 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuBar5 = new javax.swing.JMenuBar();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jLabel5 = new javax.swing.JLabel();
         txtbemvindo = new javax.swing.JLabel();
         txtNomeRecebe = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        panelMenu = new javax.swing.JPanel();
-        btnAlterarDados = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        btnAlterar = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        btsLogin = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
-        btnGoCadastro = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtTotalSaldo = new javax.swing.JTextField();
         btnAtualizarSaldo = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuAdm = new javax.swing.JMenu();
+        menuAdm1 = new javax.swing.JMenuItem();
+        menuAdm2 = new javax.swing.JMenuItem();
+        menuAdm3 = new javax.swing.JMenuItem();
+        menuUser = new javax.swing.JMenu();
+        menuUser1 = new javax.swing.JMenuItem();
+        menuList = new javax.swing.JMenu();
+        menuList1 = new javax.swing.JMenuItem();
+        menuList2 = new javax.swing.JMenuItem();
+        menuList3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
 
         jLabel1.setText("jLabel1");
 
@@ -83,6 +101,39 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        jMenu1.setText("jMenu1");
+
+        jMenuItem3.setText("jMenuItem3");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        jMenu5.setText("File");
+        jMenuBar3.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar3.add(jMenu6);
+
+        jMenu7.setText("File");
+        jMenuBar4.add(jMenu7);
+
+        jMenu8.setText("Edit");
+        jMenuBar4.add(jMenu8);
+
+        jMenu9.setText("File");
+        jMenuBar5.add(jMenu9);
+
+        jMenu10.setText("Edit");
+        jMenuBar5.add(jMenu10);
+
+        jLabel5.setText("jLabel5");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtbemvindo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -90,141 +141,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         txtNomeRecebe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtNomeRecebe.setForeground(new java.awt.Color(255, 0, 0));
+        txtNomeRecebe.setText("name");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cartas_pokerbank.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText("POKER BANK");
-
-        panelMenu.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "MENU", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Black", 1, 24))); // NOI18N
-        panelMenu.setToolTipText("");
-
-        btnAlterarDados.setText("ALTERAR DADOS CADASTRAIS (ADM)");
-        btnAlterarDados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarDadosActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("LISTAR TORNEIOS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("LISTAR GANHOS");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("LISTAR PERDAS");
-        jButton3.setPreferredSize(new java.awt.Dimension(127, 26));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("HISTÓRICO COMPLETO");
-
-        btnAlterar.setText("ALTERAR DADOS CADASTRAIS");
-        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("ACESSAR O BANCO (ADM)");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setText("ACESSAR OS TORNEIOS (ADM)");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAlterarDados)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
-                        .addComponent(btnAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 27, Short.MAX_VALUE))
-        );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAlterarDados)
-                    .addComponent(jButton2)
-                    .addComponent(btnAlterar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton4))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-
-        btsLogin.setText("LOGIN");
-        btsLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btsLoginActionPerformed(evt);
-            }
-        });
-
-        btnSair.setText("SAIR");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        btnGoCadastro.setText("CADASTRO");
-        btnGoCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGoCadastroActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 51, 255));
-        jLabel2.setText("Twich : vitovisk2022");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel6.setText("@vitovisk79");
-
-        jLabel5.setFont(new java.awt.Font("Adobe Devanagari", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("DEUS SEJA LOUVADO");
 
         txtTotalSaldo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtTotalSaldo.setEnabled(false);
@@ -236,41 +159,129 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             }
         });
 
+        menuAdm.setText("ADMINISTRADOR");
+        menuAdm.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        menuAdm1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuAdm1.setText("ALTERAR DADOS CADASTRAIS");
+        menuAdm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm1ActionPerformed(evt);
+            }
+        });
+        menuAdm.add(menuAdm1);
+
+        menuAdm2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuAdm2.setText("ACESSAR O BANCO");
+        menuAdm2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm2ActionPerformed(evt);
+            }
+        });
+        menuAdm.add(menuAdm2);
+
+        menuAdm3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuAdm3.setText("ACESSAR OS TORNEIOS");
+        menuAdm3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm3ActionPerformed(evt);
+            }
+        });
+        menuAdm.add(menuAdm3);
+
+        jMenuBar1.add(menuAdm);
+
+        menuUser.setText("USUÁRIO");
+        menuUser.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        menuUser1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuUser1.setText("ALTERAR DADOS CADASTRAIS");
+        menuUser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUser1ActionPerformed(evt);
+            }
+        });
+        menuUser.add(menuUser1);
+
+        jMenuBar1.add(menuUser);
+
+        menuList.setText("LISTAR");
+        menuList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        menuList1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuList1.setText("TORNEIOS");
+        menuList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuList1ActionPerformed(evt);
+            }
+        });
+        menuList.add(menuList1);
+
+        menuList2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuList2.setText("GANHOS");
+        menuList2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuList2ActionPerformed(evt);
+            }
+        });
+        menuList.add(menuList2);
+
+        menuList3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuList3.setText("PERDAS");
+        menuList3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuList3ActionPerformed(evt);
+            }
+        });
+        menuList.add(menuList3);
+
+        jMenuBar1.add(menuList);
+
+        jMenu2.setText("OUTROS");
+        jMenu2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        jMenuItem1.setText("TELA DE LOGIN");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setText("CADASTRO USUÁRIO");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu11.setText("AJUDA");
+        jMenu11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenuBar1.add(jMenu11);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btsLogin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSair)
-                        .addGap(370, 370, 370)
-                        .addComponent(btnGoCadastro))
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAtualizarSaldo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtbemvindo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtNomeRecebe))
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAtualizarSaldo))
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -279,72 +290,166 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtbemvindo)
-                                    .addComponent(txtNomeRecebe))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4))
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAtualizarSaldo))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtbemvindo)
+                            .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btsLogin)
-                    .addComponent(btnSair)
-                    .addComponent(btnGoCadastro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizarSaldo))
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarDadosActionPerformed
+    private void btnAtualizarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarSaldoActionPerformed
 
-        String senha_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-        if (senha_recebe.equals("12345678")) {
-            frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
+        String login_recebe_id_string = JOptionPane.showInputDialog("Insira novamente seu ID de usuário, por seguranaça");
+        String senha2_recebe = JOptionPane.showInputDialog("Insira sua senha novamente");
+        //inicialmente não usaremos a senha
 
-            objpesquisa.setVisible(true);
+        int id_login_recebe = Integer.parseInt(login_recebe_id_string);//converte o string recebido para inteiro
 
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+//instanciando a DTO e passando os valores das variáveis para a DTO
+//essa mesma variável será setada em duas DTO
+        BankUserDTO objbankdto = new BankUserDTO();
+        objbankdto.setId_user_bank(id_login_recebe);
+
+        //para autenticacao na DAO Usuario
+        String senha_usuario;
+        int id_usuario;
+
+        id_usuario = id_login_recebe;
+        senha_usuario = senha2_recebe;
+
+        //instanciando outra DTO,  para fazer o teste de autenticação
+        UsuarioDTO objusuariodto = new UsuarioDTO();
+
+        //e setando denovo o id, para uma DTO diferente
+        objusuariodto.setId_usuario(id_usuario);
+        objusuariodto.setSenha_usuario(senha_usuario);
+
+        UsuarioDAO objusuariodao = new UsuarioDAO();
+        //teste de autenticação que me retorna uma variável tipo ResultSet
+        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario2(objusuariodto);
+
+        //aconselhável fazer dentro de um TRY a comparação IF nessa caso por causa do SQLException
+        try {
+
+            if (rusuariodao.next()) {
+                somarValoresSaldo(objbankdto);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro em algum dado para a verificação de usuário");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BTN SALDO TOTAL :" + erro);
+
         }
 
-    }//GEN-LAST:event_btnAlterarDadosActionPerformed
+    }//GEN-LAST:event_btnAtualizarSaldoActionPerformed
 
-    private void btsLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsLoginActionPerformed
+    private void menuAdm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm2ActionPerformed
 
-        frmLogin objlogin = new frmLogin();
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
 
-        objlogin.btnGoFrmUsuario.setVisible(false);
+        UsuarioDTO objusuariodto = new UsuarioDTO();
 
-        objlogin.setVisible(true);
-        dispose();
+        objusuariodto.setSenha_usuario(senha3_recebe);
 
-    }//GEN-LAST:event_btsLoginActionPerformed
+        UsuarioDAO objusuariodao = new UsuarioDAO();
+        //teste de autenticação que me retorna uma variável tipo ResultSet
+        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3(objusuariodto);
 
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        try {
 
-        System.exit(0);
+            if (rusuariodao.next()) {
 
-    }//GEN-LAST:event_btnSairActionPerformed
+                frmBanco objbanco = new frmBanco();
+                objbanco.setVisible(true);
 
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+            } else {
+                JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
+
+        }
+
+    }//GEN-LAST:event_menuAdm2ActionPerformed
+
+    private void menuAdm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm1ActionPerformed
+
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+
+        UsuarioDTO objusuariodto = new UsuarioDTO();
+
+        objusuariodto.setSenha_usuario(senha3_recebe);
+
+        UsuarioDAO objusuariodao = new UsuarioDAO();
+        //teste de autenticação que me retorna uma variável tipo ResultSet
+        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3(objusuariodto);
+
+        try {
+
+            if (rusuariodao.next()) {
+
+                frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
+
+                objpesquisa.setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW USUÁRIO ADM:" + erro);
+
+        }
+
+
+    }//GEN-LAST:event_menuAdm1ActionPerformed
+
+    private void menuAdm3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm3ActionPerformed
+
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+
+        UsuarioDTO objusuariodto = new UsuarioDTO();
+
+        objusuariodto.setSenha_usuario(senha3_recebe);
+
+        UsuarioDAO objusuariodao = new UsuarioDAO();
+        //teste de autenticação que me retorna uma variável tipo ResultSet
+        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3(objusuariodto);
+
+        try {
+
+            if (rusuariodao.next()) {
+
+                frmTorneios objtorneios = new frmTorneios();
+                objtorneios.setVisible(rootPaneCheckingEnabled);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW TORNEIO ADM:" + erro);
+
+        }
+
+     
+    }//GEN-LAST:event_menuAdm3ActionPerformed
+
+    private void menuUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUser1ActionPerformed
 
         String login_recebe = JOptionPane.showInputDialog("Insira novamente seu nome como cadastrou, por seguranaça");
         String senha1_recebe = JOptionPane.showInputDialog("Insira sua senha novamente");
@@ -374,22 +479,24 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             objusuarioview.txtSenha.setText(objusuariodto.getSenha_usuario());
             objusuarioview.cbxContaPoker.getModel().setSelectedItem(objusuariodto.getCod_contapoker());
 
-            objusuarioview.avisoConta.setVisible(false);//texto de aviso desaparece
+            objusuarioview.avisoID.setVisible(false);//texto de aviso desaparece
 
-            objusuarioview.btnAlterarUserView.setVisible(true);
+            objusuarioview.btnAlterarUserView.setEnabled(true);
             objusuarioview.btnCadastrar.setEnabled(false);
 
             objusuarioview.btnLogin.setVisible(false);
-            objusuarioview.btnTelaPrincipal.setVisible(true);
 
+            /**
+             * botão que voltava para tela principal, não existe mais
+             * objusuarioview.btnTelaPrincipal.setVisible(true);
+             */
             //AUTENTICAR
             ResultSet rusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
 
             if (rusuariodao.next()) {
 
-                objusuarioview.avisoID.setVisible(false);
+                objusuarioview.avisoID.setVisible(true);
                 objusuarioview.setVisible(true);
-                dispose();
 
             } else {
 
@@ -402,9 +509,31 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         }//FIM AUTENTICAR
 
 
-    }//GEN-LAST:event_btnAlterarActionPerformed
+    }//GEN-LAST:event_menuUser1ActionPerformed
 
-    private void btnGoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoCadastroActionPerformed
+    private void menuList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuList2ActionPerformed
+        frmListarGanhos objlistaganho = new frmListarGanhos();
+        objlistaganho.setVisible(true);
+
+
+    }//GEN-LAST:event_menuList2ActionPerformed
+
+    private void menuList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuList1ActionPerformed
+        frmListaTourn objlistatourn = new frmListaTourn();
+        //ver o JForm
+        objlistatourn.setVisible(true);
+
+
+    }//GEN-LAST:event_menuList1ActionPerformed
+
+    private void menuList3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuList3ActionPerformed
+        frmListarPerdas objlistaperdas = new frmListarPerdas();
+        objlistaperdas.setVisible(true);
+
+
+    }//GEN-LAST:event_menuList3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
         frmUsuarioVIEW objusuarioview = new frmUsuarioVIEW();
 
@@ -413,80 +542,18 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         dispose();
 
-    }//GEN-LAST:event_btnGoCadastroActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-        String senha_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-        if (senha_recebe.equals("12345678")) {
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        frmLogin objlogin = new frmLogin();
 
-            frmBanco objbanco = new frmBanco();
-            objbanco.setVisible(true);
+        objlogin.btnGoFrmUsuario.setVisible(false);
 
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
-        }
-
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
-        String senha_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-        if (senha_recebe.equals("12345678")) {
-
-            frmTorneios objtorneios = new frmTorneios();
-            objtorneios.setVisible(rootPaneCheckingEnabled);
-            dispose();
-
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
-        }
-
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        frmListaTourn objlistatourn = new frmListaTourn();
-        //ver o JForm
-        objlistatourn.setVisible(true);
-
+        objlogin.setVisible(true);
         dispose();
 
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        frmListarGanhos objlistaganho = new frmListarGanhos();
-        objlistaganho.setVisible(true);
-        dispose();
-
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        frmListarPerdas objlistaperdas = new frmListarPerdas();
-        objlistaperdas.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void btnAtualizarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarSaldoActionPerformed
-
-        String login_recebe_id_string = JOptionPane.showInputDialog("Insira novamente seu ID de usuário, por seguranaça");
-        String senha2_recebe = JOptionPane.showInputDialog("Insira sua senha novamente");
-        //inicialmente não usaremos a senha
-        
-        int id_login_recebe = Integer.parseInt(login_recebe_id_string);
-        
-//instanciando a DTO e passando os valores das variáveis para a DTO
-        BankUserDTO objbankdto = new BankUserDTO();
-        objbankdto.setId_user_bank(id_login_recebe);
-        
-        
-        somarValoresSaldo(objbankdto);
-
-    }//GEN-LAST:event_btnAtualizarSaldoActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -522,29 +589,46 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnAlterarDados;
     private javax.swing.JButton btnAtualizarSaldo;
-    private javax.swing.JButton btnGoCadastro;
-    private javax.swing.JButton btnSair;
-    private javax.swing.JButton btsLogin;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuBar jMenuBar5;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JPanel panelMenu;
+    private javax.swing.JMenu menuAdm;
+    private javax.swing.JMenuItem menuAdm1;
+    private javax.swing.JMenuItem menuAdm2;
+    private javax.swing.JMenuItem menuAdm3;
+    private javax.swing.JMenu menuList;
+    private javax.swing.JMenuItem menuList1;
+    private javax.swing.JMenuItem menuList2;
+    private javax.swing.JMenuItem menuList3;
+    private javax.swing.JMenu menuUser;
+    private javax.swing.JMenuItem menuUser1;
     public javax.swing.JLabel txtNomeRecebe;
     private javax.swing.JTextField txtTotalSaldo;
     public javax.swing.JLabel txtbemvindo;

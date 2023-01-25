@@ -46,7 +46,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         btnLimpar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
-        btnPrincipal = new javax.swing.JButton();
         btnCadastrarUser = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         cbxContaPoker = new javax.swing.JComboBox<>();
@@ -140,13 +139,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnPrincipal.setText("TELA PRINCIPAL");
-        btnPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrincipalActionPerformed(evt);
-            }
-        });
-
         btnCadastrarUser.setText("CADASTRAR");
         btnCadastrarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,9 +183,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSair)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPrincipal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnContas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCadastrarUser)
@@ -230,7 +220,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtTelefoneTable)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 18, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel10)
@@ -296,7 +286,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                     .addComponent(btnCarregarCampos)
                     .addComponent(btnSair)
                     .addComponent(btnExcluir)
-                    .addComponent(btnPrincipal)
                     .addComponent(btnCadastrarUser)
                     .addComponent(btnContas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -339,7 +328,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        dispose();
+       System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -349,17 +338,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         LimparCampos();
 
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void btnPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipalActionPerformed
-
-        frmPrincipalVIEW objprincipalview = new frmPrincipalVIEW();
-
-        objprincipalview.txtbemvindo.setVisible(false);
-        objprincipalview.setVisible(true);
-
-        dispose();
-
-    }//GEN-LAST:event_btnPrincipalActionPerformed
 
     private void btnCadastrarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarUserActionPerformed
 
@@ -434,7 +412,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnFehcar;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> cbxContaPoker;
     private javax.swing.JLabel jLabel1;

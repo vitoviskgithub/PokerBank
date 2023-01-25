@@ -29,7 +29,6 @@ public class frmListaTourn extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         txtUsuarioListaTourn = new javax.swing.JTextField();
-        btaPrincipal = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaListarTorneios = new javax.swing.JTable();
@@ -45,13 +44,6 @@ public class frmListaTourn extends javax.swing.JFrame {
         jLabel1.setText("USUÁRIO :");
 
         txtUsuarioListaTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        btaPrincipal.setText("TELA PRINCIPAL");
-        btaPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btaPrincipalActionPerformed(evt);
-            }
-        });
 
         btnSair.setText("SAIR");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +96,6 @@ public class frmListaTourn extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btaPrincipal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSair)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFechar)
@@ -138,7 +128,6 @@ public class frmListaTourn extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btaPrincipal)
                         .addComponent(btnSair)
                         .addComponent(btnFechar))
                     .addComponent(btnListarTourn))
@@ -164,14 +153,6 @@ public class frmListaTourn extends javax.swing.JFrame {
         listarValoresTableTourn(objtourndto);
 
     }//GEN-LAST:event_btnListarTournActionPerformed
-
-    private void btaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btaPrincipalActionPerformed
-
-        frmPrincipalVIEW objprincipal = new frmPrincipalVIEW();
-        objprincipal.setVisible(true);
-        dispose();
-
-    }//GEN-LAST:event_btaPrincipalActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         System.exit(0);
@@ -213,7 +194,6 @@ public class frmListaTourn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btaPrincipal;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnListarTourn;
     private javax.swing.JButton btnSair;
