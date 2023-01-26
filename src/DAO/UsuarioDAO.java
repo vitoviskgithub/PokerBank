@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import testes.planetScaleTeste.connbdDAO;
 
 public class UsuarioDAO {
 
@@ -276,5 +277,42 @@ public class UsuarioDAO {
         }
     }
   
+    //TENTATIVA DE CONECTAR NO MEU BANCO DE DADOS NA WEB
 
+      /**  public void DadosCadastrais2(UsuarioDTO objusuariodto) {
+            
+        conn = new connbdDAO().conectaBD();
+
+        try {
+
+            String sql = "SELECT * FROM tableusuario where id_usuario = ?";
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, objusuariodto.getId_usuario());
+           
+
+            rs = pstm.executeQuery();
+
+            while (rs.next()) {
+
+                //acessando a classe através do objeto
+                objusuariodto.setId_usuario(rs.getInt("id_usuario"));//o rs recebe o valor do banco para armazenar na variável, pois é variável ResultSet / após isso setamos na DTO esse valor
+                objusuariodto.setNome_usuario(rs.getString("nome_usuario"));
+                objusuariodto.setEmail_usuario(rs.getString("email_usuario"));
+                objusuariodto.setTelefone_usuario(rs.getString("telefone_usuario"));
+                objusuariodto.setSenha_usuario(rs.getString("senha_usuario"));
+                objusuariodto.setCod_contapoker(rs.getInt("fk_idcontapoker_idusuario"));//nome do banco de dados após o getInt
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "UsuarioDAO DadosCadastrais: " + erro);
+
+        }
+
+    }*/
+    
+    
 }

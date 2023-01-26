@@ -48,10 +48,10 @@ public class MinhaJanelaJava {
             janela.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//não faz nada ao clicar no X
             janela.setSize(1280, 720);
 
-            Image dimg = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);//CARREGANDO A IMAGEM ADAPTANDO AO TAMANHO DA JANELA
+            Image dimg = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA
 
             ImageIcon imageIcon = new ImageIcon(dimg);
-            label.setIcon(imageIcon);
+            label.setIcon(imageIcon);//fazendo a imagem aparecer
 
 //mostra a janela e adiciona a label a ela
             janela.setVisible(true);

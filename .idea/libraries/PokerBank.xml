@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PokerBank">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/PokerBank.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
