@@ -37,6 +37,37 @@ public class ContaPokerDAO {
             pstm.setString(2, objpokerdto.getUser_contapoker());
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Cadastro da conta poker realizado no banco Local");
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "ContaPokerDAO: " + erro);
+        }
+
+    }
+    
+        public void cadastrarContaPokerWeb(ContaPokerDTO objpokerdto) {
+
+        String sql = "INSERT INTO tablecontapoker (app_contapoker, user_contapoker) VALUES(?,?)";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //a variável id_usuario é AUTOINCREMENTY, então é automático ela receber o valor do sistema todas as vezes que cadastra
+            pstm.setString(1, objpokerdto.getApp_contapoker());
+            pstm.setString(2, objpokerdto.getUser_contapoker());
+
+            pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Cadastro da conta poker realizado na WEB");
+            cadastrarContaPoker(objpokerdto);
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -95,6 +126,39 @@ public class ContaPokerDAO {
             pstm.setInt(3, objcontapokerdto.getId_contapoker());
 
             pstm.execute();
+            
+             JOptionPane.showMessageDialog(null, "Conta poker do APP alterada no banco Local");
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "ContaPokerDAO AlterarContaPoker: " + erro);
+        }
+
+    }
+    
+     public void alterarContaPokerWeb(ContaPokerDTO objcontapokerdto) {
+
+        String sql = "UPDATE tablecontapoker set app_contapoker = ?, user_contapoker = ? where id_contapoker = ?";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 3
+            //sempre começa do parâmetro 1
+            pstm.setString(1, objcontapokerdto.getApp_contapoker());
+            pstm.setString(2, objcontapokerdto.getUser_contapoker());
+            pstm.setInt(3, objcontapokerdto.getId_contapoker());
+
+            pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Conta poker do APP alterada na WEB");
+            alterarContaPoker(objcontapokerdto);
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -104,9 +168,10 @@ public class ContaPokerDAO {
 
     }
 
+
     public void excluirContaPoker(ContaPokerDTO objpokerodto) {
 
-        String sql = "DELETE from tablecontapoker where id_usuario = ?";
+        String sql = "DELETE from tablecontapoker where id_contapoker = ?";
 
         conn = new ConexaoDAO().conectaBD();
 
@@ -118,11 +183,41 @@ public class ContaPokerDAO {
             pstm.setInt(1, objpokerodto.getId_contapoker());
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Conta poker do APP excluída no banco Local");
+            
             pstm.close();
 
         } catch (SQLException erro) {
 
             JOptionPane.showMessageDialog(null, "ContaPokerDAO ExcluirContaPoker: " + erro);
+        }
+
+    }
+    
+    public void excluirContaPokerWeb(ContaPokerDTO objpokerodto) {
+
+        String sql = "DELETE from tablecontapoker where id_contapoker = ?";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 5
+            pstm.setInt(1, objpokerodto.getId_contapoker());
+
+            pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Conta poker do APP excluída na WEB");
+            excluirContaPoker(objpokerodto);
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "ContaPokerDAO ExcluirContaPoker WEB: " + erro);
         }
 
     }
@@ -147,9 +242,7 @@ return null;
 
 }
 }
-    
-
-  
+      
     public ResultSet listarAppCombo() {
 
         conn = new ConexaoDAO().conectaBD();

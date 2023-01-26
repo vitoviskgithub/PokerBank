@@ -68,7 +68,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         setUndecorated(true);
 
         panelMeio.setBackground(new java.awt.Color(63, 149, 255));
-        panelMeio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(63, 149, 255), 3));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,7 +84,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         panelMeioLayout.setHorizontalGroup(
             panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMeioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -95,18 +94,16 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         );
         panelMeioLayout.setVerticalGroup(
             panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(panelMeioLayout.createSequentialGroup()
-                .addGroup(panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelMeioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2))
         );
 
         panelBaixo.setBackground(new java.awt.Color(51, 51, 51));
+        panelBaixo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 4));
 
         txtNomeRecebe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtNomeRecebe.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,7 +131,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                 .addGap(87, 87, 87))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -156,6 +153,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                     .addComponent(btnAtualizarSaldo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        menuTopo.setBorder(null);
 
         menuAdm.setText("ADMINISTRADOR");
         menuAdm.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -318,7 +317,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelMeio, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelMeio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -332,12 +331,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         String login_recebe_id_string = JOptionPane.showInputDialog("Insira novamente seu ID de usuário, por seguranaça");
         String senha2_recebe = JOptionPane.showInputDialog("Insira sua senha novamente");
         //inicialmente não usaremos a senha
-        
-          if (login_recebe_id_string.isEmpty() && senha2_recebe.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Preencha seu id e senha de usuário");
-                }else if (login_recebe_id_string.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Preencha seu id de usuário");
-                }
+
+        if (login_recebe_id_string.isEmpty() && senha2_recebe.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha seu id e senha de usuário");
+        } else if (login_recebe_id_string.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha seu id de usuário");
+        }
 
         int id_login_recebe = Integer.parseInt(login_recebe_id_string);//converte o string recebido para inteiro
 
@@ -371,15 +370,15 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 somarValoresSaldo(objbankdto);
             } else {
 
-              if(senha2_recebe.equals("")) {
+                if (senha2_recebe.equals("")) {
                     JOptionPane.showMessageDialog(null, "Preencha sua senha de usuário");
 
-                }else{
+                } else {
 
-                JOptionPane.showMessageDialog(null, "Erro em algum dado para a verificação de usuário");
-            
+                    JOptionPane.showMessageDialog(null, "Erro em algum dado para a verificação de usuário");
+
                 }
-                }
+            }
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BTN SALDO TOTAL :" + erro);
@@ -391,22 +390,44 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private void menuAdm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm2ActionPerformed
 
         String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-
+        
+        if(senha3_recebe.equals("")){
+            
+            JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
+            
+        }else{
+        
         UsuarioDTO objusuariodto = new UsuarioDTO();
 
         objusuariodto.setSenha_usuario(senha3_recebe);
 
         UsuarioDAO objusuariodao = new UsuarioDAO();
         //teste de autenticação que me retorna uma variável tipo ResultSet
-        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3(objusuariodto);
+       ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
 
         try {
 
             if (rusuariodao.next()) {
-
+                
+                
+                 //início do comando que verificar se usuário existe no banco local
+                UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                //teste de autenticação que me retorna uma variável tipo ResultSet
+                ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                //variável retorna se o usuário existe no banco local
+                if(rusuariodaoLocal.next()){
+                
+                //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                //ABRE ESSA JFORM
+               
                 frmBanco objbanco = new frmBanco();
                 objbanco.setVisible(true);
 
+                
+                }else{
+                    
+                }
+             
             } else {
                 JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
             }
@@ -415,28 +436,46 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
 
         }
-
+        }
     }//GEN-LAST:event_menuAdm2ActionPerformed
 
     private void menuAdm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm1ActionPerformed
 
         String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-
+        
+        //se não preencheu os dados retorna mensagem
+        if(senha3_recebe.equals("")){
+            JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
+        }else{
+        
         UsuarioDTO objusuariodto = new UsuarioDTO();
 
         objusuariodto.setSenha_usuario(senha3_recebe);
 
         UsuarioDAO objusuariodao = new UsuarioDAO();
         //teste de autenticação que me retorna uma variável tipo ResultSet
-        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3(objusuariodto);
+        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
 
         try {
-
+            //se tem no bd da web o usuário contiua
             if (rusuariodao.next()) {
 
+                //início do comando que verificar se usuário existe no banco local
+                UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                //teste de autenticação que me retorna uma variável tipo ResultSet
+                ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                //variável retorna se o usuário existe no banco local
+                if(rusuariodaoLocal.next()){
+                
+                //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                //ABRE ESSA JFORM
                 frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
 
                 objpesquisa.setVisible(true);
+                
+                }else{
+                    
+                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
@@ -446,7 +485,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW USUÁRIO ADM:" + erro);
 
         }
-
+        }
 
     }//GEN-LAST:event_menuAdm1ActionPerformed
 
@@ -454,20 +493,41 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
 
+        if(senha3_recebe.equals("")){
+            JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
+        }else{
+        
         UsuarioDTO objusuariodto = new UsuarioDTO();
 
         objusuariodto.setSenha_usuario(senha3_recebe);
 
         UsuarioDAO objusuariodao = new UsuarioDAO();
         //teste de autenticação que me retorna uma variável tipo ResultSet
-        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3(objusuariodto);
+        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
 
         try {
 
             if (rusuariodao.next()) {
-
+                
+                
+                 //início do comando que verificar se usuário existe no banco local
+                UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                //teste de autenticação que me retorna uma variável tipo ResultSet
+                ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                //variável retorna se o usuário existe no banco local
+                if(rusuariodaoLocal.next()){
+                
+                //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                //ABRE ESSA JFORM
+                             
                 frmTorneios objtorneios = new frmTorneios();
                 objtorneios.setVisible(rootPaneCheckingEnabled);
+                
+                }else{
+                    
+                }
+                
+
 
             } else {
                 JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
@@ -478,7 +538,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         }
 
-
+        }//fim do primeiro else
     }//GEN-LAST:event_menuAdm3ActionPerformed
 
     private void menuUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUser1ActionPerformed
@@ -569,7 +629,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         frmUsuarioVIEW objusuarioview = new frmUsuarioVIEW();
 
-        objusuarioview.avisoID.setVisible(false);
         objusuarioview.setVisible(true);
 
         dispose();
@@ -579,9 +638,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         frmLogin objlogin = new frmLogin();
-
+        
         objlogin.btnGoFrmUsuario.setVisible(false);
-
+        
         objlogin.setVisible(true);
         dispose();
 
@@ -592,7 +651,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_menuList4ActionPerformed
 
     private void menuAjuda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAjuda1ActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_menuAjuda1ActionPerformed
 
     public static void main(String args[]) {

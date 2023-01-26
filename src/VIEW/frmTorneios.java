@@ -31,91 +31,115 @@ public class frmTorneios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtTypeTourn = new javax.swing.JTextField();
-        txtValBuyinTourn = new javax.swing.JTextField();
-        txtValTourItm = new javax.swing.JTextField();
-        txtCodTourn = new javax.swing.JTextField();
-        btnRegistrarTourn = new javax.swing.JButton();
-        btnAlterarTourn = new javax.swing.JButton();
-        btnLimparTourn = new javax.swing.JButton();
-        btnExcluirTourn = new javax.swing.JButton();
+        jcaDataTourn = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        btnUsuarios = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        cbxUsuarioTourn = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cbxAppTourn = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        btnListarTroneios = new javax.swing.JButton();
+        btnListarGanhos = new javax.swing.JButton();
+        btnListarPerdas = new javax.swing.JButton();
+        btFechar = new javax.swing.JButton();
+        btnBanco = new javax.swing.JButton();
+        btSairTourn = new javax.swing.JButton();
+        btnCarregarTourn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableTourn = new javax.swing.JTable();
-        btnCarregarTourn = new javax.swing.JButton();
-        btSairTourn = new javax.swing.JButton();
-        btnBanco = new javax.swing.JButton();
-        btFechar = new javax.swing.JButton();
-        btnListarPerdas = new javax.swing.JButton();
-        btnListarGanhos = new javax.swing.JButton();
-        btnListarTroneios = new javax.swing.JButton();
-        cbxAppTourn = new javax.swing.JComboBox<>();
-        cbxUsuarioTourn = new javax.swing.JComboBox<>();
-        btnUsuarios = new javax.swing.JButton();
-        jcaDataTourn = new com.toedter.calendar.JDateChooser();
+        btnExcluirTourn = new javax.swing.JButton();
+        btnLimparTourn = new javax.swing.JButton();
+        btnAlterarTourn = new javax.swing.JButton();
+        btnRegistrarTourn = new javax.swing.JButton();
+        txtCodTourn = new javax.swing.JTextField();
+        txtValTourItm = new javax.swing.JTextField();
+        txtValBuyinTourn = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtTypeTourn = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Tipo do torneio :");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Aplicativo :");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Usuário : ");
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Valor ITM :");
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(63, 149, 255), 4));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Valor buy in :");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("Data : ");
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Valor ITM :");
 
-        txtTypeTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtValBuyinTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtValTourItm.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtCodTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtCodTourn.setEnabled(false);
-
-        btnRegistrarTourn.setText("REGISTRAR");
-        btnRegistrarTourn.addActionListener(new java.awt.event.ActionListener() {
+        btnUsuarios.setText("USUÁRIOS");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarTournActionPerformed(evt);
+                btnUsuariosActionPerformed(evt);
             }
         });
 
-        btnAlterarTourn.setText("ALTERAR");
-        btnAlterarTourn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Usuário : ");
+
+        cbxUsuarioTourn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("Aplicativo :");
+
+        cbxAppTourn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Tipo do torneio :");
+
+        btnListarTroneios.setText("LISTAR TORNEIOS");
+        btnListarTroneios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarTournActionPerformed(evt);
+                btnListarTroneiosActionPerformed(evt);
             }
         });
 
-        btnLimparTourn.setText("LIMPAR");
-        btnLimparTourn.addActionListener(new java.awt.event.ActionListener() {
+        btnListarGanhos.setText("LISTAR GANHOS");
+        btnListarGanhos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparTournActionPerformed(evt);
+                btnListarGanhosActionPerformed(evt);
             }
         });
 
-        btnExcluirTourn.setText("EXCLUIR");
-        btnExcluirTourn.addActionListener(new java.awt.event.ActionListener() {
+        btnListarPerdas.setText("LISTAR PERDAS");
+        btnListarPerdas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirTournActionPerformed(evt);
+                btnListarPerdasActionPerformed(evt);
+            }
+        });
+
+        btFechar.setText("FECHAR");
+        btFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFecharActionPerformed(evt);
+            }
+        });
+
+        btnBanco.setText("BANCO");
+        btnBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBancoActionPerformed(evt);
+            }
+        });
+
+        btSairTourn.setText("SAIR");
+        btSairTourn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairTournActionPerformed(evt);
+            }
+        });
+
+        btnCarregarTourn.setText("CARREGAR CAMPOS");
+        btnCarregarTourn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarTournActionPerformed(evt);
             }
         });
 
@@ -132,65 +156,48 @@ public class frmTorneios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableTourn);
 
-        btnCarregarTourn.setText("CARREGAR CAMPOS");
-        btnCarregarTourn.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluirTourn.setText("EXCLUIR");
+        btnExcluirTourn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarregarTournActionPerformed(evt);
+                btnExcluirTournActionPerformed(evt);
             }
         });
 
-        btSairTourn.setText("SAIR");
-        btSairTourn.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparTourn.setText("LIMPAR");
+        btnLimparTourn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairTournActionPerformed(evt);
+                btnLimparTournActionPerformed(evt);
             }
         });
 
-        btnBanco.setText("BANCO");
-        btnBanco.addActionListener(new java.awt.event.ActionListener() {
+        btnAlterarTourn.setText("ALTERAR");
+        btnAlterarTourn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBancoActionPerformed(evt);
+                btnAlterarTournActionPerformed(evt);
             }
         });
 
-        btFechar.setText("FECHAR");
-        btFechar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarTourn.setText("REGISTRAR");
+        btnRegistrarTourn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFecharActionPerformed(evt);
+                btnRegistrarTournActionPerformed(evt);
             }
         });
 
-        btnListarPerdas.setText("LISTAR PERDAS");
-        btnListarPerdas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarPerdasActionPerformed(evt);
-            }
-        });
+        txtCodTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCodTourn.setEnabled(false);
 
-        btnListarGanhos.setText("LISTAR GANHOS");
-        btnListarGanhos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarGanhosActionPerformed(evt);
-            }
-        });
+        txtValTourItm.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        btnListarTroneios.setText("LISTAR TORNEIOS");
-        btnListarTroneios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarTroneiosActionPerformed(evt);
-            }
-        });
+        txtValBuyinTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        cbxAppTourn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("ID : ");
 
-        cbxUsuarioTourn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        txtTypeTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        btnUsuarios.setText("USUÁRIOS");
-        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuariosActionPerformed(evt);
-            }
-        });
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("Data : ");
 
         jPanel1.setBackground(new java.awt.Color(63, 149, 255));
 
@@ -215,30 +222,31 @@ public class frmTorneios extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("ID : ");
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setText("Preencha todos os dados antes de REGISTRAR ou ALTERAR");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxAppTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbxUsuarioTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(4, 4, 4)
                                         .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,32 +254,22 @@ public class frmTorneios extends javax.swing.JFrame {
                                 .addGap(7, 7, 7)
                                 .addComponent(txtTypeTourn, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtValTourItm)
                                     .addComponent(txtValBuyinTourn, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(1, 1, 1)
                                 .addComponent(jcaDataTourn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnLimparTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluirTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegistrarTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAlterarTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCarregarTourn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btSairTourn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addComponent(btnBanco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnListarTroneios)
@@ -279,61 +277,87 @@ public class frmTorneios extends javax.swing.JFrame {
                         .addComponent(btnListarPerdas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnListarGanhos))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnUsuarios)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btFechar)))
+                        .addComponent(btFechar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnLimparTourn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluirTourn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRegistrarTourn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAlterarTourn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCarregarTourn)))
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btFechar)
                         .addComponent(btnUsuarios))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
                         .addComponent(txtCodTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel7)
                     .addComponent(txtTypeTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtValBuyinTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
                     .addComponent(txtValTourItm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxAppTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jLabel9)
                         .addComponent(cbxUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jcaDataTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimparTourn)
-                    .addComponent(btnRegistrarTourn)
-                    .addComponent(btnCarregarTourn)
                     .addComponent(btnExcluirTourn)
-                    .addComponent(btnAlterarTourn))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrarTourn)
+                    .addComponent(btnAlterarTourn)
+                    .addComponent(btnCarregarTourn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListarPerdas)
                     .addComponent(btnListarGanhos)
                     .addComponent(btnListarTroneios)
                     .addComponent(btnBanco)
                     .addComponent(btSairTourn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -506,8 +530,10 @@ public class frmTorneios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jcaDataTourn;
     private javax.swing.JTable tableTourn;
@@ -546,7 +572,7 @@ public class frmTorneios extends javax.swing.JFrame {
 
         //acessando o método cadastroUsuario na DAO
         TorneiosDAO objtorneiosdao = new TorneiosDAO();
-        objtorneiosdao.cadastrarTorneioDAO(objtorunamentsdto);//passando as informações da DTO para o método
+        objtorneiosdao.cadastrarTorneioDAOWeb(objtorunamentsdto);//passando as informações da DTO para o método
 
     }
 
@@ -559,7 +585,7 @@ public class frmTorneios extends javax.swing.JFrame {
         objtournamentsdto.setId_tourn(codigo_tourn);
 
         TorneiosDAO objtorneiosdao = new TorneiosDAO();
-        objtorneiosdao.excluirTorneioDAO(objtournamentsdto);
+        objtorneiosdao.excluirTorneioDAOWeb(objtournamentsdto);
 
     }
 
@@ -594,7 +620,7 @@ public class frmTorneios extends javax.swing.JFrame {
 
         //acessando o método cadastroUsuario na DAO
         TorneiosDAO objtorneiosdao = new TorneiosDAO();
-        objtorneiosdao.alterarTorneioDAO(objtorunamentsdto);//passando as informações da DTO para o método
+        objtorneiosdao.alterarTorneioDAOWeb(objtorunamentsdto);//passando as informações da DTO para o método
 
     }
 

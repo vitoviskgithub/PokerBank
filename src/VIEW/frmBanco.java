@@ -44,129 +44,56 @@ public class frmBanco extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtCodigoBanco = new javax.swing.JTextField();
-        txtEntradaBanco = new javax.swing.JTextField();
-        txtPerdaBanco = new javax.swing.JTextField();
-        txtGanhoBanco = new javax.swing.JTextField();
-        txtSaldoBanco = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableBanco = new javax.swing.JTable();
-        btnRegistrarBanco = new javax.swing.JButton();
-        btnAlterarBanco = new javax.swing.JButton();
-        btnLimparBanco = new javax.swing.JButton();
-        btnCarregarBanco = new javax.swing.JButton();
-        btnExcluirBanco = new javax.swing.JButton();
-        btnSairBanco = new javax.swing.JButton();
-        btnTorneios = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtSaqueBank = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        btFechar = new javax.swing.JButton();
-        btnLstPerdas = new javax.swing.JButton();
-        btnLstGanhos = new javax.swing.JButton();
-        btnLstTourn = new javax.swing.JButton();
-        cbxUserBank = new javax.swing.JComboBox<>();
-        cbxAppBank = new javax.swing.JComboBox<>();
+        jcaDataBanco = new com.toedter.calendar.JDateChooser();
+        btnExcluirBanco = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         btnAtualizarSaldo = new javax.swing.JButton();
-        txtTotalSaldo = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        btnUsuarios = new javax.swing.JButton();
-        jcaDataBanco = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnLstPerdas = new javax.swing.JButton();
+        cbxAppBank = new javax.swing.JComboBox<>();
+        btFechar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtSaldoBanco = new javax.swing.JTextField();
+        btnTorneios = new javax.swing.JButton();
+        txtEntradaBanco = new javax.swing.JTextField();
+        txtCodigoBanco = new javax.swing.JTextField();
+        btnLimparBanco = new javax.swing.JButton();
+        btnLstGanhos = new javax.swing.JButton();
+        txtGanhoBanco = new javax.swing.JTextField();
+        btnLstTourn = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnCarregarBanco = new javax.swing.JButton();
+        cbxUserBank = new javax.swing.JComboBox<>();
+        btnRegistrarBanco = new javax.swing.JButton();
+        txtPerdaBanco = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        txtTotalSaldo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtSaqueBank = new javax.swing.JTextField();
+        btnAlterarBanco = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableBanco = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        btnUsuarios = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnSairBanco = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtCodigoBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtCodigoBanco.setText("CODIGO");
-        txtCodigoBanco.setEnabled(false);
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(63, 149, 255), 4));
 
-        txtEntradaBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel3.setText("SAQUE :");
 
-        txtPerdaBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtGanhoBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtSaldoBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtSaldoBanco.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                calcularSaldo(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Usuário : ");
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Aplicativo : ");
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Entrada :");
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 0, 255));
-        jLabel6.setText("Ganho :");
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel7.setText("Perda : ");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel8.setText("SALDO : ");
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("Data :");
-
-        tableBanco.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "CÓDIGO", "USUÁRIO", "APLICATIVO", "ENTRADA", "PERDA", "GANHO", "SALDO", "SAQUE", "DATA"
-            }
-        ));
-        jScrollPane1.setViewportView(tableBanco);
-
-        btnRegistrarBanco.setText("REGISTRAR");
-        btnRegistrarBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarBancoActionPerformed(evt);
-            }
-        });
-
-        btnAlterarBanco.setText("ALTERAR");
-        btnAlterarBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarBancoActionPerformed(evt);
-            }
-        });
-
-        btnLimparBanco.setText("LIMPAR");
-        btnLimparBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparBancoActionPerformed(evt);
-            }
-        });
-
-        btnCarregarBanco.setText("CARREGAR CAMPOS");
-        btnCarregarBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarregarBancoActionPerformed(evt);
-            }
-        });
+        jcaDataBanco.setDateFormatString("dd 'de' MMM 'de' yyyy");
 
         btnExcluirBanco.setText("EXCLUIR");
         btnExcluirBanco.addActionListener(new java.awt.event.ActionListener() {
@@ -174,61 +101,6 @@ public class frmBanco extends javax.swing.JFrame {
                 btnExcluirBancoActionPerformed(evt);
             }
         });
-
-        btnSairBanco.setText("SAIR");
-        btnSairBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairBancoActionPerformed(evt);
-            }
-        });
-
-        btnTorneios.setText("TORNEIOS");
-        btnTorneios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTorneiosActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 0, 153));
-        jLabel3.setText("SAQUE :");
-
-        txtSaqueBank.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        jLabel10.setForeground(new java.awt.Color(0, 153, 0));
-        jLabel10.setText("CLIQUE  E CALCULE");
-
-        btFechar.setText("FECHAR");
-        btFechar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFecharActionPerformed(evt);
-            }
-        });
-
-        btnLstPerdas.setText("LISTAR PERDAS");
-        btnLstPerdas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLstPerdasActionPerformed(evt);
-            }
-        });
-
-        btnLstGanhos.setText("LISTAR GANHOS");
-        btnLstGanhos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLstGanhosActionPerformed(evt);
-            }
-        });
-
-        btnLstTourn.setText("LISTAR TORNEIOS");
-        btnLstTourn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLstTournActionPerformed(evt);
-            }
-        });
-
-        cbxUserBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
-
-        cbxAppBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
 
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("Preencha todos os campos antes de REGISTRAR ou ALTERAR");
@@ -239,22 +111,6 @@ public class frmBanco extends javax.swing.JFrame {
                 btnAtualizarSaldoActionPerformed(evt);
             }
         });
-
-        txtTotalSaldo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtTotalSaldo.setForeground(new java.awt.Color(0, 51, 51));
-        txtTotalSaldo.setEnabled(false);
-
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel12.setText("SALDO TOTAL :");
-
-        btnUsuarios.setText("USUÁRIOS");
-        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuariosActionPerformed(evt);
-            }
-        });
-
-        jcaDataBanco.setDateFormatString("dd 'de' MMM 'de' yyyy");
 
         jPanel1.setBackground(new java.awt.Color(63, 149, 255));
 
@@ -279,22 +135,169 @@ public class frmBanco extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnLstPerdas.setText("LISTAR PERDAS");
+        btnLstPerdas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLstPerdasActionPerformed(evt);
+            }
+        });
+
+        cbxAppBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        btFechar.setText("FECHAR");
+        btFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFecharActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Aplicativo : ");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setText("SALDO TOTAL :");
+
+        txtSaldoBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtSaldoBanco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calcularSaldo(evt);
+            }
+        });
+
+        btnTorneios.setText("TORNEIOS");
+        btnTorneios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTorneiosActionPerformed(evt);
+            }
+        });
+
+        txtEntradaBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        txtCodigoBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCodigoBanco.setText("CODIGO");
+        txtCodigoBanco.setEnabled(false);
+
+        btnLimparBanco.setText("LIMPAR");
+        btnLimparBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparBancoActionPerformed(evt);
+            }
+        });
+
+        btnLstGanhos.setText("LISTAR GANHOS");
+        btnLstGanhos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLstGanhosActionPerformed(evt);
+            }
+        });
+
+        txtGanhoBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        btnLstTourn.setText("LISTAR TORNEIOS");
+        btnLstTourn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLstTournActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("Data :");
+
+        btnCarregarBanco.setText("CARREGAR CAMPOS");
+        btnCarregarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarBancoActionPerformed(evt);
+            }
+        });
+
+        cbxUserBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        btnRegistrarBanco.setText("REGISTRAR");
+        btnRegistrarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarBancoActionPerformed(evt);
+            }
+        });
+
+        txtPerdaBanco.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel6.setText("Ganho :");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("Perda : ");
+
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel13.setText("Código :");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        txtTotalSaldo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTotalSaldo.setForeground(new java.awt.Color(0, 51, 51));
+        txtTotalSaldo.setEnabled(false);
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Entrada :");
+
+        txtSaqueBank.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        btnAlterarBanco.setText("ALTERAR");
+        btnAlterarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarBancoActionPerformed(evt);
+            }
+        });
+
+        tableBanco.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "CÓDIGO", "USUÁRIO", "APLICATIVO", "ENTRADA", "PERDA", "GANHO", "SALDO", "SAQUE", "DATA"
+            }
+        ));
+        jScrollPane1.setViewportView(tableBanco);
+
+        jLabel10.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel10.setText("CLIQUE  E CALCULE");
+
+        btnUsuarios.setText("USUÁRIOS");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 0));
+        jLabel8.setText("SALDO : ");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setText("Usuário : ");
+
+        btnSairBanco.setText("SAIR");
+        btnSairBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairBancoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel11)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(btnSairBanco)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLimparBanco)
@@ -306,7 +309,7 @@ public class frmBanco extends javax.swing.JFrame {
                                 .addComponent(btnAlterarBanco)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCarregarBanco))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSaqueBank, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,10 +319,10 @@ public class frmBanco extends javax.swing.JFrame {
                         .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
                         .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(btnTorneios)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnLstTourn)
@@ -327,7 +330,7 @@ public class frmBanco extends javax.swing.JFrame {
                                     .addComponent(btnLstPerdas)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnLstGanhos))
-                                .addGroup(layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel13)
                                     .addGap(35, 35, 35)
                                     .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,23 +338,23 @@ public class frmBanco extends javax.swing.JFrame {
                                     .addComponent(btnUsuarios)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btFechar)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbxAppBank, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel9))
                                 .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtEntradaBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jcaDataBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtGanhoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,34 +371,34 @@ public class frmBanco extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUsuarios)
                         .addComponent(btFechar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel13)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jcaDataBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(cbxAppBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEntradaBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtGanhoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
@@ -404,7 +407,7 @@ public class frmBanco extends javax.swing.JFrame {
                     .addComponent(txtSaldoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtSaqueBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,7 +416,7 @@ public class frmBanco extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCarregarBanco)
                     .addComponent(btnRegistrarBanco)
                     .addComponent(btnSairBanco)
@@ -423,12 +426,23 @@ public class frmBanco extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTorneios)
                     .addComponent(btnLstTourn)
                     .addComponent(btnLstGanhos)
                     .addComponent(btnLstPerdas))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -648,6 +662,7 @@ public class frmBanco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jcaDataBanco;
     private javax.swing.JTable tableBanco;
@@ -689,7 +704,7 @@ public class frmBanco extends javax.swing.JFrame {
 
         //acessando o método cadastroUsuario na DAO
         BancoDAO objbancodao = new BancoDAO();
-        objbancodao.cadastrarBancoDAO(objbankuserdto);//passando as informações da DTO para o método
+        objbancodao.cadastrarBancoDAOWeb(objbankuserdto);//passando as informações da DTO para o método
 
     }
 
@@ -702,7 +717,7 @@ public class frmBanco extends javax.swing.JFrame {
         objbankuserdto.setCodigo_bank(codigo_bank);
 
         BancoDAO objbancodao = new BancoDAO();
-        objbancodao.excluirBancoDAO(objbankuserdto);
+        objbancodao.excluirBancoDAOWeb(objbankuserdto);
 
     }
 
@@ -744,7 +759,7 @@ public class frmBanco extends javax.swing.JFrame {
 
         //acessando o método cadastroUsuario na DAO
         BancoDAO objbancodao = new BancoDAO();
-        objbancodao.alterarBancoDAO(objbankuserdto);//passando as informações da DTO para o método
+        objbancodao.alterarBancoDAOWeb(objbankuserdto);//passando as informações da DTO para o método
 
     }
 

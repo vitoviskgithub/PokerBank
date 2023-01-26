@@ -81,24 +81,24 @@ public class testandoJform extends javax.swing.JFrame {
         int id_usuario;
 
         id_usuario = id_login_recebe;
-      
+        
 
         UsuarioDTO objusuariodto = new UsuarioDTO();
 
         objusuariodto.setId_usuario(id_usuario);
         
+
         UsuarioDAO objusuariodao = new UsuarioDAO();
 
-        /**objusuariodao.DadosCadastrais2(objusuariodto);*/
+        objusuariodao.DadosCadastrais2(objusuariodto);
         //não executa a função e nem conecta, erro ao tentar conectar no BD na web
-        
+
         String nome_para = objusuariodto.getNome_usuario();
-        
+
         txtAparecer.setText(nome_para);
-        
+
         JOptionPane.showMessageDialog(null, nome_para);
 
- 
 
     }//GEN-LAST:event_btnAparecerActionPerformed
 

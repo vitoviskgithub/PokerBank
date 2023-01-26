@@ -20,69 +20,23 @@ public class frmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblNomeUsuario = new javax.swing.JLabel();
-        lblSenhaUsuario = new javax.swing.JLabel();
-        txtNomeUsuario = new javax.swing.JTextField();
-        btnEntrarSistema = new javax.swing.JButton();
-        txtSenhaUsuario = new javax.swing.JPasswordField();
-        btnGoFrmUsuario = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnGoFrmUsuario = new javax.swing.JButton();
+        txtSenhaUsuario = new javax.swing.JPasswordField();
+        btnEntrarSistema = new javax.swing.JButton();
+        txtNomeUsuario = new javax.swing.JTextField();
+        lblSenhaUsuario = new javax.swing.JLabel();
+        lblNomeUsuario = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        lblNomeUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblNomeUsuario.setText("NOME DE USUÁRIO:");
-
-        lblSenhaUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblSenhaUsuario.setText("SENHA DO USUÁRIO:");
-
-        txtNomeUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeUsuarioActionPerformed(evt);
-            }
-        });
-        txtNomeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomeUsuarioKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNomeUsuarioKeyTyped(evt);
-            }
-        });
-
-        btnEntrarSistema.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnEntrarSistema.setText("ENTRAR");
-        btnEntrarSistema.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarSistemaActionPerformed(evt);
-            }
-        });
-        btnEntrarSistema.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnEntrarSistemaKeyPressed(evt);
-            }
-        });
-
-        txtSenhaUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtSenhaUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSenhaUsuarioKeyPressed(evt);
-            }
-        });
-
-        btnGoFrmUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnGoFrmUsuario.setText("CADASTRO");
-        btnGoFrmUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGoFrmUsuarioActionPerformed(evt);
-            }
-        });
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(63, 149, 255), 4));
 
         jPanel1.setBackground(new java.awt.Color(63, 149, 255));
 
@@ -122,6 +76,55 @@ public class frmLogin extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        btnGoFrmUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnGoFrmUsuario.setText("CADASTRO");
+        btnGoFrmUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoFrmUsuarioActionPerformed(evt);
+            }
+        });
+
+        txtSenhaUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtSenhaUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaUsuarioKeyPressed(evt);
+            }
+        });
+
+        btnEntrarSistema.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnEntrarSistema.setText("ENTRAR");
+        btnEntrarSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarSistemaActionPerformed(evt);
+            }
+        });
+        btnEntrarSistema.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnEntrarSistemaKeyPressed(evt);
+            }
+        });
+
+        txtNomeUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeUsuarioActionPerformed(evt);
+            }
+        });
+        txtNomeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeUsuarioKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeUsuarioKeyTyped(evt);
+            }
+        });
+
+        lblSenhaUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblSenhaUsuario.setText("SENHA DO USUÁRIO:");
+
+        lblNomeUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblNomeUsuario.setText("NOME DE USUÁRIO:");
+
         btnSair.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSair.setText("SAIR");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -130,34 +133,34 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(lblSenhaUsuario)
                             .addGap(235, 235, 235)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNomeUsuario)
                             .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(btnGoFrmUsuario)
-                            .addGap(97, 97, 97)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnSair)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEntrarSistema))))
                 .addGap(29, 29, 29))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblNomeUsuario)
@@ -168,11 +171,22 @@ public class frmLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEntrarSistema)
                     .addComponent(btnGoFrmUsuario)
-                    .addComponent(btnSair)
-                    .addComponent(btnEntrarSistema))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(btnSair))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -194,8 +208,20 @@ public class frmLogin extends javax.swing.JFrame {
             objusuariodto.setSenha_usuario(senha_usuario);
 
             UsuarioDAO objusuariodao = new UsuarioDAO();
-            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
 
+            //PELA WEB PLANETSCALE
+            ResultSet rusuariodaoweb = objusuariodao.autenticacaoUsuarioWeb(objusuariodto);
+            //resposta se conectou ao banco pela web
+            if (rusuariodaoweb.next()) {
+               
+                JOptionPane.showMessageDialog(null, "Banco de Dados ONLINE");
+                
+                
+            //ENTRA NO BD LOCAL
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
+                JOptionPane.showMessageDialog(null, "Também conectado ao Banco de Dados LOCAL");
+            
+            //VAI PARA A PÁGINA PRINCIPAL
             if (rusuariodao.next()) {
                 //chamar tela que quero abrir
                 frmPrincipalVIEW objfrmprincipalview = new frmPrincipalVIEW();//instanciando Jform frmPrincipal
@@ -213,6 +239,12 @@ public class frmLogin extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválida");
             }
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Banco de Dados OFFLINE\nVerifique se digitou seus dados corretamente e tente novamente");
+                
+            }
+            
 
         } catch (SQLException erro) {
 
@@ -304,8 +336,8 @@ public class frmLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "FRMLOGINVIEW" + erro);
 
             }
-        }else{
-            
+        } else {
+
         }
 
     }//GEN-LAST:event_btnEntrarSistemaKeyPressed
@@ -359,6 +391,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblNomeUsuario;
     private javax.swing.JLabel lblSenhaUsuario;
     public javax.swing.JTextField txtNomeUsuario;

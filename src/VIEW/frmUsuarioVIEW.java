@@ -9,13 +9,12 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import java.sql.SQLException;
 
-
 public class frmUsuarioVIEW extends javax.swing.JFrame {
-  
-          //quando a classe inicializa
+
+    //quando a classe inicializa
     public frmUsuarioVIEW() {
         initComponents();
-        
+
         if (txtIdUser.getText().equals("")) {
 
         } else {
@@ -23,8 +22,10 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
         }
 
         btnAlterarUserView.setEnabled(false);
-        /** botão para tela principal, deixava ele invisível, ele não existe mais
-         btnTelaPrincipal.setVisible(false);*/
+        /**
+         * botão para tela principal, deixava ele invisível, ele não existe mais
+         btnTelaPrincipal.setVisible(false);
+         */
 
         restaurarDadosComboBoxContaPoker();//método para comboBox
 
@@ -34,55 +35,46 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
-        btnCadastrar = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
-        limparDadosCampos = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         cbxContaPoker = new javax.swing.JComboBox<>();
-        txtIdUser = new javax.swing.JTextField();
-        btnAlterarUserView = new javax.swing.JButton();
-        avisoID = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        limparDadosCampos = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        txtSenha = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JTextField();
+        avisoID = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnAlterarUserView = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        txtIdUser = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("NOME");
-
-        txtNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(63, 149, 255), 4, true));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("EMAIL");
 
-        txtEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cbxContaPoker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("TELEFONE");
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("CONTA POKER");
 
-        txtTelefone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("SENHA");
-
-        txtSenha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        btnCadastrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnCadastrar.setText("CADASTRAR");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        limparDadosCampos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        limparDadosCampos.setText("LIMPAR");
+        limparDadosCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
+                limparDadosCamposActionPerformed(evt);
             }
         });
 
@@ -94,42 +86,15 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
             }
         });
 
-        limparDadosCampos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        limparDadosCampos.setText("LIMPAR");
-        limparDadosCampos.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparDadosCamposActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
-        btnSair.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnSair.setText("FECHAR");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("CONTA POKER");
-
-        cbxContaPoker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
-
-        txtIdUser.setEnabled(false);
-
-        btnAlterarUserView.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnAlterarUserView.setText("ALTERAR");
-        btnAlterarUserView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarUserViewActionPerformed(evt);
-            }
-        });
-
-        avisoID.setForeground(new java.awt.Color(255, 0, 0));
-        avisoID.setText("Não esqueça de selecionar sua CONTA POKER antes de CADASTRAR ou ALTERAR");
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("ID");
+        txtSenha.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(63, 149, 255));
 
@@ -154,19 +119,58 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("SENHA");
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("ID");
+
+        txtTelefone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        avisoID.setForeground(new java.awt.Color(255, 0, 0));
+        avisoID.setText("Não esqueça de selecionar sua CONTA POKER antes de CADASTRAR ou ALTERAR");
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setText("TELEFONE");
+
+        btnAlterarUserView.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnAlterarUserView.setText("ALTERAR");
+        btnAlterarUserView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarUserViewActionPerformed(evt);
+            }
+        });
+
+        txtEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        txtIdUser.setEnabled(false);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setText("NOME");
+
+        txtNome.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        btnSair.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnSair.setText("FECHAR");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btnSair)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLogin)
@@ -176,71 +180,82 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
                         .addComponent(limparDadosCampos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCadastrar))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxContaPoker, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(avisoID))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addComponent(txtNome))))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(cbxContaPoker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(avisoID)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSair)
                     .addComponent(btnCadastrar)
                     .addComponent(limparDadosCampos)
                     .addComponent(btnAlterarUserView)
                     .addComponent(btnLogin))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -265,9 +280,9 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
             objfrmlogin.setVisible(true);
 
             objfrmlogin.btnGoFrmUsuario.setVisible(false);
-
+            
             dispose();
-
+            
             JOptionPane.showMessageDialog(null, nomeResposta + " se cadastrou no banco de dados, faça seu login");
 
             dispose();
@@ -309,7 +324,7 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
             AlterarUsuarioVIEW();//altera
             LimparCamposVIEW();
             dispose();
-            }
+        }
 
     }//GEN-LAST:event_btnAlterarUserViewActionPerformed
 
@@ -361,6 +376,7 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton limparDadosCampos;
     public javax.swing.JTextField txtEmail;
     public javax.swing.JTextField txtIdUser;
@@ -393,9 +409,10 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
         objusuariodto.setCod_contapoker(codcontapk);
         objusuariodto.setUsuario_ativo(usuario_ativo);
 
-//acessando o método cadastroUsuario na DAO
+        //acessando o método cadastroUsuario na DAO
         UsuarioDAO objusuariodao = new UsuarioDAO();
-        objusuariodao.cadastrarUsuario(objusuariodto);//passando as informações da DTO para o método
+       
+        objusuariodao.cadastrarUsuarioWeb(objusuariodto);//NA WEB planetScale
 
     }
 
@@ -450,7 +467,7 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
 
 //instanciando a classe DAO
         UsuarioDAO objusuariodao = new UsuarioDAO();
-        objusuariodao.alterarUsuario(objusuariodto);
+        objusuariodao.alterarUsuarioWeb(objusuariodto);//alterando na WEB
 
     }
 
@@ -465,5 +482,4 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
 
     }
 
-             
 }

@@ -94,6 +94,56 @@ public class BancoDAO {
             pstm.setInt(9, objbankuserdto.getCodigo_bank());
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Alterados dados com sucesso no banco Local");
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "BancoDAO AlterarBanco: " + erro);
+        }
+
+    }
+    
+        public void alterarBancoDAOWeb(BankUserDTO objbankuserdto) {
+
+        String sql = "UPDATE tablebankuser SET fk_id_user_bank = ?, fk_app_id_bank = ?, entrada_bank = ?, perda_bank = ?, ganho_bank = ?, saldo_bank = ?, saque_bank = ?, data_bank = ? where codigo_bank = ?";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 5
+            //sempre começa do parâmetro 1
+            pstm.setInt(1, objbankuserdto.getId_user_bank());
+            pstm.setInt(2, objbankuserdto.getApp_id_bank());
+            pstm.setInt(3, objbankuserdto.getEntrada_bank());
+            pstm.setInt(4, objbankuserdto.getPerda_bank());
+            pstm.setInt(5, objbankuserdto.getGanho_bank());
+            pstm.setInt(6, objbankuserdto.getSaldo_bank());
+            pstm.setInt(7, objbankuserdto.getSaque_bank());
+            
+              //converte a variável data para strig antes de enviar para
+            //o preparedStatement
+            Date data_banco = objbankuserdto.getData_bank();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_banco_formatada = dateFormat.format(data_banco);
+            
+            pstm.setString(8, data_banco_formatada);
+            pstm.setInt(9, objbankuserdto.getCodigo_bank());
+
+            pstm.execute();
+            
+             JOptionPane.showMessageDialog(null, "Alterados dados com sucesso na WEB");
+
+            //acessando o método alteraBanco na DAO
+            //ALTERANDO NO BANCO LOCAL
+            alterarBancoDAO(objbankuserdto);//passando as informações da DTO para o método
+
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -117,6 +167,40 @@ public class BancoDAO {
             pstm.setInt(1, objbankuserdto.getCodigo_bank());
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Excluidos dados com sucesso no banco Local");
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "BancoDAO ExcluirBanco: " + erro);
+        }
+
+    }
+    
+        public void excluirBancoDAOWeb(BankUserDTO objbankuserdto) {
+
+        String sql = "DELETE from tablebankuser where codigo_bank = ?";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 5
+            pstm.setInt(1, objbankuserdto.getCodigo_bank());
+
+            pstm.execute();
+            
+             JOptionPane.showMessageDialog(null, "Excluidos dados com sucesso na WEB");
+
+            //acessando o método alteraBanco na DAO
+            //ALTERANDO NO BANCO LOCAL
+           excluirBancoDAO(objbankuserdto);//passando as informações da DTO para o método
+
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -154,6 +238,9 @@ public class BancoDAO {
             pstm.setString(8, data_banco_formatada);
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Cadastrados dados com sucesso no banco Local");
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -163,6 +250,51 @@ public class BancoDAO {
 
     }
 
+    public void cadastrarBancoDAOWeb(BankUserDTO objbankuserdto) {
+
+        String sql = "INSERT INTO tablebankuser (fk_id_user_bank, fk_app_id_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank, data_bank) VALUES(?,?,?,?,?,?,?,?)";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //a variável id_usuario é AUTOINCREMENTY, então é automático ela receber o valor do sistema todas as vezes que cadastra
+            pstm.setInt(1, objbankuserdto.getId_user_bank());
+            pstm.setInt(2, objbankuserdto.getApp_id_bank());
+            pstm.setInt(3, objbankuserdto.getEntrada_bank());
+            pstm.setInt(4, objbankuserdto.getPerda_bank());
+            pstm.setInt(5, objbankuserdto.getGanho_bank());
+            pstm.setInt(6, objbankuserdto.getSaldo_bank());
+            pstm.setInt(7, objbankuserdto.getSaque_bank());
+            
+            //converte a variável data para strig antes de enviar para
+            //o preparedStatement
+            Date data_banco = objbankuserdto.getData_bank();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_banco_formatada = dateFormat.format(data_banco);
+
+            pstm.setString(8, data_banco_formatada);
+
+            pstm.execute();
+            
+             JOptionPane.showMessageDialog(null, "Cadastrados dados com sucesso na WEB");
+
+            //acessando o método alteraBanco na DAO
+            //ALTERANDO NO BANCO LOCAL
+           cadastrarBancoDAO(objbankuserdto);//passando as informações da DTO para o método
+
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "BancoDAO: " + erro);
+        }
+
+    }
+    
     public ArrayList<BankUserDTO> PesquisarGanhosLista(BankUserDTO objbankdto) {
 
         String sql = "SELECT * FROM tablebankuser WHERE fk_id_user_bank = ?";//percorre todas as linhas do banco de dados

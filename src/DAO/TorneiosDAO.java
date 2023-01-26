@@ -86,6 +86,9 @@ public class TorneiosDAO {
             pstm.setString(6, data_tourn_formatada);
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Torneio cadastrado no banco Local");
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -95,6 +98,45 @@ public class TorneiosDAO {
 
     }
 
+    public void cadastrarTorneioDAOWeb(TournamentsDTO objtournamentsdto) {
+
+        String sql = "INSERT INTO tabletournaments (type_tourn, fk_app_id_tourn, fk_id_user_tourn, value_tourn, itm_val_tourn, date_tourn) VALUES(?,?,?,?,?,?)";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //a variável id_usuario é AUTOINCREMENTY, então é automático ela receber o valor do sistema todas as vezes que cadastra
+            pstm.setString(1, objtournamentsdto.getType_tourn());
+            pstm.setInt(2, objtournamentsdto.getApp_id_tourn());
+            pstm.setInt(3, objtournamentsdto.getId_user_tourn());
+            pstm.setInt(4, objtournamentsdto.getValue_tourn());
+            pstm.setInt(5, objtournamentsdto.getItm_val_tourn());
+
+            //converte a variável data para strig antes de enviar para
+            //o preparedStatement
+            Date data_tourn = objtournamentsdto.getDate_tourn();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_tourn_formatada = dateFormat.format(data_tourn);
+            pstm.setString(6, data_tourn_formatada);
+
+            pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Torneio cadastrado na WEB");
+            cadastrarTorneioDAO(objtournamentsdto);
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "TorneiosDAO: " + erro);
+        }
+
+    }
+
+    
     public void excluirTorneioDAO(TournamentsDTO objtournamentsdto) {
 
         String sql = "DELETE from tabletournaments where id_tourn = ?";
@@ -109,6 +151,36 @@ public class TorneiosDAO {
             pstm.setInt(1, objtournamentsdto.getId_tourn());
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Torneio excluído no banco Local");
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "TorneiosDAO ExcluirTorneioDAO: " + erro);
+        }
+
+    }
+    
+    public void excluirTorneioDAOWeb(TournamentsDTO objtournamentsdto) {
+
+        String sql = "DELETE from tabletournaments where id_tourn = ?";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 5
+            pstm.setInt(1, objtournamentsdto.getId_tourn());
+
+            pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Torneio excluído na WEB");
+            excluirTorneioDAO(objtournamentsdto);
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -118,6 +190,8 @@ public class TorneiosDAO {
 
     }
 
+    
+    
     public void alterarTorneioDAO(TournamentsDTO objtournamentsdto) {
 
         String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ? where id_tourn = ?";
@@ -144,6 +218,9 @@ public class TorneiosDAO {
             pstm.setInt(7, objtournamentsdto.getId_tourn());
 
             pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Torneio alterado no banco Local");
+            
             pstm.close();
 
         } catch (SQLException erro) {
@@ -153,6 +230,46 @@ public class TorneiosDAO {
 
     }
 
+    public void alterarTorneioDAOWeb(TournamentsDTO objtournamentsdto) {
+
+        String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ? where id_tourn = ?";
+
+        conn = new ConexaoDAO().ConectarWeb();
+
+        try {
+
+            pstm = conn.prepareStatement(sql);
+
+            //parâmetros são os pontos de interrogação, nesta comando sql existem 5
+            //sempre começa do parâmetro 1
+            pstm.setString(1, objtournamentsdto.getType_tourn());
+            pstm.setInt(2, objtournamentsdto.getApp_id_tourn());
+            pstm.setInt(3, objtournamentsdto.getId_user_tourn());
+            pstm.setInt(4, objtournamentsdto.getValue_tourn());
+            pstm.setInt(5, objtournamentsdto.getItm_val_tourn());
+
+            Date data_tourn = objtournamentsdto.getDate_tourn();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String data_tourn_formatada = dateFormat.format(data_tourn);
+            pstm.setString(6, data_tourn_formatada);
+            
+            pstm.setInt(7, objtournamentsdto.getId_tourn());
+
+            pstm.execute();
+            
+            JOptionPane.showMessageDialog(null, "Torneio alterado na Web");
+            alterarTorneioDAO(objtournamentsdto);
+            
+            pstm.close();
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "TorneiosDAO AlterarTorneioDAO: " + erro);
+        }
+
+    }
+
+    
     public ArrayList<TournamentsDTO> PesquisarTorneioDAO() {
 
         String sql = "SELECT * FROM tabletournaments";//percorre todas as linhas do banco de dados
