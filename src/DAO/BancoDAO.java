@@ -51,6 +51,7 @@ public class BancoDAO {
                 objbankuserdto.setSaldo_bank(rs.getInt("saldo_bank"));
                 objbankuserdto.setSaque_bank(rs.getInt("saque_bank"));
                 objbankuserdto.setData_bank(rs.getDate("data_bank"));
+                objbankuserdto.setComment_bank(rs.getString("comment_bank"));
 
                 lista.add(objbankuserdto);
 
@@ -66,7 +67,7 @@ public class BancoDAO {
 
     public void alterarBancoDAO(BankUserDTO objbankuserdto) {
 
-        String sql = "UPDATE tablebankuser SET fk_id_user_bank = ?, fk_app_id_bank = ?, entrada_bank = ?, perda_bank = ?, ganho_bank = ?, saldo_bank = ?, saque_bank = ?, data_bank = ? where codigo_bank = ?";
+        String sql = "UPDATE tablebankuser SET fk_id_user_bank = ?, fk_app_id_bank = ?, entrada_bank = ?, perda_bank = ?, ganho_bank = ?, saldo_bank = ?, saque_bank = ?, data_bank = ?, comment_bank = ? where codigo_bank = ?";
 
         conn = new ConexaoDAO().conectaBD();
 
@@ -91,7 +92,9 @@ public class BancoDAO {
             String data_banco_formatada = dateFormat.format(data_banco);
             
             pstm.setString(8, data_banco_formatada);
-            pstm.setInt(9, objbankuserdto.getCodigo_bank());
+            pstm.setString(9, objbankuserdto.getComment_bank());
+            
+            pstm.setInt(10, objbankuserdto.getCodigo_bank());
 
             pstm.execute();
             
@@ -108,7 +111,7 @@ public class BancoDAO {
     
         public void alterarBancoDAOWeb(BankUserDTO objbankuserdto) {
 
-        String sql = "UPDATE tablebankuser SET fk_id_user_bank = ?, fk_app_id_bank = ?, entrada_bank = ?, perda_bank = ?, ganho_bank = ?, saldo_bank = ?, saque_bank = ?, data_bank = ? where codigo_bank = ?";
+        String sql = "UPDATE tablebankuser SET fk_id_user_bank = ?, fk_app_id_bank = ?, entrada_bank = ?, perda_bank = ?, ganho_bank = ?, saldo_bank = ?, saque_bank = ?, data_bank = ?, comment_bank = ? where codigo_bank = ?";
 
         conn = new ConexaoDAO().ConectarWeb();
 
@@ -133,7 +136,8 @@ public class BancoDAO {
             String data_banco_formatada = dateFormat.format(data_banco);
             
             pstm.setString(8, data_banco_formatada);
-            pstm.setInt(9, objbankuserdto.getCodigo_bank());
+            pstm.setString(9, objbankuserdto.getComment_bank());
+            pstm.setInt(10, objbankuserdto.getCodigo_bank());
 
             pstm.execute();
             
@@ -212,7 +216,7 @@ public class BancoDAO {
 
     public void cadastrarBancoDAO(BankUserDTO objbankuserdto) {
 
-        String sql = "INSERT INTO tablebankuser (fk_id_user_bank, fk_app_id_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank, data_bank) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tablebankuser (fk_id_user_bank, fk_app_id_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank, data_bank, comment_bank) VALUES(?,?,?,?,?,?,?,?,?)";
 
         conn = new ConexaoDAO().conectaBD();
 
@@ -228,7 +232,7 @@ public class BancoDAO {
             pstm.setInt(5, objbankuserdto.getGanho_bank());
             pstm.setInt(6, objbankuserdto.getSaldo_bank());
             pstm.setInt(7, objbankuserdto.getSaque_bank());
-            
+                        
             //converte a variável data para strig antes de enviar para
             //o preparedStatement
             Date data_banco = objbankuserdto.getData_bank();
@@ -236,6 +240,7 @@ public class BancoDAO {
             String data_banco_formatada = dateFormat.format(data_banco);
 
             pstm.setString(8, data_banco_formatada);
+            pstm.setString(9, objbankuserdto.getComment_bank());
 
             pstm.execute();
             
@@ -252,7 +257,7 @@ public class BancoDAO {
 
     public void cadastrarBancoDAOWeb(BankUserDTO objbankuserdto) {
 
-        String sql = "INSERT INTO tablebankuser (fk_id_user_bank, fk_app_id_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank, data_bank) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tablebankuser (fk_id_user_bank, fk_app_id_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank, data_bank, comment_bank) VALUES(?,?,?,?,?,?,?,?,?)";
 
         conn = new ConexaoDAO().ConectarWeb();
 
@@ -276,6 +281,7 @@ public class BancoDAO {
             String data_banco_formatada = dateFormat.format(data_banco);
 
             pstm.setString(8, data_banco_formatada);
+            pstm.setString(9, objbankuserdto.getComment_bank());
 
             pstm.execute();
             
@@ -359,7 +365,42 @@ public class BancoDAO {
 
         } catch (SQLException erro) {
 
-            JOptionPane.showMessageDialog(null, "TorneiosDAO PesquisarBancoDAOPerda: " + erro);
+            JOptionPane.showMessageDialog(null, "BancoDAO PesquisarBancoDAOPerda: " + erro);
+        }
+
+        return lista;
+    }
+    
+     public ArrayList<BankUserDTO> PesquisarSaquesLista(BankUserDTO objbankdto) {
+
+        String sql = "SELECT * FROM tablebankuser WHERE fk_id_user_bank = ?";//percorre todas as linhas do banco de dados
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco
+
+        try {
+
+            pstm = conn.prepareStatement(sql);//conecta ao banco com a variável conn e prepara o código sql dentro do banco pela variável ResultSet pstm pronto para executar
+
+            pstm.setInt(1, objbankdto.getId_user_bank());
+
+            rs = pstm.executeQuery();//executa o código sql através da variável ResultSet
+
+            while (rs.next()) {
+
+                BankUserDTO objbankuserdto = new BankUserDTO();
+
+                //acessando a classe através do objeto
+                objbankuserdto.setData_bank(rs.getDate("data_bank"));
+                objbankuserdto.setApp_id_bank(rs.getInt("fk_app_id_bank"));
+                objbankuserdto.setSaque_bank(rs.getInt("saque_bank"));
+
+                lista.add(objbankuserdto);
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "BancoDAO PesquisarBancoDAOSaques: " + erro);
         }
 
         return lista;

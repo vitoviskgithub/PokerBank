@@ -43,7 +43,6 @@ public class frmListaTourn extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(63, 149, 255), 4, true));
-        jPanel1.setForeground(new java.awt.Color(153, 153, 153));
 
         btnFechar.setText("FECHAR");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {

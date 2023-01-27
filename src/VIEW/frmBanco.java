@@ -84,6 +84,8 @@ public class frmBanco extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSairBanco = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        txtComment = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +145,11 @@ public class frmBanco extends javax.swing.JFrame {
         });
 
         cbxAppBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        cbxAppBank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxAppBankActionPerformed(evt);
+            }
+        });
 
         btFechar.setText("FECHAR");
         btFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -250,13 +257,13 @@ public class frmBanco extends javax.swing.JFrame {
 
         tableBanco.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CÓDIGO", "USUÁRIO", "APLICATIVO", "ENTRADA", "PERDA", "GANHO", "SALDO", "SAQUE", "DATA"
+                "CÓDIGO", "USUÁRIO", "APLICATIVO", "ENTRADA", "PERDA", "GANHO", "SALDO", "SAQUE", "DATA", "CC"
             }
         ));
         jScrollPane1.setViewportView(tableBanco);
@@ -285,6 +292,11 @@ public class frmBanco extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setText("Comentário :");
+
+        txtComment.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -310,34 +322,15 @@ public class frmBanco extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCarregarBanco))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaqueBank, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(btnTorneios)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnLstTourn)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnLstPerdas)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnLstGanhos))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addGap(35, 35, 35)
-                                    .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(313, 313, 313)
-                                    .addComponent(btnUsuarios)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btFechar)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(35, 35, 35)
+                                .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(313, 313, 313)
+                                .addComponent(btnUsuarios)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btFechar))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -367,8 +360,30 @@ public class frmBanco extends javax.swing.JFrame {
                                 .addGap(2, 2, 2)
                                 .addComponent(txtSaldoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jLabel10))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnTorneios)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLstTourn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLstPerdas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLstGanhos))
+                            .addComponent(jLabel14))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSaqueBank, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(txtComment)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -413,7 +428,11 @@ public class frmBanco extends javax.swing.JFrame {
                     .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(btnAtualizarSaldo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addComponent(jLabel11)
                 .addGap(9, 9, 9)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -431,7 +450,7 @@ public class frmBanco extends javax.swing.JFrame {
                     .addComponent(btnLstTourn)
                     .addComponent(btnLstGanhos)
                     .addComponent(btnLstPerdas))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -599,6 +618,10 @@ public class frmBanco extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
+    private void cbxAppBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAppBankActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxAppBankActionPerformed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -653,6 +676,7 @@ public class frmBanco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -667,6 +691,7 @@ public class frmBanco extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jcaDataBanco;
     private javax.swing.JTable tableBanco;
     private javax.swing.JTextField txtCodigoBanco;
+    private javax.swing.JTextField txtComment;
     private javax.swing.JTextField txtEntradaBanco;
     private javax.swing.JTextField txtGanhoBanco;
     private javax.swing.JTextField txtPerdaBanco;
@@ -680,6 +705,7 @@ public class frmBanco extends javax.swing.JFrame {
         Date data_banco = new Date();
         //declarando variável
         int user_banco, app_banco, entrada_banco, perda_banco, ganho_banco, saldo_banco, saque_banco, codigo_banco;
+        String comment_bank;
 
         user_banco = cbxUserBank.getSelectedIndex();
         app_banco = cbxAppBank.getSelectedIndex();
@@ -689,6 +715,7 @@ public class frmBanco extends javax.swing.JFrame {
         saldo_banco = Integer.parseInt(txtSaldoBanco.getText());
         saque_banco = Integer.parseInt(txtSaqueBank.getText());
         data_banco = jcaDataBanco.getDate();
+        comment_bank =txtComment.getText();
 
         //setando os valores dos campos da VIEW para a DTO
         BankUserDTO objbankuserdto = new BankUserDTO();
@@ -701,6 +728,7 @@ public class frmBanco extends javax.swing.JFrame {
         objbankuserdto.setSaldo_bank(saldo_banco);
         objbankuserdto.setSaque_bank(saque_banco);
         objbankuserdto.setData_bank(data_banco);
+        objbankuserdto.setComment_bank(comment_bank);
 
         //acessando o método cadastroUsuario na DAO
         BancoDAO objbancodao = new BancoDAO();
@@ -725,6 +753,7 @@ public class frmBanco extends javax.swing.JFrame {
         Date data_banco = new Date();
         //declarando variável
         int user_banco, app_banco, entrada_banco, perda_banco, ganho_banco, saldo_banco, saque_banco, codigo_banco;
+        String comment_bank;
 
         codigo_banco = Integer.parseInt(txtCodigoBanco.getText());
         user_banco = cbxUserBank.getSelectedIndex();
@@ -744,6 +773,7 @@ public class frmBanco extends javax.swing.JFrame {
         saque_banco = Integer.parseInt(txtSaqueBank.getText());
 
         data_banco = jcaDataBanco.getDate();
+        comment_bank = txtComment.getText();
 
 //setando os valores dos campos da VIEW para a DTO
         BankUserDTO objbankuserdto = new BankUserDTO();
@@ -756,6 +786,7 @@ public class frmBanco extends javax.swing.JFrame {
         objbankuserdto.setSaldo_bank(saldo_banco);
         objbankuserdto.setSaque_bank(saque_banco);
         objbankuserdto.setData_bank(data_banco);
+        objbankuserdto.setComment_bank(comment_bank);
 
         //acessando o método cadastroUsuario na DAO
         BancoDAO objbancodao = new BancoDAO();
@@ -778,7 +809,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtGanhoBanco.setText(tableBanco.getModel().getValueAt(setar, 5).toString());
         txtSaldoBanco.setText(tableBanco.getModel().getValueAt(setar, 6).toString());
         txtSaqueBank.setText(tableBanco.getModel().getValueAt(setar, 7).toString());
-
+                         
         //para converter o String para Date, o método PARSE exige tratamento de Exception
         try {
 
@@ -792,7 +823,9 @@ public class frmBanco extends javax.swing.JFrame {
         } catch (ParseException erro) {
             erro.printStackTrace();
         }
-
+          //setando coluna 9
+          txtComment.setText(tableBanco.getModel().getValueAt(setar, 9).toString());
+        
         CalcularSaldoGeral();
 
     }
@@ -824,7 +857,8 @@ public class frmBanco extends javax.swing.JFrame {
                     lista.get(num).getGanho_bank(),
                     lista.get(num).getSaldo_bank(),
                     lista.get(num).getSaque_bank(),
-                    lista.get(num).getData_bank()
+                    lista.get(num).getData_bank(),
+                    lista.get(num).getComment_bank()
                 });
             }
 
@@ -847,6 +881,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtSaldoBanco.setText("");
         txtSaqueBank.setText("");
         jcaDataBanco.setDate(null);
+        txtComment.setText("");
 
     }
 

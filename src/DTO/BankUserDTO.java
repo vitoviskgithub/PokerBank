@@ -6,6 +6,7 @@ public class BankUserDTO {
 
     private int id_user_bank, app_id_bank, codigo_bank, entrada_bank, perda_bank, ganho_bank, saldo_bank, saque_bank;
     private Date data_bank;
+    private String comment_bank;
 
     public int getCodigo_bank() {
         return codigo_bank;
@@ -77,6 +78,14 @@ public class BankUserDTO {
 
     public void setData_bank(Date data_bank) {
         this.data_bank = data_bank;
+    }
+
+    public String getComment_bank() {
+        return comment_bank;
+    }
+
+    public void setComment_bank(String comment_bank) {
+        this.comment_bank = comment_bank;
     }
 
 }

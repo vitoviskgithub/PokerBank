@@ -1,6 +1,7 @@
 package VIEW;
 
 import DAO.ConexaoDAO;
+import DAO.ContaPokerDAO;
 import DAO.UsuarioDAO;
 import DTO.BankUserDTO;
 import DTO.TournamentsDTO;
@@ -13,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
+import java.util.Vector;
 import javax.swing.JFrame;
 
 public class frmPrincipalVIEW extends javax.swing.JFrame {
@@ -23,6 +25,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     public frmPrincipalVIEW() {
         initComponents();
+        
+        restaurarDadosComboBoxApppPrincipal();
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +42,11 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         txtbemvindo = new javax.swing.JLabel();
         txtTotalSaldo = new javax.swing.JTextField();
         btnAtualizarSaldo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        cbxContaPrincipal = new javax.swing.JComboBox<>();
+        txtTotalContaApp = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         menuTopo = new javax.swing.JMenuBar();
         menuAdm = new javax.swing.JMenu();
         menuAdm1 = new javax.swing.JMenuItem();
@@ -123,21 +132,58 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("SALDO P/ CONTA");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        cbxContaPrincipal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+
+        txtTotalContaApp.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTotalContaApp.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(63, 149, 255)));
+        txtTotalContaApp.setEnabled(false);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 255, 51));
+        jLabel1.setText("RESULTADO :");
+
+        jLabel5.setForeground(new java.awt.Color(63, 149, 255));
+        jLabel5.setText("Antes de clicar em SALDO P/ CONTA, selecione uma APLICATIVO/CONTA");
+
         javax.swing.GroupLayout panelBaixoLayout = new javax.swing.GroupLayout(panelBaixo);
         panelBaixo.setLayout(panelBaixoLayout);
         panelBaixoLayout.setHorizontalGroup(
             panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBaixoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                .addGap(87, 87, 87))
+                .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(panelBaixoLayout.createSequentialGroup()
+                        .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addGap(87, 87, 87))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
+                        .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBaixoLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1))
+                            .addComponent(cbxContaPrincipal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTotalContaApp)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAtualizarSaldo)
+                .addComponent(jLabel5)
                 .addContainerGap())
         );
         panelBaixoLayout.setVerticalGroup(
@@ -151,7 +197,17 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                 .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAtualizarSaldo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(cbxContaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotalContaApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         menuTopo.setBorder(null);
@@ -390,101 +446,98 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private void menuAdm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm2ActionPerformed
 
         String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-        
-        if(senha3_recebe.equals("")){
-            
+
+        if (senha3_recebe.equals("")) {
+
             JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
-            
-        }else{
-        
-        UsuarioDTO objusuariodto = new UsuarioDTO();
 
-        objusuariodto.setSenha_usuario(senha3_recebe);
+        } else {
 
-        UsuarioDAO objusuariodao = new UsuarioDAO();
-        //teste de autenticação que me retorna uma variável tipo ResultSet
-       ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+            UsuarioDTO objusuariodto = new UsuarioDTO();
 
-        try {
+            objusuariodto.setSenha_usuario(senha3_recebe);
 
-            if (rusuariodao.next()) {
-                
-                
-                 //início do comando que verificar se usuário existe no banco local
-                UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
-                //teste de autenticação que me retorna uma variável tipo ResultSet
-                ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
-                //variável retorna se o usuário existe no banco local
-                if(rusuariodaoLocal.next()){
-                
-                //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
-                //ABRE ESSA JFORM
-               
-                frmBanco objbanco = new frmBanco();
-                objbanco.setVisible(true);
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
 
-                
-                }else{
-                    
+            try {
+
+                if (rusuariodao.next()) {
+
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+
+                        //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                        //ABRE ESSA JFORM
+                        frmBanco objbanco = new frmBanco();
+                        objbanco.setVisible(true);
+
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
                 }
-             
-            } else {
-                JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
+
             }
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
-
-        }
         }
     }//GEN-LAST:event_menuAdm2ActionPerformed
 
     private void menuAdm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm1ActionPerformed
 
         String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
-        
+
         //se não preencheu os dados retorna mensagem
-        if(senha3_recebe.equals("")){
+        if (senha3_recebe.equals("")) {
             JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
-        }else{
-        
-        UsuarioDTO objusuariodto = new UsuarioDTO();
+        } else {
 
-        objusuariodto.setSenha_usuario(senha3_recebe);
+            UsuarioDTO objusuariodto = new UsuarioDTO();
 
-        UsuarioDAO objusuariodao = new UsuarioDAO();
-        //teste de autenticação que me retorna uma variável tipo ResultSet
-        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+            objusuariodto.setSenha_usuario(senha3_recebe);
 
-        try {
-            //se tem no bd da web o usuário contiua
-            if (rusuariodao.next()) {
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
 
-                //início do comando que verificar se usuário existe no banco local
-                UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
-                //teste de autenticação que me retorna uma variável tipo ResultSet
-                ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
-                //variável retorna se o usuário existe no banco local
-                if(rusuariodaoLocal.next()){
-                
-                //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
-                //ABRE ESSA JFORM
-                frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
+            try {
+                //se tem no bd da web o usuário contiua
+                if (rusuariodao.next()) {
 
-                objpesquisa.setVisible(true);
-                
-                }else{
-                    
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+
+                        //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                        //ABRE ESSA JFORM
+                        frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
+
+                        objpesquisa.setVisible(true);
+
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
                 }
 
-            } else {
-                JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW USUÁRIO ADM:" + erro);
+
             }
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW USUÁRIO ADM:" + erro);
-
-        }
         }
 
     }//GEN-LAST:event_menuAdm1ActionPerformed
@@ -493,50 +546,46 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
 
-        if(senha3_recebe.equals("")){
+        if (senha3_recebe.equals("")) {
             JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
-        }else{
-        
-        UsuarioDTO objusuariodto = new UsuarioDTO();
+        } else {
 
-        objusuariodto.setSenha_usuario(senha3_recebe);
+            UsuarioDTO objusuariodto = new UsuarioDTO();
 
-        UsuarioDAO objusuariodao = new UsuarioDAO();
-        //teste de autenticação que me retorna uma variável tipo ResultSet
-        ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+            objusuariodto.setSenha_usuario(senha3_recebe);
 
-        try {
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
 
-            if (rusuariodao.next()) {
-                
-                
-                 //início do comando que verificar se usuário existe no banco local
-                UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
-                //teste de autenticação que me retorna uma variável tipo ResultSet
-                ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
-                //variável retorna se o usuário existe no banco local
-                if(rusuariodaoLocal.next()){
-                
-                //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
-                //ABRE ESSA JFORM
-                             
-                frmTorneios objtorneios = new frmTorneios();
-                objtorneios.setVisible(rootPaneCheckingEnabled);
-                
-                }else{
-                    
+            try {
+
+                if (rusuariodao.next()) {
+
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+
+                        //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                        //ABRE ESSA JFORM
+                        frmTorneios objtorneios = new frmTorneios();
+                        objtorneios.setVisible(rootPaneCheckingEnabled);
+
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
                 }
-                
 
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW TORNEIO ADM:" + erro);
 
-            } else {
-                JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
             }
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW TORNEIO ADM:" + erro);
-
-        }
 
         }//fim do primeiro else
     }//GEN-LAST:event_menuAdm3ActionPerformed
@@ -638,21 +687,30 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         frmLogin objlogin = new frmLogin();
-        
+
         objlogin.btnGoFrmUsuario.setVisible(false);
-        
+
         objlogin.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void menuList4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuList4ActionPerformed
-        // TODO add your handling code here:
+
+        frmListarSaques objlistasaques = new frmListarSaques();
+        objlistasaques.setVisible(true);
+
+
     }//GEN-LAST:event_menuList4ActionPerformed
 
     private void menuAjuda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAjuda1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuAjuda1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        BankUserDTO objbankdto = new BankUserDTO();
+        somarValoresContaApp(objbankdto);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -689,9 +747,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizarSaldo;
+    private javax.swing.JComboBox<String> cbxContaPrincipal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuAdm;
@@ -720,6 +782,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JPanel panelBaixo;
     private javax.swing.JPanel panelMeio;
     public javax.swing.JLabel txtNomeRecebe;
+    private javax.swing.JTextField txtTotalContaApp;
     private javax.swing.JTextField txtTotalSaldo;
     public javax.swing.JLabel txtbemvindo;
     // End of variables declaration//GEN-END:variables
@@ -758,5 +821,158 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         }
 
     }
+    
+       public void restaurarDadosComboBoxApppPrincipal() {
+        //Vetor usado para passar dois valores para comboBox
+        Vector<Integer> idPoker = new Vector<Integer>();
 
+        try {
+
+            cbxContaPrincipal.removeAllItems();
+            cbxContaPrincipal.addItem("Selecione");
+
+            ContaPokerDAO objcontapokerdao = new ContaPokerDAO();
+            ResultSet rs = objcontapokerdao.listarAppCombo();
+
+            while (rs.next()) {
+
+                idPoker.addElement(rs.getInt(1));//o elemento faz parte do Vector, e também é importante pois será chave estrangeira
+                //concatenei o id mais o valor da coluna selecionada no banco de dados na visualização do usuário
+                //também usei o método do Vetor id_contapoker que me retorna o valor somente do último elemento, e não de todo valor
+                cbxContaPrincipal.addItem(idPoker.lastElement() + rs.getString(2));// o Item é o que aparece para usuário visualizar
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "frmTorneios comboBoxApp: " + erro);
+
+        }
+
+    }
+       
+    //instanciando e criando o objeto dessa classe   
+    ConexaoDAO objconndao = new ConexaoDAO();
+    //variável usada no método somarValoresContaApp
+    public int somaSaldoContaApp, part1_soma_app, part2_soma_app;
+    
+    private void somarValoresContaApp(BankUserDTO objbankdto){
+        
+        //pegando o item selecionado na comboBox e passando para uma variável
+        int id_conta_app = cbxContaPrincipal.getSelectedIndex();
+        
+        //setando esse valor na DTO
+        objbankdto.setApp_id_bank(id_conta_app);
+        
+        
+        if(id_conta_app==3){
+            
+            
+            //SOMANDO PARTE 1
+              String sql1 = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = 1";
+        
+               //conectando ao banco
+               // tem que usar o new para criar essa NOVA CONEXÃO, e por instanciar outra classe
+               conn = new ConexaoDAO().conectaBD();
+            
+            try {
+            
+                 //armezando a string
+                 pstm = conn.prepareStatement(sql1);
+                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+                 rs = pstm.executeQuery();
+                                             
+                //pegando o retorno e comparando se ele volta vazio do que foi pedido
+              if(rs.next()){
+                //pegando o inteiro que retorna do resultado da soma feita pela sql
+                part1_soma_app = rs.getInt(1);
+              
+               }else{
+                //mensagem caso haja erro
+                JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
+                
+                    }
+         
+              
+             }catch(SQLException erro){
+            //tratamento de exceção(erro)
+             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
+            
+                 }           
+                 //FIM SOMA PARTE 1
+              
+              //SOMA PARTE 2
+              String sql2 = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = 2";
+              
+              conn = new ConexaoDAO().conectaBD();
+              
+              try{
+                  
+                  pstm = conn.prepareStatement(sql2);
+                  rs = pstm.executeQuery();
+                  
+                   if(rs.next()){
+                        part2_soma_app = rs.getInt(1);
+                   }else{
+                       JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
+                   }
+                  
+                  
+              }catch(SQLException erro){
+                  
+                   JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
+              }
+            
+            //FIM DA SOMA PARTE 2
+            
+            somaSaldoContaApp = part1_soma_app + part2_soma_app;
+            String imp_result_soma = String.valueOf(somaSaldoContaApp);
+            
+            txtTotalContaApp.setText(imp_result_soma);
+            
+            
+             }else{
+            
+               //string para o sql
+               String sql = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
+        
+               //conectando ao banco
+               conn = new ConexaoDAO().conectaBD();
+            
+            try {
+            
+                 //armezando a string
+                 pstm = conn.prepareStatement(sql);
+                 //usando a string no comando sql que vai ser executado
+                 pstm.setInt(1, objbankdto.getApp_id_bank());
+                 //executando todo esses comandos
+                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+                 rs = pstm.executeQuery();
+            
+                //pegando o retorno e comparando se ele volta vazio do que foi pedido
+              if(rs.next()){
+                //pegando o inteiro que retorna do resultado da soma feita pela sql
+                somaSaldoContaApp = rs.getInt(1);
+                //convertendo em string e passando para uma variável
+                String resultadoSaldoConta = String.valueOf(somaSaldoContaApp);
+                //imprimindo ele na TexField
+                txtTotalContaApp.setText(resultadoSaldoConta);
+                
+                //deixando a comboBox com o valor Selecione
+                cbxContaPrincipal.getModel().setSelectedItem("Selecione");
+                
+               }else{
+                //mensagem caso haja erro
+                JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
+                
+                    }
+             }catch(SQLException erro){
+            //tratamento de exceção(erro)
+             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
+            
+                 }
+        }  
+            
+    }   
+       
 }
