@@ -86,6 +86,7 @@ public class frmBanco extends javax.swing.JFrame {
         btnSairBanco = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txtComment = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -297,6 +298,9 @@ public class frmBanco extends javax.swing.JFrame {
 
         txtComment.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setText("NÃO Selecione as opções com ** na Aba APLICATIVO, para REGISTRAR ou ALTERAR");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -321,6 +325,19 @@ public class frmBanco extends javax.swing.JFrame {
                                 .addComponent(btnAlterarBanco)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCarregarBanco))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSaqueBank, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(txtComment))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -369,21 +386,9 @@ public class frmBanco extends javax.swing.JFrame {
                                 .addComponent(btnLstPerdas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLstGanhos))
-                            .addComponent(jLabel14))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaqueBank, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(btnAtualizarSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(txtComment)))
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -412,6 +417,8 @@ public class frmBanco extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(cbxAppBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEntradaBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -443,14 +450,14 @@ public class frmBanco extends javax.swing.JFrame {
                     .addComponent(btnLimparBanco)
                     .addComponent(btnAlterarBanco))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTorneios)
                     .addComponent(btnLstTourn)
                     .addComponent(btnLstGanhos)
                     .addComponent(btnLstPerdas))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -472,38 +479,11 @@ public class frmBanco extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSairBancoActionPerformed
 
-    private void btnCarregarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarBancoActionPerformed
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
 
-        CarregarCamposBanco();
-        listarValoresBanco();
-
-    }//GEN-LAST:event_btnCarregarBancoActionPerformed
-
-    private void btnRegistrarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBancoActionPerformed
-
-        int teste;
-        teste = cbxAppBank.getSelectedIndex();
-        int teste1 = cbxUserBank.getSelectedIndex();
-
-        CalcularSaldoGeral();
-
-        if (teste == -1
-                || teste1 == -1
-                || jcaDataBanco.getDate().equals("")
-                || txtEntradaBanco.getText().equals("")
-                || txtGanhoBanco.getText().equals("")
-                || txtPerdaBanco.getText().equals("")
-                || txtSaldoBanco.getText().equals("")) {
-
-            JOptionPane.showMessageDialog(null, "Algum campo está vazio, preencha antes de registrar");
-        } else {
-
-            CadastrarBanco();
-            listarValoresBanco();
-            LimparCamposBanco();
-        }
-
-    }//GEN-LAST:event_btnRegistrarBancoActionPerformed
+        objpesquisa.setVisible(true);
+    }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnAlterarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarBancoActionPerformed
 
@@ -514,13 +494,13 @@ public class frmBanco extends javax.swing.JFrame {
         CalcularSaldoGeral();
 
         if (txtCodigoBanco.getText().equals("")
-                || teste == -1
-                || teste1 == -1
-                || txtEntradaBanco.getText().equals("")
-                || txtGanhoBanco.getText().equals("")
-                || txtPerdaBanco.getText().equals("")
-                || txtSaldoBanco.getText().equals("")
-                || jcaDataBanco.getDate().equals("")) {
+            || teste == -1
+            || teste1 == -1
+            || txtEntradaBanco.getText().equals("")
+            || txtGanhoBanco.getText().equals("")
+            || txtPerdaBanco.getText().equals("")
+            || txtSaldoBanco.getText().equals("")
+            || jcaDataBanco.getDate().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Algum campo está vazio ou não se cadastrou, preencha antes de alterar");
         } else {
@@ -529,31 +509,63 @@ public class frmBanco extends javax.swing.JFrame {
             listarValoresBanco();
             LimparCamposBanco();
         }
-
     }//GEN-LAST:event_btnAlterarBancoActionPerformed
+
+    private void btnRegistrarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBancoActionPerformed
+
+        int teste;
+        teste = cbxAppBank.getSelectedIndex();
+        int teste1 = cbxUserBank.getSelectedIndex();
+
+        CalcularSaldoGeral();
+
+        if (teste == -1
+            || teste1 == -1
+            || jcaDataBanco.getDate().equals("")
+            || txtEntradaBanco.getText().equals("")
+            || txtGanhoBanco.getText().equals("")
+            || txtPerdaBanco.getText().equals("")
+            || txtSaldoBanco.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Algum campo está vazio, preencha antes de registrar");
+        } else {
+
+            CadastrarBanco();
+            listarValoresBanco();
+            LimparCamposBanco();
+        }
+    }//GEN-LAST:event_btnRegistrarBancoActionPerformed
+
+    private void btnCarregarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarBancoActionPerformed
+
+        CarregarCamposBanco();
+        listarValoresBanco();
+    }//GEN-LAST:event_btnCarregarBancoActionPerformed
+
+    private void btnLstTournActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLstTournActionPerformed
+
+        frmListaTourn objlistatourn = new frmListaTourn();
+        //ver o JForm
+        objlistatourn.setVisible(true);
+
+    }//GEN-LAST:event_btnLstTournActionPerformed
+
+    private void btnLstGanhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLstGanhosActionPerformed
+        frmListarGanhos objlistaganho = new frmListarGanhos();
+        objlistaganho.setVisible(true);
+    }//GEN-LAST:event_btnLstGanhosActionPerformed
 
     private void btnLimparBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparBancoActionPerformed
 
         LimparCamposBanco();
-
     }//GEN-LAST:event_btnLimparBancoActionPerformed
-
-    private void btnExcluirBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirBancoActionPerformed
-
-        ExcluirTorneio();
-        listarValoresBanco();
-        LimparCamposBanco();
-
-    }//GEN-LAST:event_btnExcluirBancoActionPerformed
 
     private void btnTorneiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTorneiosActionPerformed
 
         frmTorneios objtorneios = new frmTorneios();
         objtorneios.setVisible(true);
-
     }//GEN-LAST:event_btnTorneiosActionPerformed
 
-    public int saldo_atual;// variável global para acesso de todos
     private void calcularSaldo(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcularSaldo
 
         //calculando Ganho - Perda e setando na TexField Saldo ao clical na TextField
@@ -575,26 +587,14 @@ public class frmBanco extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btFecharActionPerformed
 
-    private void btnLstTournActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLstTournActionPerformed
-
-        frmListaTourn objlistatourn = new frmListaTourn();
-        //ver o JForm
-        objlistatourn.setVisible(true);
-
-
-    }//GEN-LAST:event_btnLstTournActionPerformed
+    private void cbxAppBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAppBankActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxAppBankActionPerformed
 
     private void btnLstPerdasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLstPerdasActionPerformed
         frmListarPerdas objlistaperdas = new frmListarPerdas();
         objlistaperdas.setVisible(true);
-
     }//GEN-LAST:event_btnLstPerdasActionPerformed
-
-    private void btnLstGanhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLstGanhosActionPerformed
-        frmListarGanhos objlistaganho = new frmListarGanhos();
-        objlistaganho.setVisible(true);
-
-    }//GEN-LAST:event_btnLstGanhosActionPerformed
 
     private void btnAtualizarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarSaldoActionPerformed
 
@@ -602,26 +602,22 @@ public class frmBanco extends javax.swing.JFrame {
 
         int id_login_recebe = Integer.parseInt(login_recebe_id_string);
 
-//instanciando a DTO e passando os valores das variáveis para a DTO
+        //instanciando a DTO e passando os valores das variáveis para a DTO
         BankUserDTO objbankdto = new BankUserDTO();
         objbankdto.setId_user_bank(id_login_recebe);
 
         somarValoresSaldo(objbankdto);
 
-
     }//GEN-LAST:event_btnAtualizarSaldoActionPerformed
 
-    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        frmPesquisaUsuario objpesquisa = new frmPesquisaUsuario();
+    private void btnExcluirBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirBancoActionPerformed
 
-        objpesquisa.setVisible(true);
+        ExcluirTorneio();
+        listarValoresBanco();
+        LimparCamposBanco();
+    }//GEN-LAST:event_btnExcluirBancoActionPerformed
 
-    }//GEN-LAST:event_btnUsuariosActionPerformed
-
-    private void cbxAppBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAppBankActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxAppBankActionPerformed
-
+    public int saldo_atual;// variável global para acesso de todos
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -677,6 +673,7 @@ public class frmBanco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

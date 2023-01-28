@@ -47,6 +47,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         txtTotalContaApp = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnGanhosConta = new javax.swing.JButton();
+        btnPedasConta = new javax.swing.JButton();
         menuTopo = new javax.swing.JMenuBar();
         menuAdm = new javax.swing.JMenu();
         menuAdm1 = new javax.swing.JMenuItem();
@@ -57,7 +59,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuAdm4Pdate = new javax.swing.JMenuItem();
         menuUser = new javax.swing.JMenu();
         menuUser1 = new javax.swing.JMenuItem();
-        menuUser2 = new javax.swing.JMenu();
+        menuUser2 = new javax.swing.JMenuItem();
+        menuUser3 = new javax.swing.JMenu();
         menuUserGra1 = new javax.swing.JMenuItem();
         menuUserGra2 = new javax.swing.JMenuItem();
         menuUserGra3 = new javax.swing.JMenuItem();
@@ -66,7 +69,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuList2 = new javax.swing.JMenuItem();
         menuList3 = new javax.swing.JMenuItem();
         menuList4 = new javax.swing.JMenuItem();
-        menuList5 = new javax.swing.JMenuItem();
         menuOutros = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -93,7 +95,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         panelMeioLayout.setHorizontalGroup(
             panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMeioLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelMeioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -150,7 +152,21 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         jLabel1.setText("RESULTADO :");
 
         jLabel5.setForeground(new java.awt.Color(63, 149, 255));
-        jLabel5.setText("Antes de clicar em SALDO P/ CONTA, selecione uma APLICATIVO/CONTA");
+        jLabel5.setText("Antes de clicar em SALDO P/ CONTA, selecione um APLICATIVO/CONTA");
+
+        btnGanhosConta.setText("GANHOS P/ CONTA");
+        btnGanhosConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGanhosContaActionPerformed(evt);
+            }
+        });
+
+        btnPedasConta.setText("PERDAS P/ CONTA");
+        btnPedasConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedasContaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBaixoLayout = new javax.swing.GroupLayout(panelBaixo);
         panelBaixo.setLayout(panelBaixoLayout);
@@ -168,23 +184,26 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                     .addGroup(panelBaixoLayout.createSequentialGroup()
                         .addComponent(txtbemvindo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(87, 87, 87))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
-                        .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(8, 8, 8)
+                        .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelBaixoLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
-                            .addComponent(cbxContaPrincipal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTotalContaApp, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
+                        .addComponent(cbxContaPrincipal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTotalContaApp)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPedasConta)
+                            .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnGanhosConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaixoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addContainerGap())
         );
         panelBaixoLayout.setVerticalGroup(
             panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,12 +221,16 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(cbxContaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGanhosConta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPedasConta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelBaixoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotalContaApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menuTopo.setBorder(null);
@@ -266,18 +289,27 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         });
         menuUser.add(menuUser1);
 
-        menuUser2.setText("GRÁFICOS");
+        menuUser2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuUser2.setText("PESQUISA POR DATA");
+        menuUser2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUser2ActionPerformed(evt);
+            }
+        });
+        menuUser.add(menuUser2);
+
+        menuUser3.setText("GRÁFICOS");
 
         menuUserGra1.setText("GANHOS E PERDAS");
-        menuUser2.add(menuUserGra1);
+        menuUser3.add(menuUserGra1);
 
         menuUserGra2.setText("TORNEIOS (QTD.)");
-        menuUser2.add(menuUserGra2);
+        menuUser3.add(menuUserGra2);
 
         menuUserGra3.setText("POR DATA");
-        menuUser2.add(menuUserGra3);
+        menuUser3.add(menuUserGra3);
 
-        menuUser.add(menuUser2);
+        menuUser.add(menuUser3);
 
         menuTopo.add(menuUser);
 
@@ -319,10 +351,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             }
         });
         menuList.add(menuList4);
-
-        menuList5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuList5.setText("POR DATA");
-        menuList.add(menuList5);
 
         menuTopo.add(menuList);
 
@@ -712,6 +740,22 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         somarValoresContaApp(objbankdto);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnGanhosContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGanhosContaActionPerformed
+        BankUserDTO objbankdto = new BankUserDTO();
+        somarGanhosContaApp(objbankdto);
+    }//GEN-LAST:event_btnGanhosContaActionPerformed
+
+    private void btnPedasContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedasContaActionPerformed
+        BankUserDTO objbankdto = new BankUserDTO();
+        somarPerdasContaApp(objbankdto);
+    }//GEN-LAST:event_btnPedasContaActionPerformed
+
+    private void menuUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUser2ActionPerformed
+       
+        frmListarDatas objlistardatas = new frmListarDatas();
+        objlistardatas.setVisible(true);
+    }//GEN-LAST:event_menuUser2ActionPerformed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -747,6 +791,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizarSaldo;
+    private javax.swing.JButton btnGanhosConta;
+    private javax.swing.JButton btnPedasConta;
     private javax.swing.JComboBox<String> cbxContaPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -770,12 +816,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuList2;
     private javax.swing.JMenuItem menuList3;
     private javax.swing.JMenuItem menuList4;
-    private javax.swing.JMenuItem menuList5;
     private javax.swing.JMenu menuOutros;
     private javax.swing.JMenuBar menuTopo;
     private javax.swing.JMenu menuUser;
     private javax.swing.JMenuItem menuUser1;
-    private javax.swing.JMenu menuUser2;
+    private javax.swing.JMenuItem menuUser2;
+    private javax.swing.JMenu menuUser3;
     private javax.swing.JMenuItem menuUserGra1;
     private javax.swing.JMenuItem menuUserGra2;
     private javax.swing.JMenuItem menuUserGra3;
@@ -854,7 +900,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     //instanciando e criando o objeto dessa classe   
     ConexaoDAO objconndao = new ConexaoDAO();
     //variável usada no método somarValoresContaApp
-    public int somaSaldoContaApp, part1_soma_app, part2_soma_app;
+    public int somaSaldoContaApp, part1_soma_app, part2_soma_app, somaGanhosContaApp, somaPerdasContaApp;
     
     private void somarValoresContaApp(BankUserDTO objbankdto){
         
@@ -975,4 +1021,106 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             
     }   
        
+    private void somarGanhosContaApp(BankUserDTO objbankuserdto){
+        
+         //pegando o item selecionado na comboBox e passando para uma variável
+        int id_conta_app = cbxContaPrincipal.getSelectedIndex();
+        
+        //setando esse valor na DTO
+        objbankuserdto.setApp_id_bank(id_conta_app);
+        
+        
+               //string para o sql
+               String sql5 = "SELECT SUM(ganho_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
+        
+               //conectando ao banco
+               conn = new ConexaoDAO().conectaBD();
+               
+               
+                     try {
+            
+                 //armezando a string
+                 pstm = conn.prepareStatement(sql5);
+                 //usando a string no comando sql que vai ser executado
+                 pstm.setInt(1, objbankuserdto.getApp_id_bank());
+                 //executando todo esses comandos
+                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+                 rs = pstm.executeQuery();
+            
+                //pegando o retorno e comparando se ele volta vazio do que foi pedido
+              if(rs.next()){
+                //pegando o inteiro que retorna do resultado da soma feita pela sql
+                somaGanhosContaApp = rs.getInt(1);
+                //convertendo em string e passando para uma variável
+                String resultadoGanhosConta = String.valueOf(somaGanhosContaApp);
+                //imprimindo ele na TexField
+                txtTotalContaApp.setText(resultadoGanhosConta);
+                
+                //deixando a comboBox com o valor Selecione
+                cbxContaPrincipal.getModel().setSelectedItem("Selecione");
+                
+               }else{
+                //mensagem caso haja erro
+                JOptionPane.showMessageDialog(null, "Erro na soma dos ganhos das Contas no frmpPrincipalVIEW");
+                
+                    }
+             }catch(SQLException erro){
+            //tratamento de exceção(erro)
+             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarGanhosContaApp: " + erro);
+            
+                 }
+               
+    }
+    
+    private void somarPerdasContaApp(BankUserDTO objbankuserdto){
+        
+         //pegando o item selecionado na comboBox e passando para uma variável
+        int id_conta_app = cbxContaPrincipal.getSelectedIndex();
+        
+        //setando esse valor na DTO
+        objbankuserdto.setApp_id_bank(id_conta_app);
+        
+        
+               //string para o sql
+               String sql6 = "SELECT SUM(perda_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
+        
+               //conectando ao banco
+               conn = new ConexaoDAO().conectaBD();
+               
+               
+                     try {
+            
+                 //armezando a string
+                 pstm = conn.prepareStatement(sql6);
+                 //usando a string no comando sql que vai ser executado
+                 pstm.setInt(1, objbankuserdto.getApp_id_bank());
+                 //executando todo esses comandos
+                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+                 rs = pstm.executeQuery();
+            
+                //pegando o retorno e comparando se ele volta vazio do que foi pedido
+              if(rs.next()){
+                //pegando o inteiro que retorna do resultado da soma feita pela sql
+                somaPerdasContaApp = rs.getInt(1);
+                //convertendo em string e passando para uma variável
+                String resultadoPerdasConta = String.valueOf(somaPerdasContaApp);
+                //imprimindo ele na TexField
+                txtTotalContaApp.setText(resultadoPerdasConta);
+                
+                //deixando a comboBox com o valor Selecione
+                cbxContaPrincipal.getModel().setSelectedItem("Selecione");
+                
+               }else{
+                //mensagem caso haja erro
+                JOptionPane.showMessageDialog(null, "Erro na soma das perdas das Contas no frmpPrincipalVIEW");
+                
+                    }
+             }catch(SQLException erro){
+            //tratamento de exceção(erro)
+             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarPerdasContaApp: " + erro);
+            
+                 }
+               
+    }
+    
 }
