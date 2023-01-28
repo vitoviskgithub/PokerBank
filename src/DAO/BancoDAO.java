@@ -489,15 +489,65 @@ public class BancoDAO {
                 //mandando o nome para DTO
                 objpesqdatedto.setNome_user(nome_paradto);
                 
+                    pstm.close();
                 
             } catch (SQLException erro) {
                 JOptionPane.showMessageDialog(null, "Erro no método nomeParaListarDatas: " + erro);
-            }
-         
-          
-          
-          
+            }      
+                                
+        }
         
-    }
+    public void pesquisaDateAppGainDAO(PesquisaDateDTO objpesqdatedto) {
 
+        int somaganhos = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_app_id_bank, ganho_bank, data_bank FROM tablebankuser WHERE fk_app_id_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getId_app());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somaganhos = somaganhos + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somaganhos);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método APP PesquisaGainDate: " + e);
+        }
+    } 
+
+
+    
 }

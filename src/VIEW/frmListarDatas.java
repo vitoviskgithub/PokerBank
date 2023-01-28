@@ -8,14 +8,17 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
 import DAO.BancoDAO;
+import DAO.ContaPokerDAO;
 import DTO.PesquisaDateDTO;
 import DTO.UsuarioDTO;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Vector;
 
 public class frmListarDatas extends javax.swing.JFrame {
     
@@ -27,6 +30,10 @@ public class frmListarDatas extends javax.swing.JFrame {
   
     public frmListarDatas() {
         initComponents();
+        
+     
+        restaurarDadosComboBoxAppDate();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -56,7 +63,7 @@ public class frmListarDatas extends javax.swing.JFrame {
         labEndGainRecieve = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         labQtdDays = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        tagUsuario = new javax.swing.JLabel();
         labeNome = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         paineLost = new javax.swing.JPanel();
@@ -123,12 +130,17 @@ public class frmListarDatas extends javax.swing.JFrame {
             }
         });
 
-        cbxAppDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxAppDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("APLICATIVO :");
 
         btnGainApp.setText("PESQUISA POR APLICATIVO");
+        btnGainApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGainAppActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("TOTAL DE GANHOS : ");
@@ -158,8 +170,8 @@ public class frmListarDatas extends javax.swing.JFrame {
         labQtdDays.setForeground(new java.awt.Color(0, 125, 208));
         labQtdDays.setText("0000 dias");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setText("USUÁRIO : ");
+        tagUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tagUsuario.setText("USUÁRIO : ");
 
         labeNome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         labeNome.setForeground(new java.awt.Color(0, 125, 208));
@@ -202,7 +214,7 @@ public class frmListarDatas extends javax.swing.JFrame {
                             .addGroup(paineGainLayout.createSequentialGroup()
                                 .addGroup(paineGainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paineGainLayout.createSequentialGroup()
-                                        .addComponent(jLabel10)
+                                        .addComponent(tagUsuario)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(labeNome))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paineGainLayout.createSequentialGroup()
@@ -249,7 +261,7 @@ public class frmListarDatas extends javax.swing.JFrame {
                     .addComponent(btnGainDate))
                 .addGap(18, 18, 18)
                 .addGroup(paineGainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                    .addComponent(tagUsuario)
                     .addComponent(labeNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paineGainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -438,6 +450,13 @@ public class frmListarDatas extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
+    private void btnGainAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGainAppActionPerformed
+       pesquisaAppGainDate();
+       LimparCamposDatas();
+       SetarCamposApp();
+       
+    }//GEN-LAST:event_btnGainAppActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -490,7 +509,6 @@ public class frmListarDatas extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser7;
     private com.toedter.calendar.JDateChooser jDateChooser8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -512,6 +530,7 @@ public class frmListarDatas extends javax.swing.JFrame {
     private javax.swing.JPanel paineTopo;
     public javax.swing.JPanel paineTourn;
     public javax.swing.JTabbedPane paneMainDate;
+    private javax.swing.JLabel tagUsuario;
     public javax.swing.JTextField txtDateTotalGain;
     private javax.swing.JTextField userIdDate;
     // End of variables declaration//GEN-END:variables
@@ -631,7 +650,143 @@ public class frmListarDatas extends javax.swing.JFrame {
         nome_paraimp = objpesqdatedto.getNome_user();
         labeNome.setText(nome_paraimp);
     }
+    
+    
+    
+    //APP PESQUISA GAIN
+    
+     private void pesquisaAppGainDate(){
+        Date beginGainRec = new Date();
+        Date endGainRec = new Date();
+        
+        int id_app_pesq = 0;
+        String somaGainStr = "";
+        String dataEndFormatada = "";
+        String dataBeginFormatada = "";
+        String nome_paraimp = "";
+        
+        Date date_in_chro = new Date();
+        Date date_en_chro = new Date();
+        
+        int yearIn = 0;
+        int monthIn = 0;
+        int dayIn = 0;
+        int yearEn = 0;
+        int monthEn = 0;
+        int dayEn = 0;
+        
+        long days = 0;
+        
+        String qtdDias = "";        
+      
+        /**SOLUÇÃO TEMPORÁRIA, preciso não permitir o uso deste método caso
+         * sejam selecionados na comboBox opções que tenham mais de um app
+         * ou mais de um usuário, em um só cadastro
+         * MUDAR ELA EM BREVE USAR UM ARRAY
+        int[] arrayapp = new int[100];  */     
+       int teste = 0;
+       teste = cbxAppDate.getSelectedIndex();
+       //PRECISO TAMBÉM COLOCAR NO IF SE A DATA ESTIVER VAZIA
+        
+        if(teste==3){
+            
+            JOptionPane.showMessageDialog(null, "Selecione uma opção que seja somente um usuário e um aplicativo\n(que não tenham **)");
+           
+        }else{
+                    beginGainRec = dateBeginGanhos.getDate();
+        endGainRec = dateEndGanhos.getDate();
+        
+        //SETANDO O ID NA DTO PELA COMBOBOX
+        id_app_pesq = cbxAppDate.getSelectedIndex();
+        
+        
+        //INSTANCIANDO E SETANDO
+        PesquisaDateDTO objpesqdatedto = new PesquisaDateDTO();
+        objpesqdatedto.setDatainicio(beginGainRec);
+        objpesqdatedto.setDatafim(endGainRec);
+        objpesqdatedto.setId_app(id_app_pesq);
+        
+        
+       
+        try {
+            //convertendo a Date em String
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        
+        //pegando da DTO e terminando a conversão da Date
+        dataBeginFormatada = dateFormat.format(objpesqdatedto.getDatainicio());
+       
+        labDateBeginRecebe.setText(dataBeginFormatada);
+        
+          //convertendo a Date em String
+        DateFormat dateFormat1 = new SimpleDateFormat("dd-MM-yyyy");
+        
+        //pegando da DTO e terminando a conversão da Date
+        dataEndFormatada = dateFormat1.format(objpesqdatedto.getDatafim());
+       
+         try{
+        //COMEÇO PARA CALCULAR QUANTIDADE DE DIAS 
+        date_in_chro = objpesqdatedto.getDatainicio();
+        date_en_chro = objpesqdatedto.getDatafim();
+        
+        //PEGANDO VALORES DO INICIO
+         DateFormat dateFormatchroinyear = new SimpleDateFormat("y");
+         yearIn = Integer.parseInt(dateFormatchroinyear.format(date_in_chro));
+         DateFormat dateFormatchroinmot = new SimpleDateFormat("M");
+         monthIn = Integer.parseInt(dateFormatchroinmot.format(date_in_chro));
+         DateFormat dateFormatchroinday = new SimpleDateFormat("d");
+         dayIn = Integer.parseInt(dateFormatchroinday.format(date_in_chro));
+         //PEGANDO VALORES DO FIM
+         DateFormat dateFormatchroenyear = new SimpleDateFormat("y");
+         yearEn = Integer.parseInt(dateFormatchroenyear.format(date_en_chro));
+         DateFormat dateFormatchroenmot = new SimpleDateFormat("M");
+         monthEn = Integer.parseInt(dateFormatchroenmot.format(date_en_chro));
+         DateFormat dateFormatchroenday = new SimpleDateFormat("d");
+         dayEn = Integer.parseInt(dateFormatchroenday.format(date_en_chro));
+         
+             try {
+                 
+                 
+         //USANDO O MÉTODO CHRONO E LOCALDATE
+        LocalDate startDate = LocalDate.of(yearIn,monthIn,dayIn);
+        LocalDate endDate = LocalDate.of(yearEn,monthEn,dayEn);
 
+        days = ChronoUnit.DAYS.between(startDate, endDate);
+                 
+        //IMPRIMINDO NA LABEL
+        qtdDias = Long.toString(days);
+        labQtdDays.setText(qtdDias + " dias");
+                 
+             } catch (Exception errochro) {
+                 JOptionPane.showMessageDialog(null, "Tempo erroChro ListarDatas: " + errochro);
+             }
+
+        }catch(Exception errotime){
+            JOptionPane.showMessageDialog(null, "Tempo erro ListarDatas: " + errotime);
+        }
+             
+        
+        labDateBeginRecebe.setText(dataBeginFormatada);
+        labEndGainRecieve.setText(dataEndFormatada);       
+                      
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Tratamento método PesquisaGanhos no frmListarDatas:" + e);
+        }       
+        
+        BancoDAO objbancodao = new BancoDAO();
+        objbancodao.pesquisaDateAppGainDAO(objpesqdatedto);
+        
+        somaGainStr = String.valueOf(objpesqdatedto.getSoma());
+        txtDateTotalGain.setText(somaGainStr);
+        
+        SetarCamposApp();
+        
+     
+        }
+
+    }                
+         
+  
     public void LimparCamposDatas(){
        
         cbxAppDate.getModel().setSelectedItem("Selecione");
@@ -640,5 +795,44 @@ public class frmListarDatas extends javax.swing.JFrame {
         dateEndGanhos.setDate(null);
               
     }  
+    
+    PesquisaDateDTO objpesqdatedto = new PesquisaDateDTO();
+    
+    
+    //MÉTODO PARA MUDAR TEXTO LABEL
+    private void SetarCamposApp(){
+        tagUsuario.setText("USUÁRIO : ");
+        BancoDAO objbancodao = new BancoDAO();
+             }
+    
+    
+     public void restaurarDadosComboBoxAppDate() {
+        //Vetor usado para passar dois valores para comboBox
+        Vector<Integer> idPoker = new Vector<Integer>();
+
+        try {
+
+            cbxAppDate.removeAllItems();
+            cbxAppDate.addItem("Selecione");
+
+            ContaPokerDAO objcontapokerdao = new ContaPokerDAO();
+            ResultSet rs = objcontapokerdao.listarAppCombo();
+
+            while (rs.next()) {
+
+                idPoker.addElement(rs.getInt(1));//o elemento faz parte do Vector, e também é importante pois será chave estrangeira
+                //concatenei o id mais o valor da coluna selecionada no banco de dados na visualização do usuário
+                //também usei o método do Vetor id_contapoker que me retorna o valor somente do último elemento, e não de todo valor
+                cbxAppDate.addItem(idPoker.lastElement() + rs.getString(2));// o Item é o que aparece para usuário visualizar
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "frmTorneios comboBoxApp: " + erro);
+
+        }
+
+    }
     
 }

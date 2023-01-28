@@ -7,8 +7,8 @@ public class PesquisaDateDTO {
     
     private Date datainicio;
     private Date datafim;
-    private int iduser,soma;
-    private String nome_user;
+    private int iduser,soma, id_app;
+    private String nome_user, nome_app;
 
     public Date getDatainicio() {
         return datainicio;
@@ -48,6 +48,22 @@ public class PesquisaDateDTO {
 
     public void setNome_user(String nome_user) {
         this.nome_user = nome_user;
+    }
+
+    public String getNome_app() {
+        return nome_app;
+    }
+
+    public void setNome_app(String nome_app) {
+        this.nome_app = nome_app;
+    }
+
+    public int getId_app() {
+        return id_app;
+    }
+
+    public void setId_app(int id_app) {
+        this.id_app = id_app;
     }
     
     
