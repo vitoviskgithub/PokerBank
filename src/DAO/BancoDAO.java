@@ -548,6 +548,469 @@ public class BancoDAO {
         }
     } 
 
+    
+ public void appParaListarDatas(PesquisaDateDTO objpesqdatedto){
+          int id_app = 0;
+          
+          String sqlapp = "";
+          String app_paradto = "";
+          
+          sqlapp = "SELECT app_contapoker FROM tablecontapoker WHERE id_contapoker = ?";
+          
+          conn = new ConexaoDAO().conectaBD();
+          //CONECTOU, AGORA É NECESSÁRIO UMA TRY CATACH PARA TRATAMENTO DAS EXCEÇÕES
+          
+            try {
+                pstm = conn.prepareStatement(sqlapp);
+                
+                id_app = objpesqdatedto.getId_app();
+                
+                pstm.setInt(1, id_app);
+                rs = pstm.executeQuery();
+                
+                //TEM QUE TRATAR A RESULTSET APÓS EXECUTAR A QUERY, SEMPRE
+                //COM IF, COM WHILE, COM FOR, O IMPORTANTE É TRATAR ELA
+                //PARA PEGAR VALORES OU NÃO
+                if(rs.next()){
+                //pegando o nome da ResulSet que recebeu do banco
+                app_paradto = rs.getString(1);
+                }else{
+                JOptionPane.showMessageDialog(null, "Erro na execução da Query no método buscar APP (Set) no BancoDAO");
+                 }
+                
+                //mandando o nome para DTO
+                objpesqdatedto.setNome_app(app_paradto);
+                
+                    pstm.close();
+                
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no método appParaListarDatas APP: " + erro);
+            }      
+                                
+        }
+    
+     public void pesquisaDateAppLostDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somalost = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_app_id_bank, perda_bank, data_bank FROM tablebankuser WHERE fk_app_id_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getId_app());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somalost = somalost + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somalost);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método APP PesquisaGainDate: " + e);
+        }
+    }    
+ 
+ 
+    public void pesquisaDateUserLostDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somalost = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_id_user_bank, perda_bank, data_bank FROM tablebankuser WHERE fk_id_user_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getIduser());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somalost = somalost + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somalost);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método PesquisaLostDate: " + e);
+        }
+    }
+     
+    
+    public void pesquisaDateAppSaldDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somasald = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_app_id_bank, saldo_bank, data_bank FROM tablebankuser WHERE fk_app_id_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getId_app());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somasald = somasald + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somasald);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método APP PesquisaSaldDate: " + e);
+        }
+    }    
 
     
+    public void pesquisaDateUserSaldDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somasald = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_id_user_bank, saldo_bank, data_bank FROM tablebankuser WHERE fk_id_user_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getIduser());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somasald = somasald + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somasald);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método PesquisaSaldDate: " + e);
+        }
+    }
+     
+    public void pesquisaDateAppSQDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somaSQ = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_app_id_bank, saque_bank, data_bank FROM tablebankuser WHERE fk_app_id_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getId_app());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somaSQ = somaSQ + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somaSQ);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método APP PesquisaSQDate: " + e);
+        }
+    }    
+     
+      public void pesquisaDateUserSQDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somaSQ = 0;
+        int part_soma = 0;
+        Date data_in = new Date();
+        Date data_en = new Date();
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+
+        String sql = "SELECT fk_id_user_bank, saque_bank, data_bank FROM tablebankuser WHERE fk_id_user_bank = ? AND data_bank BETWEEN ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getIduser());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormaten = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormaten.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+            
+            rs = pstm.executeQuery();
+            
+            while (rs.next()) {                
+                part_soma = rs.getInt(2);
+                
+                somaSQ = somaSQ + part_soma;
+            }
+                                 
+            objpesqdatedto.setSoma(somaSQ);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método PesquisaSQDate: " + e);
+        }
+    }
+    
+    
+      public void pesquisaDateAppTDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somatourn = 0;
+        int num = 0;//marcador do contador
+               
+        Date data_in = new Date();
+        Date data_en = new Date();
+       
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+     
+
+        String sql = "SELECT fk_app_id_tourn FROM tabletournaments WHERE fk_app_id_tourn = ? AND date_tourn BETWEEN  ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getId_app());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormat.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+         
+            rs = pstm.executeQuery();
+            
+            //CONTADOR, usando NUM como marcador
+            while (rs.next()) {   
+                
+                num = 1;               
+                somatourn = somatourn + num; 
+                                           
+            }
+                                 
+            objpesqdatedto.setSoma(somatourn);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método APP PesquisaTournDate: " + e);
+        }
+    }    
+      
+      
+      public void pesquisaDateUserTDAO(PesquisaDateDTO objpesqdatedto) {
+
+        int somatourn = 0;
+        int num = 0;//marcador do contador
+               
+        Date data_in = new Date();
+        Date data_en = new Date();
+       
+        String data_in_formatada = "";
+        String data_en_formatada = "";
+     
+
+        String sql = "SELECT fk_id_user_tourn FROM tabletournaments WHERE fk_id_user_tourn = ? AND date_tourn BETWEEN  ? AND ?";
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
+
+        try {
+            
+            pstm = conn.prepareStatement(sql);
+            
+            pstm.setInt(1, objpesqdatedto.getIduser());
+            
+             //converte a variável data para string antes de enviar para
+            //o preparedStatement
+            data_in = objpesqdatedto.getDatainicio();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            data_in_formatada = dateFormat.format(data_in);
+
+            pstm.setString(2, data_in_formatada);
+            
+            data_en = objpesqdatedto.getDatafim();
+            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+            data_en_formatada = dateFormat.format(data_en);
+
+            pstm.setString(3, data_en_formatada);
+         
+            rs = pstm.executeQuery();
+            
+            //CONTADOR, usando NUM como marcador
+            while (rs.next()) {   
+                
+                num = 1;               
+                somatourn = somatourn + num; 
+                                           
+            }
+                                 
+            objpesqdatedto.setSoma(somatourn);
+            
+            pstm.close();
+          
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "Erro na BancoDAO no método USER PesquisaTournDate: " + e);
+        }
+    }    
+      
+      
 }
