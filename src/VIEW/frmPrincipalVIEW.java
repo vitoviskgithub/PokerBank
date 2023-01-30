@@ -55,15 +55,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuAdm2 = new javax.swing.JMenuItem();
         menuAdm3 = new javax.swing.JMenuItem();
         menuAdm4 = new javax.swing.JMenu();
-        menuAdm4Puser = new javax.swing.JMenuItem();
-        menuAdm4Pdate = new javax.swing.JMenuItem();
+        menuAdm4AppDate = new javax.swing.JMenuItem();
         menuUser = new javax.swing.JMenu();
         menuUser1 = new javax.swing.JMenuItem();
         menuUser2 = new javax.swing.JMenuItem();
         menuUser3 = new javax.swing.JMenu();
         menuUserGra1 = new javax.swing.JMenuItem();
-        menuUserGra2 = new javax.swing.JMenuItem();
-        menuUserGra3 = new javax.swing.JMenuItem();
         menuList = new javax.swing.JMenu();
         menuList1 = new javax.swing.JMenuItem();
         menuList2 = new javax.swing.JMenuItem();
@@ -267,11 +264,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         menuAdm4.setText("GRÁFICOS");
 
-        menuAdm4Puser.setText("POR USUÁRIO");
-        menuAdm4.add(menuAdm4Puser);
-
-        menuAdm4Pdate.setText("POR DATA");
-        menuAdm4.add(menuAdm4Pdate);
+        menuAdm4AppDate.setText("POR DATA (APP / USER)");
+        menuAdm4AppDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm4AppDateActionPerformed(evt);
+            }
+        });
+        menuAdm4.add(menuAdm4AppDate);
 
         menuAdm.add(menuAdm4);
 
@@ -300,14 +299,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         menuUser3.setText("GRÁFICOS");
 
-        menuUserGra1.setText("GANHOS E PERDAS");
+        menuUserGra1.setText("POR DATA");
         menuUser3.add(menuUserGra1);
-
-        menuUserGra2.setText("TORNEIOS (QTD.)");
-        menuUser3.add(menuUserGra2);
-
-        menuUserGra3.setText("POR DATA");
-        menuUser3.add(menuUserGra3);
 
         menuUser.add(menuUser3);
 
@@ -756,6 +749,53 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         objlistardatas.setVisible(true);
     }//GEN-LAST:event_menuUser2ActionPerformed
 
+    private void menuAdm4AppDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm4AppDateActionPerformed
+       String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+
+        if (senha3_recebe.equals("")) {
+            JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
+        } else {
+
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+
+            objusuariodto.setSenha_usuario(senha3_recebe);
+
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+
+            try {
+
+                if (rusuariodao.next()) {
+
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+
+                        //AGORA VERIFICADO SE O USUÁRIO CONSTA NO LOCAL E WEB
+                        //ABRE ESSA JFORM
+                        frmGraphicAdm objtorneios = new frmGraphicAdm();
+                        objtorneios.setVisible(rootPaneCheckingEnabled);
+
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para usar esse formulário");
+                }
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW TORNEIO ADM:" + erro);
+
+            }
+
+        }
+    }//GEN-LAST:event_menuAdm4AppDateActionPerformed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -807,8 +847,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuAdm2;
     private javax.swing.JMenuItem menuAdm3;
     private javax.swing.JMenu menuAdm4;
-    private javax.swing.JMenuItem menuAdm4Pdate;
-    private javax.swing.JMenuItem menuAdm4Puser;
+    private javax.swing.JMenuItem menuAdm4AppDate;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenuItem menuAjuda1;
     private javax.swing.JMenu menuList;
@@ -823,8 +862,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuUser2;
     private javax.swing.JMenu menuUser3;
     private javax.swing.JMenuItem menuUserGra1;
-    private javax.swing.JMenuItem menuUserGra2;
-    private javax.swing.JMenuItem menuUserGra3;
     private javax.swing.JPanel panelBaixo;
     private javax.swing.JPanel panelMeio;
     public javax.swing.JLabel txtNomeRecebe;

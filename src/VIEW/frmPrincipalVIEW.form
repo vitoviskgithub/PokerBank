@@ -55,15 +55,13 @@
                 <Property name="text" type="java.lang.String" value="GR&#xc1;FICOS"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="menuAdm4Puser">
+                <MenuItem class="javax.swing.JMenuItem" name="menuAdm4AppDate">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="POR USU&#xc1;RIO"/>
+                    <Property name="text" type="java.lang.String" value="POR DATA (APP / USER)"/>
                   </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuAdm4Pdate">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="POR DATA"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAdm4AppDateActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -105,16 +103,6 @@
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="menuUserGra1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="GANHOS E PERDAS"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuUserGra2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="TORNEIOS (QTD.)"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuUserGra3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="POR DATA"/>
                   </Properties>

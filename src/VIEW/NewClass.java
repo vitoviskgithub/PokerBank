@@ -6,6 +6,7 @@ package VIEW;
 
 import DAO.BancoDAO;
 import DAO.ConexaoDAO;
+import DAO.GeraGraphicDAO;
 import DTO.PesquisaDateDTO;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -14,13 +15,12 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
  * @author Meu Computador
  */
 public class NewClass {
-
-
-       
+ 
 }

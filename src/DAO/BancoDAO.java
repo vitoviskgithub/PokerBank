@@ -931,7 +931,7 @@ public class BancoDAO {
             
             data_en = objpesqdatedto.getDatafim();
             DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
-            data_en_formatada = dateFormat.format(data_en);
+            data_en_formatada = dateFormat1.format(data_en);
 
             pstm.setString(3, data_en_formatada);
          
@@ -988,7 +988,7 @@ public class BancoDAO {
             
             data_en = objpesqdatedto.getDatafim();
             DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
-            data_en_formatada = dateFormat.format(data_en);
+            data_en_formatada = dateFormat1.format(data_en);
 
             pstm.setString(3, data_en_formatada);
          
