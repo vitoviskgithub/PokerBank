@@ -13,7 +13,7 @@ public class ConexaoDAO {
     public Connection conectaBD() {
 
         try {
-            String url = "jdbc:mysql://localhost:3306/pokerbank?user=root&password="; //já se conecta ao banco de dados específico, no caso pokerbank
+            String url = "jdbc:mysql://localhost:3306/pokerbank?user=root&password=12345678"; //já se conecta ao banco de dados específico, no caso pokerbank
             conn = DriverManager.getConnection(url);
 
         } catch (SQLException erro) {
