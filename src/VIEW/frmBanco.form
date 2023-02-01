@@ -112,9 +112,9 @@
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtEntradaBanco" min="-2" pref="189" max="-2" attributes="0"/>
-                                      <Component id="jcaDataBanco" min="-2" pref="189" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtEntradaBanco" pref="189" max="32767" attributes="0"/>
+                                      <Component id="jcaDataBanco" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -167,15 +167,15 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbxUserBank" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbxUserBank" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="jcaDataBanco" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jcaDataBanco" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -244,11 +244,6 @@
               <Color blue="99" green="0" red="99" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="SAQUE :"/>
-          </Properties>
-        </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jcaDataBanco">
-          <Properties>
-            <Property name="dateFormatString" type="java.lang.String" value="dd &apos;de&apos; MMM &apos;de&apos; yyyy"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnExcluirBanco">
@@ -616,6 +611,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="N&#xc3;O Selecione as op&#xe7;&#xf5;es com ** na Aba APLICATIVO, para REGISTRAR ou ALTERAR"/>
           </Properties>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="jcaDataBanco">
         </Component>
       </SubComponents>
     </Container>
