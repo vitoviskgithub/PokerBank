@@ -6,6 +6,8 @@ import DAO.UsuarioDAO;
 import DTO.BankUserDTO;
 import DTO.TournamentsDTO;
 import DTO.UsuarioDTO;
+
+
 import java.awt.List;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -300,6 +302,11 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuUser3.setText("GRÁFICOS");
 
         menuUserGra1.setText("POR DATA");
+        menuUserGra1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUserGra1ActionPerformed(evt);
+            }
+        });
         menuUser3.add(menuUserGra1);
 
         menuUser.add(menuUser3);
@@ -795,6 +802,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_menuAdm4AppDateActionPerformed
+
+    private void menuUserGra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUserGra1ActionPerformed
+       frmGraphicUser objgraphicuser = new frmGraphicUser();
+       objgraphicuser.setVisible(true);
+       
+    }//GEN-LAST:event_menuUserGra1ActionPerformed
 
     public static void main(String args[]) {
 

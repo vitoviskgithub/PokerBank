@@ -51,7 +51,7 @@ public class frmGraphicAdm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtIdUser = new javax.swing.JTextField();
         btnGeraGraphicUser = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnShowGraphicUser = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,10 +127,10 @@ public class frmGraphicAdm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("VISUALIZAR GRÁFICO (USUÁRIO)");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnShowGraphicUser.setText("VISUALIZAR GRÁFICO (USUÁRIO)");
+        btnShowGraphicUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnShowGraphicUserActionPerformed(evt);
             }
         });
 
@@ -158,7 +158,7 @@ public class frmGraphicAdm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGeraGraphicUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnShowGraphicUser))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,7 +192,7 @@ public class frmGraphicAdm extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGeraGraphicUser)
-                    .addComponent(jButton1))
+                    .addComponent(btnShowGraphicUser))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -293,12 +293,12 @@ public class frmGraphicAdm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGeraGraphicUserActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnShowGraphicUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowGraphicUserActionPerformed
 
         GeraGraphicDAO objgradao = new GeraGraphicDAO();
         objgradao.janelaNovaImagemUser();
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnShowGraphicUserActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -338,10 +338,10 @@ public class frmGraphicAdm extends javax.swing.JFrame {
     private javax.swing.JButton btnGeraGraphicUser;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnShowGraphic;
+    private javax.swing.JButton btnShowGraphicUser;
     private javax.swing.JComboBox<String> cbxAppDate;
     private com.toedter.calendar.JDateChooser dateBeginGraph;
     private com.toedter.calendar.JDateChooser dateEndGraph;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

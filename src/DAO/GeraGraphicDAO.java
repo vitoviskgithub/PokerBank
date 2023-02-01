@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -123,12 +124,14 @@ public class GeraGraphicDAO {
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
             n = resultadoYArray.size();
-            for (i = 0; i < n; i++) {
+     
+                for (i = 0; i < n; i++) {
                 //já inicia imprimindo a posição incial do VECTOR ArrayList que é 0
                 System.out.printf("Posição %d- %s\n", i, resultadoYArray.get(i));
 
                 int testeResArr = Integer.parseInt(resultadoYArray.get(i));
                 String convNum = String.valueOf(i);
+                
                 dataset.addValue(testeResArr, "LINHA", convNum);
 
             }
