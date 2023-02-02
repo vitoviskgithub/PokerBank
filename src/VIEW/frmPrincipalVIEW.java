@@ -6,9 +6,11 @@ import DAO.UsuarioDAO;
 import DTO.BankUserDTO;
 import DTO.TournamentsDTO;
 import DTO.UsuarioDTO;
+import CONTROL.controlUrl;
 
 
 import java.awt.List;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -69,8 +71,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuList3 = new javax.swing.JMenuItem();
         menuList4 = new javax.swing.JMenuItem();
         menuOutros = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuOutros1 = new javax.swing.JMenuItem();
+        menuOutros2 = new javax.swing.JMenuItem();
+        menuOutros3 = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
         menuAjuda1 = new javax.swing.JMenuItem();
 
@@ -357,21 +360,31 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuOutros.setText("OUTROS");
         menuOutros.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        jMenuItem1.setText("TELA DE LOGIN");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuOutros1.setText("TELA DE LOGIN");
+        menuOutros1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuOutros1ActionPerformed(evt);
             }
         });
-        menuOutros.add(jMenuItem1);
+        menuOutros.add(menuOutros1);
 
-        jMenuItem2.setText("CADASTRO USUÁRIO");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuOutros2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuOutros2.setText("CADASTRO USUÁRIO");
+        menuOutros2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuOutros2ActionPerformed(evt);
             }
         });
-        menuOutros.add(jMenuItem2);
+        menuOutros.add(menuOutros2);
+
+        menuOutros3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuOutros3.setText("POKERBANK WEB");
+        menuOutros3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOutros3ActionPerformed(evt);
+            }
+        });
+        menuOutros.add(menuOutros3);
 
         menuTopo.add(menuOutros);
 
@@ -702,7 +715,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     }//GEN-LAST:event_menuList3ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuOutros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOutros2ActionPerformed
 
         frmUsuarioVIEW objusuarioview = new frmUsuarioVIEW();
 
@@ -711,9 +724,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         dispose();
 
 
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuOutros2ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuOutros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOutros1ActionPerformed
         frmLogin objlogin = new frmLogin();
 
         objlogin.btnGoFrmUsuario.setVisible(false);
@@ -721,7 +734,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         objlogin.setVisible(true);
         dispose();
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuOutros1ActionPerformed
 
     private void menuList4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuList4ActionPerformed
 
@@ -809,6 +822,12 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
        
     }//GEN-LAST:event_menuUserGra1ActionPerformed
 
+    private void menuOutros3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOutros3ActionPerformed
+controlUrl objctrurl = new controlUrl();
+objctrurl.open();
+
+    }//GEN-LAST:event_menuOutros3ActionPerformed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -853,8 +872,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuAdm;
     private javax.swing.JMenuItem menuAdm1;
     private javax.swing.JMenuItem menuAdm2;
@@ -869,6 +886,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuList3;
     private javax.swing.JMenuItem menuList4;
     private javax.swing.JMenu menuOutros;
+    private javax.swing.JMenuItem menuOutros1;
+    private javax.swing.JMenuItem menuOutros2;
+    private javax.swing.JMenuItem menuOutros3;
     private javax.swing.JMenuBar menuTopo;
     private javax.swing.JMenu menuUser;
     private javax.swing.JMenuItem menuUser1;
