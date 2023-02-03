@@ -143,7 +143,7 @@ public class GeraGraphicDAO {
 //os tres ultimos true (legenda, tolltips, url)
 
                 JOptionPane.showMessageDialog(null, "Criando gráfico");
-                OutputStream imagemSaida = new FileOutputStream("./src/images/Graphic_app.png/");//gerando um arquivo de imagem no diretório de projeto
+                OutputStream imagemSaida = new FileOutputStream("Graphic_app.png");//gerando um arquivo de imagem no diretório de projeto
                 ChartUtilities.writeChartAsPNG(imagemSaida, criaGrafico, 500, 400);//configurações da imagem, largura e altura
 //toda vez que usar OUTPUT no jchart tem que fechar
 
@@ -163,6 +163,11 @@ public class GeraGraphicDAO {
 
             JOptionPane.showMessageDialog(null, "Erro na GeraGraphicDAO no método Gerador de gráfico: " + e);
         }
+        
+        //MOVE O ARQUIVO DE UM PASTA PARA OUTRA
+        MoverArquivos objmoverarq = new MoverArquivos();
+        objmoverarq.moveArqPngApp();// move o arquivo gerado para dentro da pasta do APP
+
 
     }
 
@@ -343,7 +348,7 @@ public class GeraGraphicDAO {
         try {
 
             //OBTEM E COLOCA A IMAGEM DENTRO DE UMA BUFFEREDIMAGE
-            img = ImageIO.read(new File("./src/images/Graphic_app.png/"));
+            img = ImageIO.read(new File("C:/Users/Meu Computador/Documents/GitHub/links/src/images/Graphic_app.png/"));
 
         } catch (IOException erro) {
 

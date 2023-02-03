@@ -21,6 +21,18 @@ public class MoverArquivos {
         }
     }
     
+     public void moveArqPngApp() {
+        Path sourcePath = Paths.get("C:/Users/Meu Computador/Desktop/Graphic_app.png");
+        Path destinationPath = Paths.get("C:/Users/Meu Computador/Documents/GitHub/links/src/images/Graphic_app.png");
+
+        try {
+            Files.move(sourcePath, destinationPath,
+                    StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro:" + e);
+        }
+    }
+    
      public void moveArqPdfRela() {
         Path sourcePath = Paths.get("C:/Users/Meu Computador/Desktop/relatorioUsuario.pdf/");
         Path destinationPath = Paths.get("C:/Users/Meu Computador/Documents/GitHub/links/src/images/info/relatorioUsuario.pdf/");
