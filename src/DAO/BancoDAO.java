@@ -19,9 +19,10 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 import DTO.PesquisaDateDTO;
+import VIEW.frmRelatorioUser;
 
 public class BancoDAO {
-
+  
     //variáveis externas(globais)
     Connection conn;
     PreparedStatement pstm;
@@ -1013,4 +1014,4 @@ public class BancoDAO {
     }    
       
       
-}
+   }

@@ -7,7 +7,9 @@ import DTO.BankUserDTO;
 import DTO.TournamentsDTO;
 import DTO.UsuarioDTO;
 import CONTROL.controlUrl;
-
+import DAO.RelatorioTournDAO;
+import DAO.RelatorioUserDAO;
+import java.awt.Color;
 
 import java.awt.List;
 import java.net.URL;
@@ -29,7 +31,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     public frmPrincipalVIEW() {
         initComponents();
-        
+
         restaurarDadosComboBoxApppPrincipal();
     }
 
@@ -37,6 +39,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         panelMeio = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,6 +63,9 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuAdm3 = new javax.swing.JMenuItem();
         menuAdm4 = new javax.swing.JMenu();
         menuAdm4AppDate = new javax.swing.JMenuItem();
+        menuAdm5 = new javax.swing.JMenu();
+        menuAdm4UserSald = new javax.swing.JMenuItem();
+        menuAdm4TorneiosDate = new javax.swing.JMenuItem();
         menuUser = new javax.swing.JMenu();
         menuUser1 = new javax.swing.JMenuItem();
         menuUser2 = new javax.swing.JMenuItem();
@@ -76,6 +82,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuOutros3 = new javax.swing.JMenuItem();
         menuAjuda = new javax.swing.JMenu();
         menuAjuda1 = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,7 +135,6 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
         txtTotalSaldo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtTotalSaldo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(63, 149, 255)));
-        txtTotalSaldo.setEnabled(false);
 
         btnAtualizarSaldo.setText("SALDO TOTAL (ID)");
         btnAtualizarSaldo.addActionListener(new java.awt.event.ActionListener() {
@@ -278,6 +285,26 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuAdm4.add(menuAdm4AppDate);
 
         menuAdm.add(menuAdm4);
+
+        menuAdm5.setText("RELATÓRIO");
+
+        menuAdm4UserSald.setText("USUÁRIO/SALDO");
+        menuAdm4UserSald.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm4UserSaldActionPerformed(evt);
+            }
+        });
+        menuAdm5.add(menuAdm4UserSald);
+
+        menuAdm4TorneiosDate.setText("TORNEIOS/DATA");
+        menuAdm4TorneiosDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm4TorneiosDateActionPerformed(evt);
+            }
+        });
+        menuAdm5.add(menuAdm4TorneiosDate);
+
+        menuAdm.add(menuAdm5);
 
         menuTopo.add(menuAdm);
 
@@ -764,13 +791,13 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPedasContaActionPerformed
 
     private void menuUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUser2ActionPerformed
-       
+
         frmListarDatas objlistardatas = new frmListarDatas();
         objlistardatas.setVisible(true);
     }//GEN-LAST:event_menuUser2ActionPerformed
 
     private void menuAdm4AppDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm4AppDateActionPerformed
-       String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
 
         if (senha3_recebe.equals("")) {
             JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
@@ -817,16 +844,113 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_menuAdm4AppDateActionPerformed
 
     private void menuUserGra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUserGra1ActionPerformed
-       frmGraphicUser objgraphicuser = new frmGraphicUser();
-       objgraphicuser.setVisible(true);
-       
+        frmGraphicUser objgraphicuser = new frmGraphicUser();
+        objgraphicuser.setVisible(true);
+
     }//GEN-LAST:event_menuUserGra1ActionPerformed
 
     private void menuOutros3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOutros3ActionPerformed
-controlUrl objctrurl = new controlUrl();
-objctrurl.open();
+        controlUrl objctrurl = new controlUrl();
+        objctrurl.open();
 
     }//GEN-LAST:event_menuOutros3ActionPerformed
+
+    private void menuAdm4UserSaldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm4UserSaldActionPerformed
+
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+
+        if (senha3_recebe.equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
+
+        } else {
+
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+
+            objusuariodto.setSenha_usuario(senha3_recebe);
+
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+
+            try {
+
+                if (rusuariodao.next()) {
+
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+
+                        RelatorioUserDAO objreluserdao = new RelatorioUserDAO();
+                        objreluserdao.gerarRelatorioUsuario();
+
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para gerar esse relatório");
+                }
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
+
+            }
+        }
+
+
+    }//GEN-LAST:event_menuAdm4UserSaldActionPerformed
+
+    private void menuAdm4TorneiosDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm4TorneiosDateActionPerformed
+
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+
+        if (senha3_recebe.equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Insira a senha do administrador para prosseguir");
+
+        } else {
+
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+
+            objusuariodto.setSenha_usuario(senha3_recebe);
+
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+
+            try {
+
+                if (rusuariodao.next()) {
+
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+
+                        RelatorioTournDAO objreluserdao = new RelatorioTournDAO();
+                        objreluserdao.gerarRelatorioTorneio();
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador para gerar esse relatório");
+                }
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
+
+            }
+        }
+
+
+    }//GEN-LAST:event_menuAdm4TorneiosDateActionPerformed
 
     public static void main(String args[]) {
 
@@ -872,12 +996,16 @@ objctrurl.open();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuAdm;
     private javax.swing.JMenuItem menuAdm1;
     private javax.swing.JMenuItem menuAdm2;
     private javax.swing.JMenuItem menuAdm3;
     private javax.swing.JMenu menuAdm4;
     private javax.swing.JMenuItem menuAdm4AppDate;
+    private javax.swing.JMenuItem menuAdm4TorneiosDate;
+    private javax.swing.JMenuItem menuAdm4UserSald;
+    private javax.swing.JMenu menuAdm5;
     private javax.swing.JMenu menuAjuda;
     private javax.swing.JMenuItem menuAjuda1;
     private javax.swing.JMenu menuList;
@@ -923,22 +1051,33 @@ objctrurl.open();
                 // para pegar o valor de da variável ResultSet pegou no BD, tem que estar 
                 //dentro de uma CONDICIONAL IF ou LOOP como WHILE, com o compartaivo se ela está vazia ou não rs.next()
                 somaSaldos = rs.getInt(1);
+
                 String textoSoma = String.valueOf(somaSaldos);
-                txtTotalSaldo.setText(textoSoma);
+
+                if (somaSaldos <= 0) {
+                    txtTotalSaldo.setForeground(Color.red);
+                    txtTotalSaldo.setText(textoSoma);
+
+                } else {
+
+                    txtTotalSaldo.setForeground(Color.blue);
+                    txtTotalSaldo.setText(textoSoma);
+
+                }
 
             } else {
 
                 JOptionPane.showMessageDialog(null, "Erro na soma dos saldos no frmPrincipal");
             }
 
-        } catch (Exception erro) {
+        } catch (SQLException erro) {
 
-            JOptionPane.showMessageDialog(null, "frmPrincipal método listarSaldos: " + erro);
+            JOptionPane.showMessageDialog(null, "frmPrincipal método somarValoresSaldo: " + erro);
         }
 
     }
-    
-       public void restaurarDadosComboBoxApppPrincipal() {
+
+    public void restaurarDadosComboBoxApppPrincipal() {
         //Vetor usado para passar dois valores para comboBox
         Vector<Integer> idPoker = new Vector<Integer>();
 
@@ -966,231 +1105,221 @@ objctrurl.open();
         }
 
     }
-       
+
     //instanciando e criando o objeto dessa classe   
     ConexaoDAO objconndao = new ConexaoDAO();
     //variável usada no método somarValoresContaApp
     public int somaSaldoContaApp, part1_soma_app, part2_soma_app, somaGanhosContaApp, somaPerdasContaApp;
-    
-    private void somarValoresContaApp(BankUserDTO objbankdto){
-        
+
+    private void somarValoresContaApp(BankUserDTO objbankdto) {
+
         //pegando o item selecionado na comboBox e passando para uma variável
         int id_conta_app = cbxContaPrincipal.getSelectedIndex();
-        
+
         //setando esse valor na DTO
         objbankdto.setApp_id_bank(id_conta_app);
-        
-        
-        if(id_conta_app==3){
-            
-            
+
+        if (id_conta_app == 3) {
+
             //SOMANDO PARTE 1
-              String sql1 = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = 1";
-        
-               //conectando ao banco
-               // tem que usar o new para criar essa NOVA CONEXÃO, e por instanciar outra classe
-               conn = new ConexaoDAO().conectaBD();
-            
+            String sql1 = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = 1";
+
+            //conectando ao banco
+            // tem que usar o new para criar essa NOVA CONEXÃO, e por instanciar outra classe
+            conn = new ConexaoDAO().conectaBD();
+
             try {
-            
-                 //armezando a string
-                 pstm = conn.prepareStatement(sql1);
-                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
-                 rs = pstm.executeQuery();
-                                             
+
+                //armezando a string
+                pstm = conn.prepareStatement(sql1);
+                //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+                rs = pstm.executeQuery();
+
                 //pegando o retorno e comparando se ele volta vazio do que foi pedido
-              if(rs.next()){
-                //pegando o inteiro que retorna do resultado da soma feita pela sql
-                part1_soma_app = rs.getInt(1);
-              
-               }else{
-                //mensagem caso haja erro
-                JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
-                
-                    }
-         
-              
-             }catch(SQLException erro){
-            //tratamento de exceção(erro)
-             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
-            
-                 }           
-                 //FIM SOMA PARTE 1
-              
-              //SOMA PARTE 2
-              String sql2 = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = 2";
-              
-              conn = new ConexaoDAO().conectaBD();
-              
-              try{
-                  
-                  pstm = conn.prepareStatement(sql2);
-                  rs = pstm.executeQuery();
-                  
-                   if(rs.next()){
-                        part2_soma_app = rs.getInt(1);
-                   }else{
-                       JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
-                   }
-                  
-                  
-              }catch(SQLException erro){
-                  
-                   JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
-              }
-            
+                if (rs.next()) {
+                    //pegando o inteiro que retorna do resultado da soma feita pela sql
+                    part1_soma_app = rs.getInt(1);
+
+                } else {
+                    //mensagem caso haja erro
+                    JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
+
+                }
+
+            } catch (SQLException erro) {
+                //tratamento de exceção(erro)
+                JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
+
+            }
+            //FIM SOMA PARTE 1
+
+            //SOMA PARTE 2
+            String sql2 = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = 2";
+
+            conn = new ConexaoDAO().conectaBD();
+
+            try {
+
+                pstm = conn.prepareStatement(sql2);
+                rs = pstm.executeQuery();
+
+                if (rs.next()) {
+                    part2_soma_app = rs.getInt(1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
+                }
+
+            } catch (SQLException erro) {
+
+                JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
+            }
+
             //FIM DA SOMA PARTE 2
-            
             somaSaldoContaApp = part1_soma_app + part2_soma_app;
             String imp_result_soma = String.valueOf(somaSaldoContaApp);
-            
+
             txtTotalContaApp.setText(imp_result_soma);
-            
-            
-             }else{
-            
-               //string para o sql
-               String sql = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
-        
-               //conectando ao banco
-               conn = new ConexaoDAO().conectaBD();
-            
+
+        } else {
+
+            //string para o sql
+            String sql = "SELECT SUM(saldo_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
+
+            //conectando ao banco
+            conn = new ConexaoDAO().conectaBD();
+
             try {
-            
-                 //armezando a string
-                 pstm = conn.prepareStatement(sql);
-                 //usando a string no comando sql que vai ser executado
-                 pstm.setInt(1, objbankdto.getApp_id_bank());
-                 //executando todo esses comandos
-                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
-                 rs = pstm.executeQuery();
-            
+
+                //armezando a string
+                pstm = conn.prepareStatement(sql);
+                //usando a string no comando sql que vai ser executado
+                pstm.setInt(1, objbankdto.getApp_id_bank());
+                //executando todo esses comandos
+                //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+                rs = pstm.executeQuery();
+
                 //pegando o retorno e comparando se ele volta vazio do que foi pedido
-              if(rs.next()){
-                //pegando o inteiro que retorna do resultado da soma feita pela sql
-                somaSaldoContaApp = rs.getInt(1);
-                //convertendo em string e passando para uma variável
-                String resultadoSaldoConta = String.valueOf(somaSaldoContaApp);
-                //imprimindo ele na TexField
-                txtTotalContaApp.setText(resultadoSaldoConta);
-                
-                //deixando a comboBox com o valor Selecione
-                cbxContaPrincipal.getModel().setSelectedItem("Selecione");
-                
-               }else{
-                //mensagem caso haja erro
-                JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
-                
-                    }
-             }catch(SQLException erro){
-            //tratamento de exceção(erro)
-             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
-            
-                 }
-        }  
-            
-    }   
-       
-    private void somarGanhosContaApp(BankUserDTO objbankuserdto){
-        
-         //pegando o item selecionado na comboBox e passando para uma variável
+                if (rs.next()) {
+                    //pegando o inteiro que retorna do resultado da soma feita pela sql
+                    somaSaldoContaApp = rs.getInt(1);
+                    //convertendo em string e passando para uma variável
+                    String resultadoSaldoConta = String.valueOf(somaSaldoContaApp);
+                    //imprimindo ele na TexField
+                    txtTotalContaApp.setText(resultadoSaldoConta);
+
+                    //deixando a comboBox com o valor Selecione
+                    cbxContaPrincipal.getModel().setSelectedItem("Selecione");
+
+                } else {
+                    //mensagem caso haja erro
+                    JOptionPane.showMessageDialog(null, "Erro na soma do saldo das Contas no frmpPrincipalVIEW");
+
+                }
+            } catch (SQLException erro) {
+                //tratamento de exceção(erro)
+                JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarValoresContaApp: " + erro);
+
+            }
+        }
+
+    }
+
+    private void somarGanhosContaApp(BankUserDTO objbankuserdto) {
+
+        //pegando o item selecionado na comboBox e passando para uma variável
         int id_conta_app = cbxContaPrincipal.getSelectedIndex();
-        
+
         //setando esse valor na DTO
         objbankuserdto.setApp_id_bank(id_conta_app);
-        
-        
-               //string para o sql
-               String sql5 = "SELECT SUM(ganho_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
-        
-               //conectando ao banco
-               conn = new ConexaoDAO().conectaBD();
-               
-               
-                     try {
-            
-                 //armezando a string
-                 pstm = conn.prepareStatement(sql5);
-                 //usando a string no comando sql que vai ser executado
-                 pstm.setInt(1, objbankuserdto.getApp_id_bank());
-                 //executando todo esses comandos
-                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
-                 rs = pstm.executeQuery();
-            
-                //pegando o retorno e comparando se ele volta vazio do que foi pedido
-              if(rs.next()){
+
+        //string para o sql
+        String sql5 = "SELECT SUM(ganho_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
+
+        //conectando ao banco
+        conn = new ConexaoDAO().conectaBD();
+
+        try {
+
+            //armezando a string
+            pstm = conn.prepareStatement(sql5);
+            //usando a string no comando sql que vai ser executado
+            pstm.setInt(1, objbankuserdto.getApp_id_bank());
+            //executando todo esses comandos
+            //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+            rs = pstm.executeQuery();
+
+            //pegando o retorno e comparando se ele volta vazio do que foi pedido
+            if (rs.next()) {
                 //pegando o inteiro que retorna do resultado da soma feita pela sql
                 somaGanhosContaApp = rs.getInt(1);
                 //convertendo em string e passando para uma variável
                 String resultadoGanhosConta = String.valueOf(somaGanhosContaApp);
                 //imprimindo ele na TexField
                 txtTotalContaApp.setText(resultadoGanhosConta);
-                
+
                 //deixando a comboBox com o valor Selecione
                 cbxContaPrincipal.getModel().setSelectedItem("Selecione");
-                
-               }else{
+
+            } else {
                 //mensagem caso haja erro
                 JOptionPane.showMessageDialog(null, "Erro na soma dos ganhos das Contas no frmpPrincipalVIEW");
-                
-                    }
-             }catch(SQLException erro){
+
+            }
+        } catch (SQLException erro) {
             //tratamento de exceção(erro)
-             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarGanhosContaApp: " + erro);
-            
-                 }
-               
+            JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarGanhosContaApp: " + erro);
+
+        }
+
     }
-    
-    private void somarPerdasContaApp(BankUserDTO objbankuserdto){
-        
-         //pegando o item selecionado na comboBox e passando para uma variável
+
+    private void somarPerdasContaApp(BankUserDTO objbankuserdto) {
+
+        //pegando o item selecionado na comboBox e passando para uma variável
         int id_conta_app = cbxContaPrincipal.getSelectedIndex();
-        
+
         //setando esse valor na DTO
         objbankuserdto.setApp_id_bank(id_conta_app);
-        
-        
-               //string para o sql
-               String sql6 = "SELECT SUM(perda_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
-        
-               //conectando ao banco
-               conn = new ConexaoDAO().conectaBD();
-               
-               
-                     try {
-            
-                 //armezando a string
-                 pstm = conn.prepareStatement(sql6);
-                 //usando a string no comando sql que vai ser executado
-                 pstm.setInt(1, objbankuserdto.getApp_id_bank());
-                 //executando todo esses comandos
-                 //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
-                 rs = pstm.executeQuery();
-            
-                //pegando o retorno e comparando se ele volta vazio do que foi pedido
-              if(rs.next()){
+
+        //string para o sql
+        String sql6 = "SELECT SUM(perda_bank) AS Total FROM tablebankuser WHERE fk_app_id_bank = ?";
+
+        //conectando ao banco
+        conn = new ConexaoDAO().conectaBD();
+
+        try {
+
+            //armezando a string
+            pstm = conn.prepareStatement(sql6);
+            //usando a string no comando sql que vai ser executado
+            pstm.setInt(1, objbankuserdto.getApp_id_bank());
+            //executando todo esses comandos
+            //a variável tipo ResultSet RECEBE o resultado do comando SQL executado
+            rs = pstm.executeQuery();
+
+            //pegando o retorno e comparando se ele volta vazio do que foi pedido
+            if (rs.next()) {
                 //pegando o inteiro que retorna do resultado da soma feita pela sql
                 somaPerdasContaApp = rs.getInt(1);
                 //convertendo em string e passando para uma variável
                 String resultadoPerdasConta = String.valueOf(somaPerdasContaApp);
                 //imprimindo ele na TexField
                 txtTotalContaApp.setText(resultadoPerdasConta);
-                
+
                 //deixando a comboBox com o valor Selecione
                 cbxContaPrincipal.getModel().setSelectedItem("Selecione");
-                
-               }else{
+
+            } else {
                 //mensagem caso haja erro
                 JOptionPane.showMessageDialog(null, "Erro na soma das perdas das Contas no frmpPrincipalVIEW");
-                
-                    }
-             }catch(SQLException erro){
+
+            }
+        } catch (SQLException erro) {
             //tratamento de exceção(erro)
-             JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarPerdasContaApp: " + erro);
-            
-                 }
-               
+            JOptionPane.showMessageDialog(null, "frmPrincipalVIEW método somarPerdasContaApp: " + erro);
+
+        }
+
     }
-    
+
 }

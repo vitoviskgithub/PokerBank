@@ -20,6 +20,7 @@ import java.text.ParseException;
 import java.sql.SQLException;
 
 import DAO.ConexaoDAO;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -240,7 +241,6 @@ public class frmBanco extends javax.swing.JFrame {
 
         txtTotalSaldo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtTotalSaldo.setForeground(new java.awt.Color(0, 51, 51));
-        txtTotalSaldo.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Entrada :");
@@ -976,7 +976,17 @@ public class frmBanco extends javax.swing.JFrame {
                 //dentro de uma CONDICIONAL IF ou LOOP como WHILE, com o compartaivo se ela está vazia ou não rs.next()
                 somaSaldos = rs.getInt(1);
                 String textoSoma = String.valueOf(somaSaldos);
-                txtTotalSaldo.setText(textoSoma);
+                                
+                 if (somaSaldos <= 0) {
+                    txtTotalSaldo.setForeground(Color.red);
+                    txtTotalSaldo.setText(textoSoma);
+
+                } else {
+
+                    txtTotalSaldo.setForeground(Color.blue);
+                    txtTotalSaldo.setText(textoSoma);
+
+                }
 
             } else {
 

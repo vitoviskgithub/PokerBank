@@ -1,5 +1,6 @@
 package DAO;
 
+import CONTROL.MoverArquivos;
 import DTO.PesquisaDateDTO;
 import VIEW.frmGraphicAdm;
 import java.awt.Color;
@@ -8,7 +9,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import org.jfree.data.category.DefaultCategoryDataset;
-
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -124,14 +124,14 @@ public class GeraGraphicDAO {
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
             n = resultadoYArray.size();
-     
-                for (i = 0; i < n; i++) {
+
+            for (i = 0; i < n; i++) {
                 //já inicia imprimindo a posição incial do VECTOR ArrayList que é 0
                 System.out.printf("Posição %d- %s\n", i, resultadoYArray.get(i));
 
                 int testeResArr = Integer.parseInt(resultadoYArray.get(i));
                 String convNum = String.valueOf(i);
-                
+
                 dataset.addValue(testeResArr, "LINHA", convNum);
 
             }
@@ -146,7 +146,7 @@ public class GeraGraphicDAO {
                 OutputStream imagemSaida = new FileOutputStream("./src/images/Graphic_app.png/");//gerando um arquivo de imagem no diretório de projeto
                 ChartUtilities.writeChartAsPNG(imagemSaida, criaGrafico, 500, 400);//configurações da imagem, largura e altura
 //toda vez que usar OUTPUT no jchart tem que fechar
-             
+
                 imagemSaida.close();
 
             } catch (IOException erroIO) {
@@ -163,13 +163,10 @@ public class GeraGraphicDAO {
 
             JOptionPane.showMessageDialog(null, "Erro na GeraGraphicDAO no método Gerador de gráfico: " + e);
         }
-               
-            
+
     }
-    
-    
-    
-      public void gerandoGraphicLoopCalcUser(PesquisaDateDTO objpesqdatedto) {
+
+    public void gerandoGraphicLoopCalcUser(PesquisaDateDTO objpesqdatedto) {
 
         int ent_osc = 0;
         int ganho_osc = 0;
@@ -268,10 +265,11 @@ public class GeraGraphicDAO {
 //os tres ultimos true (legenda, tolltips, url)
 
                 JOptionPane.showMessageDialog(null, "Criando gráfico");
-                OutputStream imagemSaida = new FileOutputStream("./src/images/Graphic_user.png/");//gerando um arquivo de imagem no diretório de projeto
+                OutputStream imagemSaida = new FileOutputStream("Graphic_user.png");//gerando um arquivo de imagem no diretório de projeto
+
                 ChartUtilities.writeChartAsPNG(imagemSaida, criaGrafico, 500, 400);//configurações da imagem, largura e altura
 //toda vez que usar OUTPUT no jchart tem que fechar
-             
+
                 imagemSaida.close();
 
             } catch (IOException erroIO) {
@@ -288,105 +286,97 @@ public class GeraGraphicDAO {
 
             JOptionPane.showMessageDialog(null, "Erro na GeraGraphicDAO no método Gerador de gráfico: " + e);
         }
-               
-            
+
+        //MOVE O ARQUIVO DE UM PASTA PARA OUTRA
+        MoverArquivos objmoverarq = new MoverArquivos();
+        objmoverarq.moveArqPngUser();// move o arquivo gerado para dentro da pasta do APP
+
     }
-    
-    
-      public void janelaNovaImagemUser(){
-                   
+
+    public void janelaNovaImagemUser() {
+
         BufferedImage img = null;
 
         try {
-            
-            //OBTEM E COLOCA A IMAGEM DENTRO DE UMA BUFFEREDIMAGE
-            img = ImageIO.read(new File("./src/images/Graphic_user.png/"));
 
+            //OBTEM E COLOCA A IMAGEM DENTRO DE UMA BUFFEREDIMAGE
+            img = ImageIO.read(new File("C:/Users/Meu Computador/Documents/GitHub/links/src/images/Graphic_user.png"));
 
         } catch (IOException erro) {
 
             JOptionPane.showMessageDialog(null, "Abrindo uma nova janela para carregar a imagem do gráfico GeraGraphicDAO: \n" + erro);
         }
 
-             //cria e configura o texto no JLabel
-            JLabel label = new JLabel();
-            /*label.setText("Teste");
+        //cria e configura o texto no JLabel
+        JLabel label = new JLabel();
+        /*label.setText("Teste");
             label.setFont(new Font("Arial", Font.BOLD, 28));*/
-            label.setForeground(Color.white);
-            label.setHorizontalTextPosition(JLabel.CENTER);
-            
-            JLabel lab = new JLabel();
-            /*label.setText("Passou");*/
+        label.setForeground(Color.white);
+        label.setHorizontalTextPosition(JLabel.CENTER);
+
+        JLabel lab = new JLabel();
+        /*label.setText("Passou");*/
 
 // cria e configura a janela
-            JFrame janela = new JFrame();
-            janela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//não faz nada ao clicar no X
-            janela.setSize(520, 445);
+        JFrame janela = new JFrame();
+        janela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//não faz nada ao clicar no X
+        janela.setSize(520, 445);
 
-            /*Image dimg = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA*/
-            Image dimg = img.getScaledInstance(500, 400, Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA
-            
-            
-            ImageIcon imageIcon = new ImageIcon(dimg);
-            label.setIcon(imageIcon);//fazendo a imagem aparecer
+        /*Image dimg = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA*/
+        Image dimg = img.getScaledInstance(500, 400, Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA
+
+        ImageIcon imageIcon = new ImageIcon(dimg);
+        label.setIcon(imageIcon);//fazendo a imagem aparecer
 
 //mostra a janela e adiciona a label a ela
-            janela.setVisible(true);
-            janela.add(label);//adicionando a label ao JFrame
-            
-            label.add(lab);//adicionando uma label nova
-                
-    
-      }
-      
-      
-            public void janelaNovaImagemApp(){
-                   
+        janela.setVisible(true);
+        janela.add(label);//adicionando a label ao JFrame
+
+        label.add(lab);//adicionando uma label nova
+
+    }
+
+    public void janelaNovaImagemApp() {
+
         BufferedImage img = null;
 
         try {
-            
+
             //OBTEM E COLOCA A IMAGEM DENTRO DE UMA BUFFEREDIMAGE
             img = ImageIO.read(new File("./src/images/Graphic_app.png/"));
 
-
         } catch (IOException erro) {
 
             JOptionPane.showMessageDialog(null, "Abrindo uma nova janela para carregar a imagem do gráfico GeraGraphicDAO: \n" + erro);
         }
 
-             //cria e configura o texto no JLabel
-            JLabel label = new JLabel();
-            /*label.setText("Teste");
+        //cria e configura o texto no JLabel
+        JLabel label = new JLabel();
+        /*label.setText("Teste");
             label.setFont(new Font("Arial", Font.BOLD, 28));*/
-            label.setForeground(Color.white);
-            label.setHorizontalTextPosition(JLabel.CENTER);
-            
-            JLabel lab = new JLabel();
-            /*label.setText("Passou");*/
+        label.setForeground(Color.white);
+        label.setHorizontalTextPosition(JLabel.CENTER);
+
+        JLabel lab = new JLabel();
+        /*label.setText("Passou");*/
 
 // cria e configura a janela
-            JFrame janela = new JFrame();
-            janela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//não faz nada ao clicar no X
-            janela.setSize(520, 445);
+        JFrame janela = new JFrame();
+        janela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//não faz nada ao clicar no X
+        janela.setSize(520, 445);
 
-            /*Image dimg = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA*/
-            Image dimg = img.getScaledInstance(500, 400, Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA
-            
-            
-            ImageIcon imageIcon = new ImageIcon(dimg);
-            label.setIcon(imageIcon);//fazendo a imagem aparecer
+        /*Image dimg = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA*/
+        Image dimg = img.getScaledInstance(500, 400, Image.SCALE_SMOOTH);//ADAPTANDO A IMAGEM AO TAMANHO DA JANELA
+
+        ImageIcon imageIcon = new ImageIcon(dimg);
+        label.setIcon(imageIcon);//fazendo a imagem aparecer
 
 //mostra a janela e adiciona a label a ela
-            janela.setVisible(true);
-            janela.add(label);//adicionando a label ao JFrame
-            
-            label.add(lab);//adicionando uma label nova
-                
-    
-      }
-      
-      
-      
-      
+        janela.setVisible(true);
+        janela.add(label);//adicionando a label ao JFrame
+
+        label.add(lab);//adicionando uma label nova
+
+    }
+
 }

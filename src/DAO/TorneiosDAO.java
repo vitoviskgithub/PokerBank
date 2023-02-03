@@ -305,5 +305,50 @@ public class TorneiosDAO {
 
         return lista;
     }
+    
+     public ArrayList<TournamentsDTO> PesquisarTorneioDateDAO() {
+
+        String sql = "SELECT * FROM tabletournaments WHERE date_tourn = ?";//percorre todas as linhas do banco de dados
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco
+
+        try {
+
+            pstm = conn.prepareStatement(sql);//conecta ao banco com a variável conn e prepara o código sql dentro do banco pela variável ResultSet pstm pronto para executar
+            
+            //pega a data de hoje e seta no comando que vai executar no SQL 
+            //por essa razão seta String e não Date
+            Date datahoje = new Date();
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");//declaro o formato da data 
+            String dataFormatada = formato.format(datahoje);
+            
+            pstm.setString(1, dataFormatada);
+            
+            rs = pstm.executeQuery();//executa o código sql através da variável ResultSet
+
+            while (rs.next()) {
+
+                TournamentsDTO objtournamentsdto = new TournamentsDTO();
+
+                //acessando a classe através do objeto
+                objtournamentsdto.setId_tourn(rs.getInt("id_tourn"));//o rs recebe o valor do banco para armazenar na variável, pois é variável ResultSet / após isso setamos na DTO esse valor
+                objtournamentsdto.setType_tourn(rs.getString("type_tourn"));
+                objtournamentsdto.setApp_id_tourn(rs.getInt("fk_app_id_tourn"));
+                objtournamentsdto.setId_user_tourn(rs.getInt("fk_id_user_tourn"));
+                objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
+                objtournamentsdto.setItm_val_tourn(rs.getInt("itm_val_tourn"));//nome do banco de dados após o getInt
+                objtournamentsdto.setDate_tourn(rs.getDate("date_tourn"));
+
+                lista.add(objtournamentsdto);
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "TorneiosDAO PesquisarTorneioDAO: " + erro);
+        }
+
+        return lista;
+    }
 
 }
