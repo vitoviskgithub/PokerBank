@@ -65,7 +65,7 @@ public class RelatorioTournDAO {
       
             //gerando código para criar tabela no pdf
 //Create Table object, Here 4 specify the no. of columns
-            PdfPTable tabelaTourn = new PdfPTable(new float[] { 40f, 30f, 50f, 30f, 30f });
+            PdfPTable tabelaTourn = new PdfPTable(new float[] { 60f, 30f, 30f, 30f, 30f });
                        
             //primeiro parágrafom setndo o texto
             Paragraph tituloDoRelatorio = new Paragraph(new Phrase("POKER BANK APP WEB",
