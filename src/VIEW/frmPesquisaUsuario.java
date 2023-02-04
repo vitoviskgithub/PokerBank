@@ -191,6 +191,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         jLabel7.setText("Selecione o campo na tabela e carregue, antes de Cadastrar ou Excluir ou Voltar");
 
         txtIdTable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtIdTable.setText("COD");
         txtIdTable.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

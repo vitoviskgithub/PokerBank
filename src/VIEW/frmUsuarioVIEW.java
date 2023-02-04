@@ -143,6 +143,7 @@ public class frmUsuarioVIEW extends javax.swing.JFrame {
 
         txtEmail.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
+        txtIdUser.setText("COD");
         txtIdUser.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

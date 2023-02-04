@@ -306,7 +306,7 @@ public class TorneiosDAO {
         return lista;
     }
     
-     public ArrayList<TournamentsDTO> PesquisarTorneioDateDAO() {
+     public ArrayList<TournamentsDTO> PesquisarTorneioDateDAO(Date dateset) {
 
         String sql = "SELECT * FROM tabletournaments WHERE date_tourn = ?";//percorre todas as linhas do banco de dados
 
@@ -318,9 +318,9 @@ public class TorneiosDAO {
             
             //pega a data de hoje e seta no comando que vai executar no SQL 
             //por essa razão seta String e não Date
-            Date datahoje = new Date();
+            
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");//declaro o formato da data 
-            String dataFormatada = formato.format(datahoje);
+            String dataFormatada = formato.format(dateset);
             
             pstm.setString(1, dataFormatada);
             

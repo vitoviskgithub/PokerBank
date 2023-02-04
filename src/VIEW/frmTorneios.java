@@ -185,6 +185,7 @@ public class frmTorneios extends javax.swing.JFrame {
         });
 
         txtCodTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCodTourn.setText("CODIGO");
         txtCodTourn.setEnabled(false);
 
         txtValTourItm.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N

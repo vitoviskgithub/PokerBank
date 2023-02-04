@@ -933,8 +933,8 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
                     //variável retorna se o usuário existe no banco local
                     if (rusuariodaoLocal.next()) {
 
-                        RelatorioTournDAO objreluserdao = new RelatorioTournDAO();
-                        objreluserdao.gerarRelatorioTorneio();
+                        frmSelectDate objseldate = new frmSelectDate();
+                        objseldate.setVisible(true);
                     } else {
 
                     }

@@ -346,6 +346,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtIdUser">
           <Properties>
+            <Property name="text" type="java.lang.String" value="COD"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>

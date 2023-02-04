@@ -2,7 +2,6 @@
 package DAO;
 
 
-import VIEW.frmRelatorioUser;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -47,7 +46,7 @@ public class RelatorioTournDAO {
 
     ArrayList<BankUserDTO> lista = new ArrayList<>();
     
-         public void gerarRelatorioTorneio() {
+         public void gerarRelatorioTorneio(Date datapara) {
 
 //instância do documento
 //usando a classe estática PageSize para definir o tamanho da página
@@ -157,13 +156,12 @@ public class RelatorioTournDAO {
             int qtdTourn = 0;
             String tourn_osc = "";
             
-            
-            
+                       
             //APÓS ABRIR O DOCUEMNTO CONECTO AO BACO DE DADOS
             // BUSCOS OS VALORES DA TABELA DE USUÁRIOS
             // ADICIONO A UM ARRAYLIST          
             TorneiosDAO objtourndao = new TorneiosDAO();
-            ArrayList<TournamentsDTO> lista = objtourndao.PesquisarTorneioDateDAO();
+            ArrayList<TournamentsDTO> lista = objtourndao.PesquisarTorneioDateDAO(datapara);
             
             //INICIA FOR PARA RODAR E ACICIONAR OS VALORES NO RELATÓRIO
             // O FOR É BASEADO NO TAMANHO DO ARRAY
@@ -265,7 +263,10 @@ public class RelatorioTournDAO {
             Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL " + "cmd /c " + arquivopdf);
 
             documento.close();
-
+            
+            JOptionPane.showMessageDialog(null, "GRADE DE TORNEIO GERADA");
+           
+           
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro na criação documento na classe DAO:" + e);
 

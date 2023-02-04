@@ -4,7 +4,7 @@ import CONTROL.MoverArquivos;
 import static DAO.ConexaoDAO.conn;
 import DTO.BankUserDTO;
 import DTO.UsuarioDTO;
-import VIEW.frmRelatorioUser;
+
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -199,7 +199,9 @@ public class RelatorioUserDAO {
             Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL " + "cmd /c " + arquivopdf);
 
             documento.close();
-
+            
+            JOptionPane.showMessageDialog(null, "RELATÓRIO DE SALDOS GERADO");
+                        
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro na criação documento na classe DAO:" + e);
 

@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 import DTO.PesquisaDateDTO;
-import VIEW.frmRelatorioUser;
 
 public class BancoDAO {
   
@@ -394,8 +393,13 @@ public class BancoDAO {
                 objbankuserdto.setData_bank(rs.getDate("data_bank"));
                 objbankuserdto.setApp_id_bank(rs.getInt("fk_app_id_bank"));
                 objbankuserdto.setSaque_bank(rs.getInt("saque_bank"));
-
-                lista.add(objbankuserdto);
+                
+                if(objbankuserdto.getSaque_bank()==0 | objbankuserdto.getSaque_bank()<0){
+                    
+                }else{
+                    lista.add(objbankuserdto);
+                }
+                
 
             }
 

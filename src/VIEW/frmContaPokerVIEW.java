@@ -109,6 +109,7 @@ public class frmContaPokerVIEW extends javax.swing.JFrame {
         });
 
         txtIdContaPoker.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtIdContaPoker.setText("COD");
         txtIdContaPoker.setEnabled(false);
 
         btnAlterar.setText("ALTERAR INFORMAÇÕES");
