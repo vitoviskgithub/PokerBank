@@ -264,6 +264,8 @@ public class RelatorioTournDAO {
 
             documento.close();
             
+            // O ARQUIVO SÓ É MOVIDO APÓS A MENSAGEM DE AVISO
+            // O QUE TAMBÉM GERA TEMPO PARA O ARQUIVO SER GERADO
             JOptionPane.showMessageDialog(null, "GRADE DE TORNEIO GERADA");
            
            
