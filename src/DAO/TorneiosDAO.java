@@ -350,5 +350,44 @@ public class TorneiosDAO {
 
         return lista;
     }
+     
+     public ArrayList<TournamentsDTO> PesquisarTorneiosListaType(String typetourn) {
+
+        String sql = "SELECT * FROM tabletournaments WHERE type_tourn  = ?";//percorre todas as linhas do banco de dados
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco
+
+        try {
+
+            pstm = conn.prepareStatement(sql);//conecta ao banco com a variável conn e prepara o código sql dentro do banco pela variável ResultSet pstm pronto para executar
+
+            pstm.setString(1, typetourn);
+
+            rs = pstm.executeQuery();//executa o código sql através da variável ResultSet
+
+            while (rs.next()) {
+
+                TournamentsDTO objtournamentsdto = new TournamentsDTO();
+
+                //acessando a classe através do objeto
+                objtournamentsdto.setDate_tourn(rs.getDate("date_tourn"));
+                objtournamentsdto.setApp_id_tourn(rs.getInt("fk_app_id_tourn"));
+                objtournamentsdto.setType_tourn(rs.getString("type_tourn"));
+                objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
+                objtournamentsdto.setItm_val_tourn(rs.getInt("itm_val_tourn"));//nome do banco de dados após o getInt
+
+                lista.add(objtournamentsdto);
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "TorneiosDAO PesquisarTorneioDAO: " + erro);
+        }
+
+        return lista;
+    }
+
+     
 
 }
