@@ -221,14 +221,13 @@
         <Component class="javax.swing.JComboBox" name="cbxTypeTourn">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
+              <StringArray count="6">
                 <StringItem index="0" value="Selecione"/>
                 <StringItem index="1" value="NLH (NO LIMIT HOLDEN / 2CARTAS)"/>
                 <StringItem index="2" value="PLO5 (OMAHA POT LIMIT / 5 CARTAS)"/>
                 <StringItem index="3" value="PLO4 (OMAHA POT LIMIT / 4 CARTAS)"/>
                 <StringItem index="4" value="CASH (CASH DE PLO OU NLH)"/>
                 <StringItem index="5" value="SNG (SIT AND GO DE PLO OU NLH)"/>
-                <StringItem index="6" value=" "/>
               </StringArray>
             </Property>
           </Properties>

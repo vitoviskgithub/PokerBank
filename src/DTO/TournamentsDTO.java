@@ -5,7 +5,7 @@ import java.util.Date;
 public class TournamentsDTO {
 
     private int id_tourn, value_tourn, itm_val_tourn, app_id_tourn, id_user_tourn;
-    private String type_tourn;
+    private String type_tourn, desc_tourn;
     private Date date_tourn;
 
     public int getId_tourn() {
@@ -62,6 +62,14 @@ public class TournamentsDTO {
 
     public void setDate_tourn(Date date_tourn) {
         this.date_tourn = date_tourn;
+    }
+
+    public String getDesc_tourn() {
+        return desc_tourn;
+    }
+
+    public void setDesc_tourn(String desc_tourn) {
+        this.desc_tourn = desc_tourn;
     }
 
 }

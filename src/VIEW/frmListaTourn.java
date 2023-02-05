@@ -107,7 +107,7 @@ public class frmListaTourn extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("TIPO TORNEIO:");
 
-        cbxTypeTourn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "NLH (NO LIMIT HOLDEN / 2CARTAS)", "PLO5 (OMAHA POT LIMIT / 5 CARTAS)", "PLO4 (OMAHA POT LIMIT / 4 CARTAS)", "CASH (CASH DE PLO OU NLH)", "SNG (SIT AND GO DE PLO OU NLH)", " " }));
+        cbxTypeTourn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "NLH (NO LIMIT HOLDEN / 2CARTAS)", "PLO5 (OMAHA POT LIMIT / 5 CARTAS)", "PLO4 (OMAHA POT LIMIT / 4 CARTAS)", "CASH (CASH DE PLO OU NLH)", "SNG (SIT AND GO DE PLO OU NLH)" }));
 
         btnListarTournType.setText("LISTAR TORNEIOS");
         btnListarTournType.addActionListener(new java.awt.event.ActionListener() {

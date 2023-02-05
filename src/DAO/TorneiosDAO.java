@@ -63,7 +63,7 @@ public class TorneiosDAO {
 
     public void cadastrarTorneioDAO(TournamentsDTO objtournamentsdto) {
 
-        String sql = "INSERT INTO tabletournaments (type_tourn, fk_app_id_tourn, fk_id_user_tourn, value_tourn, itm_val_tourn, date_tourn) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO tabletournaments (type_tourn, fk_app_id_tourn, fk_id_user_tourn, value_tourn, itm_val_tourn, date_tourn, desc_tourn) VALUES(?,?,?,?,?,?,?)";
 
         conn = new ConexaoDAO().conectaBD();
 
@@ -84,6 +84,7 @@ public class TorneiosDAO {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String data_tourn_formatada = dateFormat.format(data_tourn);
             pstm.setString(6, data_tourn_formatada);
+            pstm.setString(7, objtournamentsdto.getDesc_tourn());
 
             pstm.execute();
             
@@ -100,7 +101,7 @@ public class TorneiosDAO {
 
     public void cadastrarTorneioDAOWeb(TournamentsDTO objtournamentsdto) {
 
-        String sql = "INSERT INTO tabletournaments (type_tourn, fk_app_id_tourn, fk_id_user_tourn, value_tourn, itm_val_tourn, date_tourn) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO tabletournaments (type_tourn, fk_app_id_tourn, fk_id_user_tourn, value_tourn, itm_val_tourn, date_tourn, desc_tourn) VALUES(?,?,?,?,?,?,?)";
 
         conn = new ConexaoDAO().ConectarWeb();
 
@@ -121,6 +122,7 @@ public class TorneiosDAO {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String data_tourn_formatada = dateFormat.format(data_tourn);
             pstm.setString(6, data_tourn_formatada);
+            pstm.setString(7, objtournamentsdto.getDesc_tourn());
 
             pstm.execute();
             
@@ -194,7 +196,7 @@ public class TorneiosDAO {
     
     public void alterarTorneioDAO(TournamentsDTO objtournamentsdto) {
 
-        String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ? where id_tourn = ?";
+        String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ?, desc_tourn = ? where id_tourn = ?";
 
         conn = new ConexaoDAO().conectaBD();
 
@@ -214,8 +216,9 @@ public class TorneiosDAO {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String data_tourn_formatada = dateFormat.format(data_tourn);
             pstm.setString(6, data_tourn_formatada);
+            pstm.setString(7, objtournamentsdto.getDesc_tourn());
             
-            pstm.setInt(7, objtournamentsdto.getId_tourn());
+            pstm.setInt(8, objtournamentsdto.getId_tourn());
 
             pstm.execute();
             
@@ -232,7 +235,7 @@ public class TorneiosDAO {
 
     public void alterarTorneioDAOWeb(TournamentsDTO objtournamentsdto) {
 
-        String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ? where id_tourn = ?";
+        String sql = "UPDATE tabletournaments SET type_tourn = ?, fk_app_id_tourn = ?, fk_id_user_tourn = ?, value_tourn = ?, itm_val_tourn = ?, date_tourn = ?, desc_tourn = ? where id_tourn = ?";
 
         conn = new ConexaoDAO().ConectarWeb();
 
@@ -252,8 +255,9 @@ public class TorneiosDAO {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String data_tourn_formatada = dateFormat.format(data_tourn);
             pstm.setString(6, data_tourn_formatada);
+            pstm.setString(7, objtournamentsdto.getDesc_tourn());
             
-            pstm.setInt(7, objtournamentsdto.getId_tourn());
+            pstm.setInt(8, objtournamentsdto.getId_tourn());
 
             pstm.execute();
             
@@ -293,6 +297,7 @@ public class TorneiosDAO {
                 objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
                 objtournamentsdto.setItm_val_tourn(rs.getInt("itm_val_tourn"));//nome do banco de dados após o getInt
                 objtournamentsdto.setDate_tourn(rs.getDate("date_tourn"));
+                objtournamentsdto.setDesc_tourn(rs.getString("desc_tourn"));
 
                 lista.add(objtournamentsdto);
 
@@ -338,6 +343,7 @@ public class TorneiosDAO {
                 objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
                 objtournamentsdto.setItm_val_tourn(rs.getInt("itm_val_tourn"));//nome do banco de dados após o getInt
                 objtournamentsdto.setDate_tourn(rs.getDate("date_tourn"));
+                objtournamentsdto.setDesc_tourn(rs.getString("desc_tourn"));
 
                 lista.add(objtournamentsdto);
 
@@ -375,6 +381,7 @@ public class TorneiosDAO {
                 objtournamentsdto.setType_tourn(rs.getString("type_tourn"));
                 objtournamentsdto.setValue_tourn(rs.getInt("value_tourn"));
                 objtournamentsdto.setItm_val_tourn(rs.getInt("itm_val_tourn"));//nome do banco de dados após o getInt
+                objtournamentsdto.setDesc_tourn(rs.getString("desc_tourn"));
 
                 lista.add(objtournamentsdto);
 
