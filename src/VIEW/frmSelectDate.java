@@ -6,6 +6,7 @@ package VIEW;
 
 import DAO.RelatorioTournDAO;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -102,10 +103,17 @@ public class frmSelectDate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRelTorneiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelTorneiosActionPerformed
-        Date datapara = selectDateTourn.getDate();
-        
-        RelatorioTournDAO objreluserdao = new RelatorioTournDAO();
-        objreluserdao.gerarRelatorioTorneio(datapara);
+
+        if (selectDateTourn.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Selecione uma data antes de gerar o relatório");
+        } else {
+            Date datapara = selectDateTourn.getDate();
+
+            RelatorioTournDAO objreluserdao = new RelatorioTournDAO();
+            objreluserdao.gerarRelatorioTorneio(datapara);
+        }
+
+
     }//GEN-LAST:event_btnRelTorneiosActionPerformed
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
