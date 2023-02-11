@@ -47,7 +47,7 @@ public class MoverArquivos {
     
       public void moveArqPdfRela1() {
         Path sourcePath = Paths.get("C:/Users/Meu Computador/Desktop/relatorioTorneios.pdf/");
-        Path destinationPath = Paths.get("C:/Users/Meu Computador/Documents/GitHub/repositories/links/images/info/relatorioTorneios.pdf/");
+        Path destinationPath = Paths.get("C:/Users/Meu Computador/Documents/GitHub/repositories/links/src/images/info/relatorioTorneios.pdf/");
 
         try {
             Files.move(sourcePath, destinationPath,
