@@ -100,9 +100,10 @@ public class UsuarioDAO {
 
     }
 
-    public ResultSet autenticacaoUsuario(UsuarioDTO objusuariodto) {
-        conn = new ConexaoDAO().conectaBD();
-
+    public ResultSet autenticacaoUsuario(UsuarioDTO objusuariodto){
+   
+            conn = new ConexaoDAO().conectaBD();
+      
         try {
 
             String sql = "SELECT * FROM tableusuario where nome_usuario = ? and senha_usuario = ?";
@@ -185,9 +186,9 @@ public class UsuarioDAO {
             pstm.setString(1, objusuariodto.getSenha_usuario());
 
             rs = pstm.executeQuery();
-            
+
             return rs;
-        
+
         } catch (SQLException erro) {
 
             JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
@@ -345,9 +346,9 @@ public class UsuarioDAO {
             pstm.setInt(1, objusuariodto.getId_usuario());
 
             pstm.execute();
-            
+
             JOptionPane.showMessageDialog(null, "Usuário excluído no banco Local");
-            
+
             pstm.close();
 
         } catch (SQLException erro) {
@@ -356,8 +357,8 @@ public class UsuarioDAO {
         }
 
     }
-    
-     public void excluirUsuarioWeb(UsuarioDTO objusuariodto) {
+
+    public void excluirUsuarioWeb(UsuarioDTO objusuariodto) {
 
         String sql = "DELETE from tableusuario where id_usuario = ?";
 
@@ -371,10 +372,10 @@ public class UsuarioDAO {
             pstm.setInt(1, objusuariodto.getId_usuario());
 
             pstm.execute();
-            
+
             JOptionPane.showMessageDialog(null, "Usuário excluido na WEB");
             excluirUsuario(objusuariodto);
-            
+
             pstm.close();
 
         } catch (SQLException erro) {
