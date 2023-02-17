@@ -305,7 +305,7 @@ public class GeraGraphicDAO {
         try {
 
             //OBTEM E COLOCA A IMAGEM DENTRO DE UMA BUFFEREDIMAGE
-            img = ImageIO.read(new File("C:/Users/Meu Computador/Documents/GitHub/links/src/images/Graphic_user.png"));
+            img = ImageIO.read(new File("C:/Users/Meu Computador/Documents/GitHub/repositories/links/src/images/Graphic_user.png"));
 
         } catch (IOException erro) {
 
@@ -348,7 +348,7 @@ public class GeraGraphicDAO {
         try {
 
             //OBTEM E COLOCA A IMAGEM DENTRO DE UMA BUFFEREDIMAGE
-            img = ImageIO.read(new File("C:/Users/Meu Computador/Documents/GitHub/links/src/images/Graphic_app.png/"));
+            img = ImageIO.read(new File("C:/Users/Meu Computador/Documents/GitHub/repositories/links/src/images/Graphic_app.png/"));
 
         } catch (IOException erro) {
 
