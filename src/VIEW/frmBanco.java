@@ -88,6 +88,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtComment = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jcaDataBanco = new com.toedter.calendar.JDateChooser();
+        txtUserBank = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -299,6 +300,9 @@ public class frmBanco extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
         jLabel15.setText("NÃO Selecione as opções com ** na Aba APLICATIVO, para REGISTRAR ou ALTERAR");
 
+        txtUserBank.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtUserBank.setText("ID USER");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -352,8 +356,11 @@ public class frmBanco extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxAppBank, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbxAppBank, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(cbxUserBank, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
@@ -406,7 +413,8 @@ public class frmBanco extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbxUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUserBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jcaDataBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -487,13 +495,12 @@ public class frmBanco extends javax.swing.JFrame {
 
         int teste;
         teste = cbxAppBank.getSelectedIndex();
-        int teste1 = cbxUserBank.getSelectedIndex();
-
+     
         CalcularSaldoGeral();
 
         if (txtCodigoBanco.getText().equals("")
             || teste == -1
-            || teste1 == -1
+            || txtUserBank.getText().equals("")
             || txtEntradaBanco.getText().equals("")
             || txtGanhoBanco.getText().equals("")
             || txtPerdaBanco.getText().equals("")
@@ -513,12 +520,11 @@ public class frmBanco extends javax.swing.JFrame {
 
         int teste;
         teste = cbxAppBank.getSelectedIndex();
-        int teste1 = cbxUserBank.getSelectedIndex();
 
         CalcularSaldoGeral();
 
         if (teste == -1
-            || teste1 == -1
+            || txtUserBank.getText().equals("")
             || jcaDataBanco.getDate().equals("")
             || txtEntradaBanco.getText().equals("")
             || txtGanhoBanco.getText().equals("")
@@ -693,6 +699,7 @@ public class frmBanco extends javax.swing.JFrame {
     private javax.swing.JTextField txtSaldoBanco;
     private javax.swing.JTextField txtSaqueBank;
     private javax.swing.JTextField txtTotalSaldo;
+    private javax.swing.JTextField txtUserBank;
     // End of variables declaration//GEN-END:variables
 
     private void CadastrarBanco() {
@@ -700,9 +707,11 @@ public class frmBanco extends javax.swing.JFrame {
         Date data_banco = new Date();
         //declarando variável
         int user_banco, app_banco, entrada_banco, perda_banco, ganho_banco, saldo_banco, saque_banco, codigo_banco;
-        String comment_bank;
+        String comment_bank = "";
+        String idUser = "";
+        idUser = txtUserBank.getText();
 
-        user_banco = cbxUserBank.getSelectedIndex();
+        user_banco = Integer.parseInt(idUser);
         app_banco = cbxAppBank.getSelectedIndex();
         entrada_banco = Integer.parseInt(txtEntradaBanco.getText());
         perda_banco = Integer.parseInt(txtPerdaBanco.getText());
@@ -749,9 +758,11 @@ public class frmBanco extends javax.swing.JFrame {
         //declarando variável
         int user_banco, app_banco, entrada_banco, perda_banco, ganho_banco, saldo_banco, saque_banco, codigo_banco;
         String comment_bank;
+        String idUser = "";
+        idUser = txtUserBank.getText();
 
         codigo_banco = Integer.parseInt(txtCodigoBanco.getText());
-        user_banco = cbxUserBank.getSelectedIndex();
+        user_banco = Integer.parseInt(idUser);
         app_banco = cbxAppBank.getSelectedIndex();
         entrada_banco = Integer.parseInt(txtEntradaBanco.getText());
         perda_banco = Integer.parseInt(txtPerdaBanco.getText());
@@ -797,7 +808,7 @@ public class frmBanco extends javax.swing.JFrame {
 //o getValue pega qual a linha e qual a coluna
 //pega na tabela e seta no campo
         txtCodigoBanco.setText(tableBanco.getModel().getValueAt(setar, 0).toString());
-        cbxUserBank.getModel().setSelectedItem(tableBanco.getModel().getValueAt(setar, 1).toString());
+        txtUserBank.setText(tableBanco.getModel().getValueAt(setar, 1).toString());
         cbxAppBank.getModel().setSelectedItem(tableBanco.getModel().getValueAt(setar, 2).toString());
         txtEntradaBanco.setText(tableBanco.getModel().getValueAt(setar, 3).toString());
         txtPerdaBanco.setText(tableBanco.getModel().getValueAt(setar, 4).toString());//MOSTRANDO O VALOR NA TABELA
@@ -870,6 +881,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtCodigoBanco.setText("");
         cbxAppBank.getModel().setSelectedItem("Selecione");
         cbxUserBank.getModel().setSelectedItem("Selecione");
+        txtUserBank.setText("");
         txtEntradaBanco.setText("");
         txtPerdaBanco.setText("");
         txtGanhoBanco.setText("");

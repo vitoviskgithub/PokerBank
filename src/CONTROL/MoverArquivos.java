@@ -56,5 +56,17 @@ public class MoverArquivos {
             JOptionPane.showMessageDialog(null, "Erro:" + e);
         }
     }
+        public void moveArqPdfRelaApp() {
+        Path sourcePath = Paths.get("C:/Users/Meu Computador/Desktop/relatorioUsuarioApp.pdf/");
+        Path destinationPath = Paths.get("C:/Users/Meu Computador/Documents/GitHub/repositories/links/src/images/info/relatorioUsuarioApp.pdf/");
+
+        try {
+            Files.move(sourcePath, destinationPath,
+                    StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro:" + e);
+        }
+    }
+      
     
 }

@@ -65,6 +65,7 @@ public class frmTorneios extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtDescTourn = new javax.swing.JTextField();
+        txtUsuarioTourn = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -233,6 +234,9 @@ public class frmTorneios extends javax.swing.JFrame {
 
         txtDescTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
+        txtUsuarioTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtUsuarioTourn.setText("ID USER");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -251,7 +255,10 @@ public class frmTorneios extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxAppTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbxUsuarioTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(cbxUsuarioTourn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -338,7 +345,8 @@ public class frmTorneios extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jLabel9)
-                        .addComponent(cbxUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbxUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtUsuarioTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jcaDataTourn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -383,12 +391,11 @@ public class frmTorneios extends javax.swing.JFrame {
     private void btnRegistrarTournActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarTournActionPerformed
         int teste;
         teste = cbxAppTourn.getSelectedIndex();
-        int teste1 = cbxUsuarioTourn.getSelectedIndex();
         // se não selecionar nada na combobox o valor é -1
 
         if (txtTypeTourn.getText().equals("")
                 || teste == -1
-                || teste1 == -1
+                || txtUsuarioTourn.getText().equals("")
                 || txtValBuyinTourn.getText().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Algum campo está vazio, preencha antes de registrar");
@@ -406,13 +413,12 @@ public class frmTorneios extends javax.swing.JFrame {
 
         int teste;
         teste = cbxAppTourn.getSelectedIndex();
-        int teste1 = cbxUsuarioTourn.getSelectedIndex();
         //se não selecionar nada na comboBox o valor é -1
 
         //comparando se os campos estão vazios
         if (txtCodTourn.getText().equals("")
                 || teste == -1
-                || teste1 == -1
+                || txtUsuarioTourn.getText().equals("")
                 || txtTypeTourn.getText().equals("")
                 || txtValBuyinTourn.getText().equals("")
                 || txtValTourItm.getText().equals("")
@@ -557,6 +563,7 @@ public class frmTorneios extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodTourn;
     private javax.swing.JTextField txtDescTourn;
     private javax.swing.JTextField txtTypeTourn;
+    private javax.swing.JTextField txtUsuarioTourn;
     private javax.swing.JTextField txtValBuyinTourn;
     private javax.swing.JTextField txtValTourItm;
     // End of variables declaration//GEN-END:variables
@@ -573,7 +580,9 @@ public class frmTorneios extends javax.swing.JFrame {
         //NÃO precisar USAR O VETOR para selecionar da combobox e passar para o SQL
         //Usar o Vetor para mostar na ComboBox dois valores é necessário, mas para passar um valor não
         app_tourn = cbxAppTourn.getSelectedIndex();
-        usuario_tourn = cbxUsuarioTourn.getSelectedIndex();
+        
+        String idUser = txtUsuarioTourn.getText();
+        usuario_tourn = Integer.parseInt(idUser);
 
         val_buyin_tourn = Integer.parseInt(txtValBuyinTourn.getText());//corrigir pois é inteiro
         val_itm_tourn = Integer.parseInt(txtValTourItm.getText());
@@ -625,7 +634,9 @@ public class frmTorneios extends javax.swing.JFrame {
         //NÃO precisar USAR O VETOR para selecionar da combobox e passar para o SQL
         //Usar o Vetor para mostar na ComboBox dois valores é necessário, mas para passar um valor não
         app_tourn = cbxAppTourn.getSelectedIndex();
-        usuario_tourn = cbxUsuarioTourn.getSelectedIndex();
+        
+        String idUser = txtUsuarioTourn.getText();
+        usuario_tourn = Integer.parseInt(idUser);
 
         val_buyin_tourn = Integer.parseInt(txtValBuyinTourn.getText());//corrigir pois é inteiro
         val_itm_tourn = Integer.parseInt(txtValTourItm.getText());
@@ -659,7 +670,7 @@ public class frmTorneios extends javax.swing.JFrame {
         txtCodTourn.setText(tableTourn.getModel().getValueAt(setar, 0).toString());
         txtTypeTourn.setText(tableTourn.getModel().getValueAt(setar, 1).toString());
         cbxAppTourn.getModel().setSelectedItem(tableTourn.getModel().getValueAt(setar, 2).toString());
-        cbxUsuarioTourn.getModel().setSelectedItem(tableTourn.getModel().getValueAt(setar, 3).toString());
+        txtUsuarioTourn.setText(tableTourn.getModel().getValueAt(setar, 3).toString());
         txtValBuyinTourn.setText(tableTourn.getModel().getValueAt(setar, 4).toString());
         txtValTourItm.setText(tableTourn.getModel().getValueAt(setar, 5).toString());//MOSTRANDO O VALOR NA COMBOBOX
                    
@@ -725,6 +736,7 @@ public class frmTorneios extends javax.swing.JFrame {
         txtTypeTourn.setText("");
         cbxAppTourn.getModel().setSelectedItem("Selecione");
         cbxUsuarioTourn.getModel().setSelectedItem("Selecione");
+        txtUsuarioTourn.setText("");
         txtValBuyinTourn.setText("");
         txtValTourItm.setText("");
         jcaDataTourn.setDate(null);

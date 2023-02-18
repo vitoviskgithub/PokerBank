@@ -66,6 +66,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
         menuAdm5 = new javax.swing.JMenu();
         menuAdm4UserSald = new javax.swing.JMenuItem();
         menuAdm4TorneiosDate = new javax.swing.JMenuItem();
+        menuAdm4AppSald = new javax.swing.JMenuItem();
         menuUser = new javax.swing.JMenu();
         menuUser1 = new javax.swing.JMenuItem();
         menuUser2 = new javax.swing.JMenuItem();
@@ -303,6 +304,14 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             }
         });
         menuAdm5.add(menuAdm4TorneiosDate);
+
+        menuAdm4AppSald.setText("APP/SALDO");
+        menuAdm4AppSald.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdm4AppSaldActionPerformed(evt);
+            }
+        });
+        menuAdm5.add(menuAdm4AppSald);
 
         menuAdm.add(menuAdm5);
 
@@ -868,6 +877,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
             UsuarioDTO objusuariodto = new UsuarioDTO();
 
             objusuariodto.setSenha_usuario(senha3_recebe);
+            
 
             UsuarioDAO objusuariodao = new UsuarioDAO();
             //teste de autenticação que me retorna uma variável tipo ResultSet
@@ -952,6 +962,59 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
 
     }//GEN-LAST:event_menuAdm4TorneiosDateActionPerformed
 
+    private void menuAdm4AppSaldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdm4AppSaldActionPerformed
+
+        
+        String senha3_recebe = JOptionPane.showInputDialog("Digite a senha do administrador");
+	String id4_app = JOptionPane.showInputDialog("Digite o ID do aplicativo/conta");
+
+        if (senha3_recebe.equals("") || id4_app.equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Você deixou de digitar a senha/adm ou id/app");
+
+        } else {
+
+            UsuarioDTO objusuariodto = new UsuarioDTO();
+
+            objusuariodto.setSenha_usuario(senha3_recebe);
+	    objusuariodto.setCod_contapoker(Integer.parseInt(id4_app));
+		
+            UsuarioDAO objusuariodao = new UsuarioDAO();
+            //teste de autenticação que me retorna uma variável tipo ResultSet
+            ResultSet rusuariodao = objusuariodao.autenticacaoUsuario3Web(objusuariodto);
+
+            try {
+
+                if (rusuariodao.next()) {
+
+                    //início do comando que verificar se usuário existe no banco local
+                    UsuarioDAO objusuariodaoLocal = new UsuarioDAO();
+                    //teste de autenticação que me retorna uma variável tipo ResultSet
+                    ResultSet rusuariodaoLocal = objusuariodaoLocal.autenticacaoUsuario3(objusuariodto);
+                    //variável retorna se o usuário existe no banco local
+                    if (rusuariodaoLocal.next()) {
+                        
+                        int codAppInt = Integer.parseInt(id4_app);
+                        
+                        RelatorioUserDAO objreluserdao = new RelatorioUserDAO();
+                        objreluserdao.gerarRelatorioUsuarioApp(codAppInt);
+
+                    } else {
+
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "É preciso ter a senha do administrador e o ID/APP para gerar esse relatório");
+                }
+
+            } catch (SQLException erro) {
+                JOptionPane.showMessageDialog(null, "Erro no frmPrincipalVIEW BANCO ADM:" + erro);
+
+            }
+        }
+             
+    }//GEN-LAST:event_menuAdm4AppSaldActionPerformed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -1003,6 +1066,7 @@ public class frmPrincipalVIEW extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuAdm3;
     private javax.swing.JMenu menuAdm4;
     private javax.swing.JMenuItem menuAdm4AppDate;
+    private javax.swing.JMenuItem menuAdm4AppSald;
     private javax.swing.JMenuItem menuAdm4TorneiosDate;
     private javax.swing.JMenuItem menuAdm4UserSald;
     private javax.swing.JMenu menuAdm5;

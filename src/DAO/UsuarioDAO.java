@@ -466,5 +466,44 @@ public class UsuarioDAO {
         }
 
     }
+    
+     public ArrayList<UsuarioDTO> PesquisarAppUser(int codApp) {
 
+        String sql = "SELECT * FROM tableusuario WHERE fk_idcontapoker_idusuario = ?";//percorre todas as linhas do banco de dados
+
+        conn = new ConexaoDAO().conectaBD();//conecta ao banco
+
+        try {
+
+            pstm = conn.prepareStatement(sql);//conecta ao banco com a variável conn e prepara o código sql dentro do banco pela variável ResultSet pstm pronto para executar
+            
+            pstm.setInt(1, codApp);
+            
+            rs = pstm.executeQuery();//executa o código sql através da variável ResultSet
+
+            while (rs.next()) {
+
+                UsuarioDTO objusuariodto = new UsuarioDTO();
+
+                //acessando a classe através do objeto
+                objusuariodto.setId_usuario(rs.getInt("id_usuario"));//o rs recebe o valor do banco para armazenar na variável, pois é variável ResultSet / após isso setamos na DTO esse valor
+                objusuariodto.setNome_usuario(rs.getString("nome_usuario"));
+                objusuariodto.setEmail_usuario(rs.getString("email_usuario"));
+                objusuariodto.setTelefone_usuario(rs.getString("telefone_usuario"));
+                objusuariodto.setSenha_usuario(rs.getString("senha_usuario"));
+                objusuariodto.setCod_contapoker(rs.getInt("fk_idcontapoker_idusuario"));//nome do banco de dados após o getInt
+                objusuariodto.setUsuario_ativo(rs.getString("usuario_ativo"));
+
+                lista.add(objusuariodto);
+
+            }
+
+        } catch (SQLException erro) {
+
+            JOptionPane.showMessageDialog(null, "UsuarioDAO PesquisarApp: " + erro);
+        }
+
+        return lista;
+    }
+               
 }
