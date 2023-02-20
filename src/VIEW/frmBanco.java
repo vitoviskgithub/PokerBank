@@ -302,6 +302,11 @@ public class frmBanco extends javax.swing.JFrame {
 
         txtUserBank.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtUserBank.setText("ID USER");
+        txtUserBank.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUserBankMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -620,6 +625,10 @@ public class frmBanco extends javax.swing.JFrame {
         listarValoresBanco();
         LimparCamposBanco();
     }//GEN-LAST:event_btnExcluirBancoActionPerformed
+
+    private void txtUserBankMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserBankMousePressed
+        txtUserBank.setText("");
+    }//GEN-LAST:event_txtUserBankMousePressed
 
     public int saldo_atual;// variável global para acesso de todos
     public static void main(String args[]) {

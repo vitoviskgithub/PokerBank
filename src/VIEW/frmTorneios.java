@@ -236,6 +236,11 @@ public class frmTorneios extends javax.swing.JFrame {
 
         txtUsuarioTourn.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtUsuarioTourn.setText("ID USER");
+        txtUsuarioTourn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUsuarioTournMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -497,6 +502,10 @@ public class frmTorneios extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
+    private void txtUsuarioTournMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioTournMousePressed
+        txtUsuarioTourn.setText("");
+    }//GEN-LAST:event_txtUsuarioTournMousePressed
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -572,7 +581,7 @@ public class frmTorneios extends javax.swing.JFrame {
 
         int app_tourn, usuario_tourn, val_buyin_tourn, val_itm_tourn, codigo_tourn;
         String tipo_tourn = "";
-        String desc_tourn ="";
+        String desc_tourn = "";
         Date data_tourn = new Date();
 
         tipo_tourn = txtTypeTourn.getText();
@@ -580,7 +589,7 @@ public class frmTorneios extends javax.swing.JFrame {
         //NÃO precisar USAR O VETOR para selecionar da combobox e passar para o SQL
         //Usar o Vetor para mostar na ComboBox dois valores é necessário, mas para passar um valor não
         app_tourn = cbxAppTourn.getSelectedIndex();
-        
+
         String idUser = txtUsuarioTourn.getText();
         usuario_tourn = Integer.parseInt(idUser);
 
@@ -634,14 +643,13 @@ public class frmTorneios extends javax.swing.JFrame {
         //NÃO precisar USAR O VETOR para selecionar da combobox e passar para o SQL
         //Usar o Vetor para mostar na ComboBox dois valores é necessário, mas para passar um valor não
         app_tourn = cbxAppTourn.getSelectedIndex();
-        
+
         String idUser = txtUsuarioTourn.getText();
         usuario_tourn = Integer.parseInt(idUser);
 
         val_buyin_tourn = Integer.parseInt(txtValBuyinTourn.getText());//corrigir pois é inteiro
         val_itm_tourn = Integer.parseInt(txtValTourItm.getText());
         data_tourn = jcaDataTourn.getDate();
-        
 
 //setando os valores dos campos da VIEW para a DTO
         TournamentsDTO objtorunamentsdto = new TournamentsDTO();
@@ -673,9 +681,8 @@ public class frmTorneios extends javax.swing.JFrame {
         txtUsuarioTourn.setText(tableTourn.getModel().getValueAt(setar, 3).toString());
         txtValBuyinTourn.setText(tableTourn.getModel().getValueAt(setar, 4).toString());
         txtValTourItm.setText(tableTourn.getModel().getValueAt(setar, 5).toString());//MOSTRANDO O VALOR NA COMBOBOX
-                   
-     
-          //para converter o String para Date, o método PARSE exige tratamento de Exception
+
+        //para converter o String para Date, o método PARSE exige tratamento de Exception
         try {
 
             String teste;//declaro a string
@@ -689,7 +696,7 @@ public class frmTorneios extends javax.swing.JFrame {
             erro.printStackTrace();
         }
         txtDescTourn.setText(tableTourn.getModel().getValueAt(setar, 7).toString());
-        
+
     }
 
     private void listarValoresTorneio() {

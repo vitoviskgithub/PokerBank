@@ -625,6 +625,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ID USER"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtUserBankMousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
