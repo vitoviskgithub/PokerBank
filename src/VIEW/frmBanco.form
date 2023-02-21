@@ -90,7 +90,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="txtCodigoBanco" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCodigoBanco" min="-2" pref="66" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="313" max="-2" attributes="0"/>
                                   <Component id="btnUsuarios" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
