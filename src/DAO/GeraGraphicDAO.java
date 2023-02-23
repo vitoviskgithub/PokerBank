@@ -47,6 +47,7 @@ public class GeraGraphicDAO {
         int ent_osc = 0;
         int ganho_osc = 0;
         int perda_osc = 0;
+        int saque_osc = 0;
 
         int num = 0;//contador para o método FOR onde terá o ARRAY
 
@@ -58,7 +59,7 @@ public class GeraGraphicDAO {
         String data_in_formatada = "";
         String data_en_formatada = "";
 
-        String sql = "SELECT entrada_bank, ganho_bank, perda_bank, data_bank FROM tablebankuser WHERE fk_app_id_bank = ? AND data_bank BETWEEN  ? AND ?";
+        String sql = "SELECT entrada_bank, ganho_bank, perda_bank, data_bank, saque_bank FROM tablebankuser WHERE fk_app_id_bank = ? AND data_bank BETWEEN  ? AND ?";
 
         conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
 
@@ -94,6 +95,7 @@ public class GeraGraphicDAO {
                 perda_osc = rs.getInt(3);
 
                 data_osc = rs.getDate(4);
+                saque_osc = rs.getInt(5);
 
                 //primeiro cálculo do resultado recebendo entrada com ganho
                 resultado_y = resultado_y + (ent_osc + ganho_osc);
@@ -103,7 +105,7 @@ public class GeraGraphicDAO {
 
                 //---------------------------------------------------
                 //segundo cálculo do resultado subtraindo a perda
-                resultado_y = resultado_y - perda_osc;
+                resultado_y = resultado_y - (perda_osc + saque_osc);
 
                 resultadoYArray.add(String.valueOf(resultado_y));
                 dataOscArray.add(String.valueOf(data_osc));
@@ -112,6 +114,7 @@ public class GeraGraphicDAO {
                 ent_osc = 0;
                 ganho_osc = 0;
                 perda_osc = 0;
+                saque_osc = 0;
 
                 data_osc = new Date();
 
@@ -176,6 +179,7 @@ public class GeraGraphicDAO {
         int ent_osc = 0;
         int ganho_osc = 0;
         int perda_osc = 0;
+        int saque_osc = 0;
 
         int num = 0;//contador para o método FOR onde terá o ARRAY
 
@@ -187,7 +191,7 @@ public class GeraGraphicDAO {
         String data_in_formatada = "";
         String data_en_formatada = "";
 
-        String sql = "SELECT entrada_bank, ganho_bank, perda_bank, data_bank FROM tablebankuser WHERE fk_id_user_bank = ? AND data_bank BETWEEN  ? AND ?";
+        String sql = "SELECT entrada_bank, ganho_bank, perda_bank, data_bank, saque_bank FROM tablebankuser WHERE fk_id_user_bank = ? AND data_bank BETWEEN  ? AND ?";
 
         conn = new ConexaoDAO().conectaBD();//conecta ao banco Local
 
@@ -223,6 +227,8 @@ public class GeraGraphicDAO {
                 perda_osc = rs.getInt(3);
 
                 data_osc = rs.getDate(4);
+                saque_osc = rs.getInt(5);
+                
 
                 //primeiro cálculo do resultado recebendo entrada com ganho
                 resultado_y = resultado_y + (ent_osc + ganho_osc);
@@ -232,7 +238,7 @@ public class GeraGraphicDAO {
 
                 //---------------------------------------------------
                 //segundo cálculo do resultado subtraindo a perda
-                resultado_y = resultado_y - perda_osc;
+                resultado_y = resultado_y - (perda_osc + saque_osc);
 
                 resultadoYArray.add(String.valueOf(resultado_y));
                 dataOscArray.add(String.valueOf(data_osc));
@@ -241,6 +247,7 @@ public class GeraGraphicDAO {
                 ent_osc = 0;
                 ganho_osc = 0;
                 perda_osc = 0;
+                saque_osc = 0;
 
                 data_osc = new Date();
 
