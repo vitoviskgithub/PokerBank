@@ -15,6 +15,7 @@ import java.util.Vector;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import javax.swing.table.TableRowSorter;
 
 public class frmTorneios extends javax.swing.JFrame {
 
@@ -728,6 +729,10 @@ public class frmTorneios extends javax.swing.JFrame {
                     lista.get(num).getDesc_tourn()
                 });
             }
+               //ordenando as linhas da tabela baseado na coluna 6 data
+            TableRowSorter tableSorter = new TableRowSorter(model);
+            tableTourn.setRowSorter(tableSorter);
+            tableSorter.toggleSortOrder(6);
 
         } catch (Exception erro) {
 

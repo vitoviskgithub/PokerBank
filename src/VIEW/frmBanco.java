@@ -26,6 +26,11 @@ import java.sql.PreparedStatement;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+
+import javax.swing.RowSorter;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class frmBanco extends javax.swing.JFrame {
 
@@ -500,17 +505,17 @@ public class frmBanco extends javax.swing.JFrame {
 
         int teste;
         teste = cbxAppBank.getSelectedIndex();
-     
+
         CalcularSaldoGeral();
 
         if (txtCodigoBanco.getText().equals("")
-            || teste == -1
-            || txtUserBank.getText().equals("")
-            || txtEntradaBanco.getText().equals("")
-            || txtGanhoBanco.getText().equals("")
-            || txtPerdaBanco.getText().equals("")
-            || txtSaldoBanco.getText().equals("")
-            || jcaDataBanco.getDate().equals("")) {
+                || teste == -1
+                || txtUserBank.getText().equals("")
+                || txtEntradaBanco.getText().equals("")
+                || txtGanhoBanco.getText().equals("")
+                || txtPerdaBanco.getText().equals("")
+                || txtSaldoBanco.getText().equals("")
+                || jcaDataBanco.getDate().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Algum campo está vazio ou não se cadastrou, preencha antes de alterar");
         } else {
@@ -529,12 +534,12 @@ public class frmBanco extends javax.swing.JFrame {
         CalcularSaldoGeral();
 
         if (teste == -1
-            || txtUserBank.getText().equals("")
-            || jcaDataBanco.getDate().equals("")
-            || txtEntradaBanco.getText().equals("")
-            || txtGanhoBanco.getText().equals("")
-            || txtPerdaBanco.getText().equals("")
-            || txtSaldoBanco.getText().equals("")) {
+                || txtUserBank.getText().equals("")
+                || jcaDataBanco.getDate().equals("")
+                || txtEntradaBanco.getText().equals("")
+                || txtGanhoBanco.getText().equals("")
+                || txtPerdaBanco.getText().equals("")
+                || txtSaldoBanco.getText().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Algum campo está vazio, preencha antes de registrar");
         } else {
@@ -631,6 +636,7 @@ public class frmBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserBankMousePressed
 
     public int saldo_atual;// variável global para acesso de todos
+
     public static void main(String args[]) {
 
         //ALTERA O VISUAL DO VIEW
@@ -728,7 +734,7 @@ public class frmBanco extends javax.swing.JFrame {
         saldo_banco = Integer.parseInt(txtSaldoBanco.getText());
         saque_banco = Integer.parseInt(txtSaqueBank.getText());
         data_banco = jcaDataBanco.getDate();
-        comment_bank =txtComment.getText();
+        comment_bank = txtComment.getText();
 
         //setando os valores dos campos da VIEW para a DTO
         BankUserDTO objbankuserdto = new BankUserDTO();
@@ -824,7 +830,7 @@ public class frmBanco extends javax.swing.JFrame {
         txtGanhoBanco.setText(tableBanco.getModel().getValueAt(setar, 5).toString());
         txtSaldoBanco.setText(tableBanco.getModel().getValueAt(setar, 6).toString());
         txtSaqueBank.setText(tableBanco.getModel().getValueAt(setar, 7).toString());
-                         
+
         //para converter o String para Date, o método PARSE exige tratamento de Exception
         try {
 
@@ -838,9 +844,9 @@ public class frmBanco extends javax.swing.JFrame {
         } catch (ParseException erro) {
             erro.printStackTrace();
         }
-          //setando coluna 9
-          txtComment.setText(tableBanco.getModel().getValueAt(setar, 9).toString());
-        
+        //setando coluna 9
+        txtComment.setText(tableBanco.getModel().getValueAt(setar, 9).toString());
+
         CalcularSaldoGeral();
 
     }
@@ -854,7 +860,7 @@ public class frmBanco extends javax.swing.JFrame {
 //montar esse modo de tabela no Array tabelaUsuario
             DefaultTableModel model = (DefaultTableModel) tableBanco.getModel();
             model.setNumRows(0);
-
+                   
 //pega as informações da DAO e monta o ArrayList lista
             ArrayList<BankUserDTO> lista = objbancodao.PesquisarBancoDAO();
 
@@ -875,7 +881,12 @@ public class frmBanco extends javax.swing.JFrame {
                     lista.get(num).getData_bank(),
                     lista.get(num).getComment_bank()
                 });
+
             }
+            //ordenando as linhas da tabela baseado na coluna 8
+            TableRowSorter tableSorter = new TableRowSorter(model);
+            tableBanco.setRowSorter(tableSorter);
+            tableSorter.toggleSortOrder(8);
 
         } catch (Exception erro) {
 
@@ -997,8 +1008,8 @@ public class frmBanco extends javax.swing.JFrame {
                 //dentro de uma CONDICIONAL IF ou LOOP como WHILE, com o compartaivo se ela está vazia ou não rs.next()
                 somaSaldos = rs.getInt(1);
                 String textoSoma = String.valueOf(somaSaldos);
-                                
-                 if (somaSaldos <= 0) {
+
+                if (somaSaldos <= 0) {
                     txtTotalSaldo.setForeground(Color.red);
                     txtTotalSaldo.setText(textoSoma);
 

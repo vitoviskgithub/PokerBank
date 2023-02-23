@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 
 import java.sql.SQLException;
 import java.util.Vector;
+import javax.swing.table.TableRowSorter;
 
 public class frmPesquisaUsuario extends javax.swing.JFrame {
 
@@ -525,6 +526,11 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                     lista.get(num).getUsuario_ativo()
                 });
             }
+            
+            //ordenando as linhas da tabela baseado na coluna 1 nome do usuário
+            TableRowSorter tableSorter = new TableRowSorter(model);
+            tabelaUsuario.setRowSorter(tableSorter);
+            tableSorter.toggleSortOrder(1);
 
         } catch (Exception erro) {
 
