@@ -400,7 +400,7 @@ public class frmTorneios extends javax.swing.JFrame {
         // se não selecionar nada na combobox o valor é -1
 
         if (txtTypeTourn.getText().equals("")
-                || teste == -1
+                || teste == -1 || teste == 0
                 || txtUsuarioTourn.getText().equals("")
                 || txtValBuyinTourn.getText().equals("")) {
 

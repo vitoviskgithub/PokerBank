@@ -509,7 +509,7 @@ public class frmBanco extends javax.swing.JFrame {
         CalcularSaldoGeral();
 
         if (txtCodigoBanco.getText().equals("")
-                || teste == -1
+                || teste == -1 || teste == 0
                 || txtUserBank.getText().equals("")
                 || txtEntradaBanco.getText().equals("")
                 || txtGanhoBanco.getText().equals("")
@@ -533,7 +533,7 @@ public class frmBanco extends javax.swing.JFrame {
 
         CalcularSaldoGeral();
 
-        if (teste == -1
+        if (teste == -1 || teste == 0
                 || txtUserBank.getText().equals("")
                 || jcaDataBanco.getDate().equals("")
                 || txtEntradaBanco.getText().equals("")
